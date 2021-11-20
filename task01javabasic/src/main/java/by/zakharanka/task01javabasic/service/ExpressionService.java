@@ -11,7 +11,7 @@ public class ExpressionService {
         return ((b + Math.sqrt((b * b) + 4 * a * c)) / (2 * a)) - (a * a * a * c) + (1 / b * b);
     }
 
-    public double milkTask(Data<Double> data){
+    public double milkTask(Data<Integer> data){
         double n = data.getData(0);
         double m = data.getData(1);
         return ((80 / n) + 12) * m;

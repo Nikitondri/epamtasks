@@ -1,9 +1,7 @@
 package by.zakharanka.task01javabasic.controller;
 
-import by.zakharanka.task01javabasic.entity.Data;
 
-public interface Command<T> {
+public interface Command {
 
-    T exec(Data newData);
-
+    String exec();
 }
