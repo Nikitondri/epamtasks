@@ -25,6 +25,6 @@ public class CheckAreaCircle implements Command {
         data.push(inputData.inputDouble());
 
         GeometricService expression = new GeometricService();
-        return "Площадь окружности: " + expression.findCircleArea(data) + "\n";
+        return "Площадь окружности: " + expression.findCircleArea(data.getData(0)) + "\n";
     }
 }

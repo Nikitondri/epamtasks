@@ -5,10 +5,10 @@ import by.zakharanka.task01javabasic.entity.Data;
 
 public class TimeService {
 
-    public Data<Integer> checkNewTime(Data<Integer> currTime, Data<Integer> time){
+    public Data<Integer> checkNewTime(int currHour, int currMin, int currSec, int hour, int min, int sec){
 //        filling current time
-        Watch watch = new Watch(currTime.getData(0), currTime.getData(1), currTime.getData(2));
+        Watch watch = new Watch(currHour, currMin, currSec);
 //        return new time
-        return watch.timer(time.getData(0), time.getData(1), time.getData(2));
+        return watch.timer(hour, min, sec);
     }
 }

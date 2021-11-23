@@ -2,7 +2,7 @@ package by.zakharanka.task01javabasic.service;
 
 import by.zakharanka.task01javabasic.entity.Data;
 
-public class MemoryService {
+public class ConvertService {
 
     private static final double MEMORY_DIFFERENCE = 1024;
 

@@ -14,7 +14,7 @@ public class MilkTask implements Command {
 
     private static final String INPUT_N = "Введите число n: ";
     private static final String INPUT_M = "Введите число m: ";
-    private static final String TEXT_TASK = "В n малых бидонах 80 л молока. Сколько литров молока в m больших бидонах, \n" +
+    private static final String TEXT_TASK = "В n х бидонах 80 л молока. Сколько литров молока в m больших бидонах, \n" +
             "если в каждом большом бидоне на 12 л. больше, чем в малом?\n";
 
     @Override
@@ -31,6 +31,6 @@ public class MilkTask implements Command {
         data.push(inputData.inputInteger());
 
         ExpressionService expression = new ExpressionService();
-        return "Ответ: " + expression.milkTask(data) + "\n";
+        return "Ответ: " + expression.milkTask(data.getData(0), data.getData(1)) + "\n";
     }
 }

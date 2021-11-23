@@ -31,6 +31,6 @@ public class ExpressionTask implements Command {
         data.push(inputData.inputDouble());
 
         ExpressionService expression = new ExpressionService();
-        return "Ответ: " + expression.expressionTask8(data) + "\n";
+        return "Ответ: " + expression.expressionTask8(data.getData(0), data.getData(1), data.getData(2)) + "\n";
     }
 }

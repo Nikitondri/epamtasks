@@ -38,7 +38,8 @@ public class TimerTask implements Command {
         outputData.output(INPUT_SEC);
         time.push(inputData.inputInteger());
 
-        Data<Integer> newTime = timeService.checkNewTime(currTime, time);
+        Data<Integer> newTime = timeService.checkNewTime(currTime.getData(0), currTime.getData(1), currTime.getData(2),
+                                                         time.getData(0), time.getData(1), time.getData(2));
         return "Часы:" + newTime.getData(0) + " минуты:" + newTime.getData(1)
                 + " секунды:" + newTime.getData(2) + "\n";
     }
