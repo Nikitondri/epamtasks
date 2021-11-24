@@ -32,11 +32,11 @@ public class TimerTask implements Command {
         Data<Integer> time = new Data<>();
         outputData.output(INPUT_ADDED_TIME);
         outputData.output(INPUT_HOUR);
-        time.push(inputData.inputInteger());
+        time.push(inputData.inputIntRange(1, Integer.MAX_VALUE));
         outputData.output(INPUT_MIN);
-        time.push(inputData.inputInteger());
+        time.push(inputData.inputIntRange(1, Integer.MAX_VALUE));
         outputData.output(INPUT_SEC);
-        time.push(inputData.inputInteger());
+        time.push(inputData.inputIntRange(1, Integer.MAX_VALUE));
 
         Data<Integer> newTime = timeService.checkNewTime(currTime.getData(0), currTime.getData(1), currTime.getData(2),
                                                          time.getData(0), time.getData(1), time.getData(2));

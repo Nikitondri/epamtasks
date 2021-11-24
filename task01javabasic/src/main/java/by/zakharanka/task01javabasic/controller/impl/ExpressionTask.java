@@ -14,6 +14,7 @@ public class ExpressionTask implements Command {
     private static final String INPUT_B = "Введите число b: ";
     private static final String INPUT_C = "Введите число c: ";
     private static final String TEXT_TASK = "Вычисление выражение ((b+sqrt(b^2+4ac))/2a)-(a^3)c+(b^-2)\n";
+    private static final String INPUT_ERROR = "Ошибка ввода данных";
 
     @Override
     public String exec() {
@@ -30,7 +31,11 @@ public class ExpressionTask implements Command {
         outputData.output(INPUT_C);
         data.push(inputData.inputDouble());
 
-        ExpressionService expression = new ExpressionService();
-        return "Ответ: " + expression.expressionTask8(data.getData(0), data.getData(1), data.getData(2)) + "\n";
+        if(data.getData(0) == 0 || data.getData(1) == 0){
+            return INPUT_ERROR;
+        } else {
+            ExpressionService expression = new ExpressionService();
+            return "Ответ: " + expression.expressionTask8(data.getData(0), data.getData(1), data.getData(2)) + "\n";
+        }
     }
 }

@@ -22,7 +22,7 @@ public class ConvertByteTask implements Command {
         outputData.output(INPUT_BYTE);
 
 //        input data
-        long numByte =  inputData.inputLong();
+        long numByte =  inputData.inputLongRange(1, Long.MAX_VALUE);
 
         ConvertService memoryService = new ConvertService();
         Data<Double> memory = memoryService.convertByte(numByte);

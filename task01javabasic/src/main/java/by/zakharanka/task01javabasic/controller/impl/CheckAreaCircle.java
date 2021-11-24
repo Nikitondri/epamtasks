@@ -22,7 +22,7 @@ public class CheckAreaCircle implements Command {
 
 //        input data
         outputData.output(INPUT_LENGTH);
-        data.push(inputData.inputDouble());
+        data.push(inputData.inputDoubleRange(0, Double.MAX_VALUE));
 
         GeometricService expression = new GeometricService();
         return "Площадь окружности: " + expression.findCircleArea(data.getData(0)) + "\n";

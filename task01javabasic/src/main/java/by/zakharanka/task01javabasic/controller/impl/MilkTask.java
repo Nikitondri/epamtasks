@@ -26,9 +26,9 @@ public class MilkTask implements Command {
 //      Input data
         outputData.output(TEXT_TASK);
         outputData.output(INPUT_N);
-        data.push(inputData.inputInteger());
+        data.push(inputData.inputIntRange(1, Integer.MAX_VALUE));
         outputData.output(INPUT_M);
-        data.push(inputData.inputInteger());
+        data.push(inputData.inputIntRange(1, Integer.MAX_VALUE));
 
         ExpressionService expression = new ExpressionService();
         return "Ответ: " + expression.milkTask(data.getData(0), data.getData(1)) + "\n";

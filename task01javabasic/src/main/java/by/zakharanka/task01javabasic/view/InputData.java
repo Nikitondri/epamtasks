@@ -30,6 +30,21 @@ public class InputData {
         return num;
     }
 
+    public double inputDoubleRange(final double min, final double max){
+        boolean isCorrect = true;
+        double num;
+        do{
+            num = inputDouble();
+            if(num >= min && num <= max){
+                isCorrect = false;
+            } else{
+                OutputData outputData = new OutputData();
+                outputData.output(ERROR_INPUT);
+            }
+        } while(isCorrect);
+        return num;
+    }
+
     public int inputInteger(){
         Scanner scanner = new Scanner(System.in);
         int num = 0;
@@ -61,6 +76,21 @@ public class InputData {
                 isCorrect = false;
             }
         } while(!isCorrect);
+        return num;
+    }
+
+    public long inputLongRange(final long min, final long max){
+        boolean isCorrect = true;
+        long num;
+        do{
+            num = inputLong();
+            if(num >= min && num <= max){
+                isCorrect = false;
+            } else{
+                OutputData outputData = new OutputData();
+                outputData.output(ERROR_INPUT);
+            }
+        } while(isCorrect);
         return num;
     }
 
