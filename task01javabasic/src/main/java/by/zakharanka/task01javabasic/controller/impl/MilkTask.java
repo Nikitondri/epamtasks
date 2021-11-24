@@ -16,6 +16,7 @@ public class MilkTask implements Command {
     private static final String INPUT_M = "Введите число m: ";
     private static final String TEXT_TASK = "В n х бидонах 80 л молока. Сколько литров молока в m больших бидонах, \n" +
             "если в каждом большом бидоне на 12 л. больше, чем в малом?\n";
+    public static final int MAX_VALUE = 23342213;
 
     @Override
     public String exec() {
@@ -26,9 +27,9 @@ public class MilkTask implements Command {
 //      Input data
         outputData.output(TEXT_TASK);
         outputData.output(INPUT_N);
-        data.push(inputData.inputIntRange(1, Integer.MAX_VALUE));
+        data.push(inputData.inputIntRange(1, MAX_VALUE));
         outputData.output(INPUT_M);
-        data.push(inputData.inputIntRange(1, Integer.MAX_VALUE));
+        data.push(inputData.inputIntRange(1, MAX_VALUE));
 
         ExpressionService expression = new ExpressionService();
         return "Ответ: " + expression.milkTask(data.getData(0), data.getData(1)) + "\n";

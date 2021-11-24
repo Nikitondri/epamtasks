@@ -1,5 +1,6 @@
 package test.zakharanka.task01javabasic.service;
 
+import by.zakharanka.task01javabasic.controller.impl.TimerTask;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.TimeService;
 import org.testng.annotations.BeforeClass;
@@ -22,6 +23,9 @@ public class TimeServiceTest {
         return
                 new Object[][]{
                         {new int[]{23, 50, 59, 50, 150, 100}, new int[]{4, 22, 39}},
+                        {new int[]{0, 0, 0, 0, 0, 0}, new int[]{0, 0, 0}},
+                        {new int[]{23, 59, 59, 0, 0, 1}, new int[]{0, 0, 0}},
+                        {new int[]{0, 0, 0, TimerTask.MAX_TIME, TimerTask.MAX_TIME, TimerTask.MAX_TIME}, new int[]{11, 17, 14}},
                 };
     }
 

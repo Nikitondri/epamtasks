@@ -17,6 +17,7 @@ public class TimerTask implements Command {
     private static final String INPUT_MIN = "Введите минуты: ";
     private static final String INPUT_SEC = "Введите секунды: ";
     private static final String INPUT_ADDED_TIME = "Введите прибавляемое время\n";
+    public static final int MAX_TIME = 35791394;
 
     @Override
     public String exec() {
@@ -32,11 +33,11 @@ public class TimerTask implements Command {
         Data<Integer> time = new Data<>();
         outputData.output(INPUT_ADDED_TIME);
         outputData.output(INPUT_HOUR);
-        time.push(inputData.inputIntRange(1, Integer.MAX_VALUE));
+        time.push(inputData.inputIntRange(1, MAX_TIME));
         outputData.output(INPUT_MIN);
-        time.push(inputData.inputIntRange(1, Integer.MAX_VALUE));
+        time.push(inputData.inputIntRange(1, MAX_TIME));
         outputData.output(INPUT_SEC);
-        time.push(inputData.inputIntRange(1, Integer.MAX_VALUE));
+        time.push(inputData.inputIntRange(1, MAX_TIME));
 
         Data<Integer> newTime = timeService.checkNewTime(currTime.getData(0), currTime.getData(1), currTime.getData(2),
                                                          time.getData(0), time.getData(1), time.getData(2));
