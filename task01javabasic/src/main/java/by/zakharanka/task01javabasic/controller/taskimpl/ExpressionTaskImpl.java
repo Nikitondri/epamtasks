@@ -1,6 +1,5 @@
-package by.zakharanka.task01javabasic.controller.impl;
+package by.zakharanka.task01javabasic.controller.taskimpl;
 
-import by.zakharanka.task01javabasic.controller.Command;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.ExpressionService;
 import by.zakharanka.task01javabasic.view.InputData;
@@ -8,7 +7,7 @@ import by.zakharanka.task01javabasic.view.OutputData;
 
 //8. Вычисление выражение ((b+sqrt(b^2+4ac))/2a)-(a^3)c+(b^-2)
 
-public class ExpressionTask implements Command {
+public class ExpressionTaskImpl implements Command {
 
     private static final String INPUT_A = "Введите число a: ";
     private static final String INPUT_B = "Введите число b: ";

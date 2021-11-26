@@ -1,6 +1,6 @@
 package test.zakharanka.task01javabasic.service;
 
-import by.zakharanka.task01javabasic.controller.impl.CheckAreaCircle;
+import by.zakharanka.task01javabasic.controller.taskimpl.CheckAreaCircleImpl;
 import by.zakharanka.task01javabasic.service.GeometricService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -25,7 +25,7 @@ public class GeometricServiceTest {
                 new Object[][]{
                         {new double[]{1.0}, 0.07957747154594767},
                         {new double[]{0.0}, 0.0},
-                        {new double[]{CheckAreaCircle.MAX_LENGTH}, Double.MAX_VALUE},
+                        {new double[]{CheckAreaCircleImpl.MAX_LENGTH}, Double.MAX_VALUE},
                         {new double[]{3.5449077018110318}, 1.0},
                 };
     }

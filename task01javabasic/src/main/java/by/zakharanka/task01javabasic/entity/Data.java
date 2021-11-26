@@ -19,6 +19,10 @@ public class Data<T>{
         list.add(arg);
     }
 
+    public int size(){
+        return list.size();
+    }
+
     public T getData(int index){
         return list.get(index);
     }

@@ -1,6 +1,6 @@
 package test.zakharanka.task01javabasic.service;
 
-import by.zakharanka.task01javabasic.controller.impl.MilkTask;
+import by.zakharanka.task01javabasic.controller.taskimpl.MilkTaskImpl;
 import by.zakharanka.task01javabasic.service.ExpressionService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -44,10 +44,10 @@ public class ExpressionServiceTest {
         return
                 new Object[][]{
                         {new int[]{5, 3}, 84.0},
-                        {new int[]{MilkTask.MAX_VALUE, 1}, 12.0000000373},
+                        {new int[]{MilkTaskImpl.MAX_VALUE, 1}, 12.0000000373},
                         {new int[]{1, 1}, 92.0},
-                        {new int[]{1, MilkTask.MAX_VALUE}, 2147483596},
-                        {new int[]{MilkTask.MAX_VALUE, MilkTask.MAX_VALUE}, 280106636},
+                        {new int[]{1, MilkTaskImpl.MAX_VALUE}, 2147483596},
+                        {new int[]{MilkTaskImpl.MAX_VALUE, MilkTaskImpl.MAX_VALUE}, 280106636},
                 };
     }
 

@@ -1,6 +1,5 @@
-package by.zakharanka.task01javabasic.controller.impl;
+package by.zakharanka.task01javabasic.controller.taskimpl;
 
-import by.zakharanka.task01javabasic.controller.Command;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.TimeService;
 import by.zakharanka.task01javabasic.view.InputData;
@@ -9,7 +8,7 @@ import by.zakharanka.task01javabasic.view.OutputData;
 //32. Текущее показание электронных часов: т ч (0 ≤ т ≤23) п мин (0 ≤ п ≤59) к с (0 ≤к ≤59). Какое время будут показывать
 //часы через р ч q мин r с?
 
-public class TimerTask implements Command {
+public class TimerTaskImpl implements Command {
 
     private static final String TEXT_TASK = "Текущее показание электронных часов: т ч (0 ≤ т ≤23) п мин (0 ≤ п ≤59) к с (0 ≤к ≤59).\n" +
             "какое время будут показывать часы через р ч q мин r с?\n";

@@ -1,6 +1,5 @@
-package by.zakharanka.task01javabasic.controller.impl;
+package by.zakharanka.task01javabasic.controller.taskimpl;
 
-import by.zakharanka.task01javabasic.controller.Command;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.ConvertService;
 import by.zakharanka.task01javabasic.view.InputData;
@@ -9,7 +8,7 @@ import by.zakharanka.task01javabasic.view.OutputData;
 //34. Дана величина А, выражающая объем информации в байтах. Перевести А в более крупные единицы измерения
 //информации
 
-public class ConvertByteTask implements Command {
+public class ConvertByteTaskImpl implements Command {
 
     private static final String INPUT_BYTE = "Введите кол-во байт: ";
     private static final String TEXT_TASK = "Перевод байт в более крупные единицы измерения информации\n";

@@ -23,12 +23,6 @@ public class ConvertServiceTest {
     public Object[][] createDataForExpressionTask8Test(){
         return
                 new Object[][]{
-                        {new double[]{Double.MAX_VALUE}, new double[]{
-                                1.7555597020139802E305,
-                                1.7144137714980275E302,
-                                1.6742321987285425E299,
-                                1.6349923815708423E296}
-                        },
                         {new double[]{1000000}, new double[]{976.5625, 0.9536743164, 0.00093132257, 9.094947017729282E-7}},
                         {new double[]{0}, new double[]{0.0, 0.0, 0.0, 0.0}},
                         {new double[]{1.099511627776E12}, new double[]{1.073741824E9, 1048576.0, 1024.0, 1.0}},
