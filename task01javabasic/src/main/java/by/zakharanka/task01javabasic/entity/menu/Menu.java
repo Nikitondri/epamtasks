@@ -1,4 +1,4 @@
-package by.zakharanka.task01javabasic.controller.menu;
+package by.zakharanka.task01javabasic.entity.menu;
 
 import by.zakharanka.task01javabasic.controller.taskimpl.Command;
 import by.zakharanka.task01javabasic.controller.taskimpl.*;
