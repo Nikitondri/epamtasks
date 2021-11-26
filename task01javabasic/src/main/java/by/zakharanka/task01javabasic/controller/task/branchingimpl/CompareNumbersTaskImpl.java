@@ -1,7 +1,8 @@
-package by.zakharanka.task01javabasic.controller.taskimpl;
+package by.zakharanka.task01javabasic.controller.task.branchingimpl;
 
+import by.zakharanka.task01javabasic.controller.task.Command;
 import by.zakharanka.task01javabasic.entity.Data;
-import by.zakharanka.task01javabasic.service.NumbersService;
+import by.zakharanka.task01javabasic.service.ArithmeticService;
 import by.zakharanka.task01javabasic.view.InputData;
 import by.zakharanka.task01javabasic.view.OutputData;
 
@@ -26,11 +27,11 @@ public class CompareNumbersTaskImpl implements Command {
         outputData.output(INPUT_NUM2);
         data.push(inputData.inputDouble());
 
-        NumbersService numbersService = new NumbersService();
-        if (numbersService.compareNumbers(data.getData(0), data.getData(1))) {
+        ArithmeticService arithmeticService = new ArithmeticService();
+        if (arithmeticService.compareNumbers(data.getData(0), data.getData(1))) {
             return "Числа равны";
         } else {
-            return "Наибольшее число: " + numbersService.checkMaxNumber(data.getData(0), data.getData(1));
+            return "Наибольшее число: " + arithmeticService.checkMaxNumber(data.getData(0), data.getData(1));
         }
     }
 }

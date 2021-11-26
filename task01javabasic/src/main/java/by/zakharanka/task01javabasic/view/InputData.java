@@ -2,12 +2,17 @@ package by.zakharanka.task01javabasic.view;
 
 import by.zakharanka.task01javabasic.entity.time.Watch;
 import by.zakharanka.task01javabasic.entity.Data;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Scanner;
 
 public class InputData {
 
+    static final Logger LOGGER = LogManager.getLogger(InputData.class.getName());
+
     private static final String ERROR_INPUT = "Ошибка ввода! Повторите попытку: ";
+    private static final String LOGGER_ERROR = "Incorrect input";
     private static final String INPUT_HOUR = "Введите часы: ";
     private static final String INPUT_MIN = "Введите минуты: ";
     private static final String INPUT_SEC = "Введите секунды: ";
@@ -25,6 +30,7 @@ public class InputData {
                 OutputData outputData = new OutputData();
                 outputData.output(ERROR_INPUT);
                 isCorrect = false;
+                LOGGER.error(LOGGER_ERROR);
             }
         } while(!isCorrect);
         return num;
@@ -57,6 +63,7 @@ public class InputData {
                 OutputData outputData = new OutputData();
                 outputData.output(ERROR_INPUT);
                 isCorrect = false;
+                LOGGER.error(LOGGER_ERROR);
             }
         } while(!isCorrect);
         return num;
@@ -74,6 +81,7 @@ public class InputData {
                 OutputData outputData = new OutputData();
                 outputData.output(ERROR_INPUT);
                 isCorrect = false;
+                LOGGER.error(LOGGER_ERROR);
             }
         } while(!isCorrect);
         return num;

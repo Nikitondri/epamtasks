@@ -1,5 +1,6 @@
-package by.zakharanka.task01javabasic.controller.taskimpl;
+package by.zakharanka.task01javabasic.controller.task.linearprogramimpl;
 
+import by.zakharanka.task01javabasic.controller.task.Command;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.ExpressionService;
 import by.zakharanka.task01javabasic.view.InputData;

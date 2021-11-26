@@ -1,13 +1,14 @@
-package by.zakharanka.task01javabasic.controller.taskimpl;
+package by.zakharanka.task01javabasic.controller.task.branchingimpl;
 
+import by.zakharanka.task01javabasic.controller.task.Command;
 import by.zakharanka.task01javabasic.entity.Data;
-import by.zakharanka.task01javabasic.service.NumbersService;
+import by.zakharanka.task01javabasic.service.ArithmeticService;
 import by.zakharanka.task01javabasic.view.InputData;
 import by.zakharanka.task01javabasic.view.OutputData;
 
 //20. Определить, делителем каких чисел а, b, с является число k.
 
-public class DivisorCheckImpl implements Command{
+public class DivisorCheckImpl implements Command {
 
     private static final String INPUT_NUM1 = "Введите первое число: ";
     private static final String INPUT_NUM2 = "Введите второе число: ";
@@ -49,8 +50,8 @@ public class DivisorCheckImpl implements Command{
 
 
         if(divisor != 0) {
-            NumbersService numbersService = new NumbersService();
-            Data<Boolean> dataRes = numbersService.checkDivisor(data, divisor);
+            ArithmeticService arithmeticService = new ArithmeticService();
+            Data<Boolean> dataRes = arithmeticService.checkDivisor(data, divisor);
             return formationResult(data, dataRes);
         }
         else

@@ -1,7 +1,10 @@
 package by.zakharanka.task01javabasic.entity.menu;
 
-import by.zakharanka.task01javabasic.controller.taskimpl.Command;
-import by.zakharanka.task01javabasic.controller.taskimpl.*;
+import by.zakharanka.task01javabasic.controller.task.Command;
+import by.zakharanka.task01javabasic.controller.task.branchingimpl.*;
+import by.zakharanka.task01javabasic.controller.task.cycleimpl.FunctionRangeImpl;
+import by.zakharanka.task01javabasic.controller.task.cycleimpl.RowNumbersTask;
+import by.zakharanka.task01javabasic.controller.task.linearprogramimpl.*;
 
 public class Menu {
     public static final String MENU_TEXT = "\nВведите номер задания(1-10) или 11 для выхода\n" +
@@ -29,6 +32,8 @@ public class Menu {
             case 8 -> new DivisorCheckImpl();
             case 9 -> new CheckPositiveSumImpl();
             case 10 -> new StoreTaskImpl();
+            case 11 -> new RowNumbersTask();
+            case 12 -> new FunctionRangeImpl();
             default -> null;
         };
     }

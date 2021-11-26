@@ -1,6 +1,7 @@
 package test.zakharanka.task01javabasic.service;
 
-import by.zakharanka.task01javabasic.controller.taskimpl.MilkTaskImpl;
+import by.zakharanka.task01javabasic.controller.task.linearprogramimpl.MilkTaskImpl;
+import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.ExpressionService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -56,5 +57,26 @@ public class ExpressionServiceTest {
     public void milkTaskTest(int[] arg, double expected){
         double actual = expressionService.milkTask(arg[0], arg[1]);
         assertEquals(actual, expected, CALCULATION_ERROR);
+    }
+
+    @DataProvider(name = "functionRange")
+    public Object[][] createDataForFunctionRangeTest(){
+        return
+                new Object[][]{
+                        {new double[]{14.0, 16.0, 1.0, 0.5}, new double[]{19.0, 19.5, 32.0, 20.5, 21}},
+                        {new double[]{0.0, 0.0, 0.0, 0.1}, new double[]{6.0}},
+                        {new double[]{0.0, 2.0, 1.0, 0.5}, new double[]{5.0, 5.5, 6.0, 6.5, 7.0}},
+                };
+    }
+
+    @Test(description = "positive scenario for functionRange",
+            dataProvider = "functionRange")
+    public void functionRangeTest(double[] arg, double[] expected){
+        Data<Double> data = expressionService.functionRange(arg[0], arg[1], arg[2], arg[3]);
+        double[] actual = new double[data.size()];
+        for(int i = 0; i < data.size(); i++){
+            actual[i] = data.getData(i);
+        }
+        assertEquals(actual, expected);
     }
 }

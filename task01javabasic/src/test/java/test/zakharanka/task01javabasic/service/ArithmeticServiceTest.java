@@ -1,24 +1,25 @@
 package test.zakharanka.task01javabasic.service;
 
-import by.zakharanka.task01javabasic.controller.taskimpl.CheckMinSquareImpl;
-import by.zakharanka.task01javabasic.controller.taskimpl.CheckPositiveSumImpl;
+import by.zakharanka.task01javabasic.controller.task.branchingimpl.CheckMinSquareImpl;
+import by.zakharanka.task01javabasic.controller.task.branchingimpl.CheckPositiveSumImpl;
+import by.zakharanka.task01javabasic.controller.task.cycleimpl.RowNumbersTask;
 import by.zakharanka.task01javabasic.entity.Data;
-import by.zakharanka.task01javabasic.service.NumbersService;
+import by.zakharanka.task01javabasic.service.ArithmeticService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class NumbersServiceTest {
+public class ArithmeticServiceTest {
 
     private static final double ERROR = 0.000000001;
 
-    NumbersService numbersService;
+    ArithmeticService arithmeticService;
 
     @BeforeClass
     public void setUp() {
-        numbersService = new NumbersService();
+        arithmeticService = new ArithmeticService();
     }
 
     @DataProvider(name = "checkMaxNumbers")
@@ -36,7 +37,7 @@ public class NumbersServiceTest {
     @Test(description = "positive scenario for checkMaxNumbers",
           dataProvider = "checkMaxNumbers")
     public void checkMaxNumbersTest(double[] arg, double expected){
-        double actual = numbersService.checkMaxNumber(arg[0], arg[1]);
+        double actual = arithmeticService.checkMaxNumber(arg[0], arg[1]);
         assertEquals(actual, expected);
     }
 
@@ -55,7 +56,7 @@ public class NumbersServiceTest {
     @Test(description = "positive scenario for compareNumbers",
             dataProvider = "compareNumbers")
     public void compareNumbersTest(double[] arg, boolean expected){
-        boolean actual = numbersService.compareNumbers(arg[0], arg[1]);
+        boolean actual = arithmeticService.compareNumbers(arg[0], arg[1]);
         assertEquals(actual, expected);
     }
 
@@ -76,7 +77,7 @@ public class NumbersServiceTest {
     @Test(description = "positive scenario for minSquare",
             dataProvider = "minSquare")
     public void minSquareTest(double[] arg, double expected){
-        double actual = numbersService.minSquare(arg[0], arg[1]);
+        double actual = arithmeticService.minSquare(arg[0], arg[1]);
         assertEquals(actual, expected, ERROR);
     }
 
@@ -99,7 +100,7 @@ public class NumbersServiceTest {
         data.push(arg[0]);
         data.push(arg[1]);
         data.push(arg[2]);
-        Data<Boolean> dataRes = numbersService.checkDivisor(data, arg[3]);
+        Data<Boolean> dataRes = arithmeticService.checkDivisor(data, arg[3]);
         boolean[] actual = new boolean[]{dataRes.getData(0), dataRes.getData(1), dataRes.getData(2)};
         assertEquals(actual, expected);
     }
@@ -118,7 +119,7 @@ public class NumbersServiceTest {
     @Test(description = "positive scenario for isPositiveSum",
             dataProvider = "isPositiveSum")
     public void isPositiveSumTest(double[] arg, boolean expected){
-        boolean actual = numbersService.isPositiveSum(arg[0], arg[1], arg[2]);
+        boolean actual = arithmeticService.isPositiveSum(arg[0], arg[1], arg[2]);
         assertEquals(actual, expected);
     }
 
@@ -137,7 +138,27 @@ public class NumbersServiceTest {
     @Test(description = "positive scenario for difference",
             dataProvider = "difference")
     public void differenceTest(double[] arg, double expected){
-        double actual = numbersService.difference(arg[0], arg[1]);
+        double actual = arithmeticService.difference(arg[0], arg[1]);
         assertEquals(actual, expected, ERROR);
+    }
+
+    @DataProvider(name = "rowNumbers")
+    public Object[][] createDataForRowNumbersTest(){
+        return
+                new Object[][]{
+                        {2, 3},
+                        {10, 55},
+                        {1, 1},
+                        {100, 5050},
+                        {RowNumbersTask.MAX_NUMBER, 2145157750},
+                        {RowNumbersTask.MAX_NUMBER - 1, 2145092250},
+                };
+    }
+
+    @Test(description = "positive scenario for rowNumbers",
+            dataProvider = "rowNumbers")
+    public void rowNumbersTest(int arg, int expected){
+        double actual = arithmeticService.rowNumbers(arg);
+        assertEquals(actual, expected);
     }
 }

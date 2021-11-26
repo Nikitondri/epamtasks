@@ -1,13 +1,14 @@
-package by.zakharanka.task01javabasic.controller.taskimpl;
+package by.zakharanka.task01javabasic.controller.task.branchingimpl;
 
+import by.zakharanka.task01javabasic.controller.task.Command;
 import by.zakharanka.task01javabasic.entity.Data;
-import by.zakharanka.task01javabasic.service.NumbersService;
+import by.zakharanka.task01javabasic.service.ArithmeticService;
 import by.zakharanka.task01javabasic.view.InputData;
 import by.zakharanka.task01javabasic.view.OutputData;
 
 //8. Составить программу нахождения наименьшего из квадратов двух чисел а и b
 
-public class CheckMinSquareImpl implements Command{
+public class CheckMinSquareImpl implements Command {
 
     private static final String INPUT_NUM1 = "Введите первое число: ";
     private static final String INPUT_NUM2 = "Введите второе число: ";
@@ -27,11 +28,11 @@ public class CheckMinSquareImpl implements Command{
         outputData.output(INPUT_NUM2);
         data.push(inputData.inputDoubleRange(-MAX_NUMBER, MAX_NUMBER));
 
-        NumbersService numbersService = new NumbersService();
-        if (numbersService.compareNumbers(data.getData(0), data.getData(1))) {
+        ArithmeticService arithmeticService = new ArithmeticService();
+        if (arithmeticService.compareNumbers(data.getData(0), data.getData(1))) {
             return "Квадраты чисел равны";
         } else {
-            return "Наименьший квадрат: " + numbersService.minSquare(data.getData(0), data.getData(1));
+            return "Наименьший квадрат: " + arithmeticService.minSquare(data.getData(0), data.getData(1));
         }
     }
 }

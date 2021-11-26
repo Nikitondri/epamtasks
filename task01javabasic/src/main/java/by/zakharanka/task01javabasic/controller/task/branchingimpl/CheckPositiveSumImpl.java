@@ -1,14 +1,15 @@
-package by.zakharanka.task01javabasic.controller.taskimpl;
+package by.zakharanka.task01javabasic.controller.task.branchingimpl;
 
+import by.zakharanka.task01javabasic.controller.task.Command;
 import by.zakharanka.task01javabasic.entity.Data;
-import by.zakharanka.task01javabasic.service.NumbersService;
+import by.zakharanka.task01javabasic.service.ArithmeticService;
 import by.zakharanka.task01javabasic.view.InputData;
 import by.zakharanka.task01javabasic.view.OutputData;
 
 //32. Написать программу, которая по заданным трем числам определяет, является ли сумма каких-либо двух из них
 //положительной.
 
-public class CheckPositiveSumImpl implements Command{
+public class CheckPositiveSumImpl implements Command {
 
     private static final String INPUT_NUM1 = "Введите первое число: ";
     private static final String INPUT_NUM2 = "Введите второе число: ";
@@ -31,8 +32,8 @@ public class CheckPositiveSumImpl implements Command{
         outputData.output(INPUT_NUM3);
         data.push(inputData.inputDoubleRange(-MAX_VALUE, MAX_VALUE));
 
-        NumbersService numbersService = new NumbersService();
-        if(numbersService.isPositiveSum(data.getData(0), data.getData(1), data.getData(2)))
+        ArithmeticService arithmeticService = new ArithmeticService();
+        if(arithmeticService.isPositiveSum(data.getData(0), data.getData(1), data.getData(2)))
             return "Является";
         else
             return "Не является";

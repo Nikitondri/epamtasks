@@ -2,7 +2,7 @@ package by.zakharanka.task01javabasic.service;
 
 import by.zakharanka.task01javabasic.entity.Data;
 
-public class NumbersService {
+public class ArithmeticService {
 
     public boolean compareNumbers(double num1, double num2){
         return num1 == num2;
@@ -40,6 +40,14 @@ public class NumbersService {
 
     public double difference(double num1, double num2){
         return Math.abs(num1 - num2);
+    }
+
+    public int rowNumbers(int num){
+        int res = 0;
+        for(int i = 0; i <= num; i++){
+            res += i;
+        }
+        return res;
     }
 
 }

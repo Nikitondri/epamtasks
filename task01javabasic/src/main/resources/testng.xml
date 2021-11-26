@@ -11,6 +11,7 @@
                 <methods>
                     <include name="expressionTask8Test"/>
                     <include name="milkTaskTest"/>
+                    <include name="functionRangeTest"/>
                 </methods>
             </class>
             <class name="test.zakharanka.task01javabasic.service.GeometricServiceTest">
@@ -18,13 +19,14 @@
                     <include name="expressionTask8Test"/>
                 </methods>
             </class>
-            <class name="test.zakharanka.task01javabasic.service.NumbersServiceTest">
+            <class name="test.zakharanka.task01javabasic.service.ArithmeticServiceTest">
                 <methods>
                     <include name="checkMaxNumbersTest"/><include name="compareNumbersTest"/>
                     <include name="minSquareTest"/>
                     <include name="divisorCheckTest"/>
                     <include name="isPositiveSumTest"/>
                     <include name="differenceTest"/>
+                    <include name="rowNumbersTest"/>
                 </methods>
             </class>
             <class name="test.zakharanka.task01javabasic.service.TimeServiceTest">

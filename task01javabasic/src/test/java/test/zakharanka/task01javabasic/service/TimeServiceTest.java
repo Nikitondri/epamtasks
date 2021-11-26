@@ -1,6 +1,6 @@
 package test.zakharanka.task01javabasic.service;
 
-import by.zakharanka.task01javabasic.controller.taskimpl.TimerTaskImpl;
+import by.zakharanka.task01javabasic.controller.task.linearprogramimpl.TimerTaskImpl;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.TimeService;
 import org.testng.annotations.BeforeClass;
