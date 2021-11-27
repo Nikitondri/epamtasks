@@ -161,4 +161,24 @@ public class ArithmeticServiceTest {
         double actual = arithmeticService.rowNumbers(arg);
         assertEquals(actual, expected);
     }
+
+    @DataProvider(name = "sumDigits")
+    public Object[][] createDataForSumDigitsTest(){
+        return
+                new Object[][]{
+                        {25, 7},
+                        {0, 0},
+                        {1000, 1},
+                        {-30, -3},
+                        {-25, -7},
+                        {9999, 36},
+                };
+    }
+
+    @Test(description = "positive scenario for rowNumbers",
+            dataProvider = "sumDigits")
+    public void sumDigitsTest(int arg, int expected){
+        double actual = arithmeticService.sumDigits(arg);
+        assertEquals(actual, expected);
+    }
 }

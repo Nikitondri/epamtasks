@@ -117,6 +117,11 @@ public class InputData {
         return num;
     }
 
+    public String inputString(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
     public Data<Integer> inputTime(){
         OutputData outputData = new OutputData();
         Data<Integer> time = new Data<>();

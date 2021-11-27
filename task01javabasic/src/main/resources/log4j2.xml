@@ -12,19 +12,37 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="${pattern_console}"/>
         </Console>
-        <File name="File" fileName="logs/log.txt" bufferedIO="true">
+        <File name="FileIO" fileName="logs/logIO.txt" bufferedIO="true">
             <PatternLayout pattern="${pattern_file}"/>
         </File>
+        <File name="FileImpl" fileName="logs/logImpl.txt" bufferedIO="true">
+            <PatternLayout pattern="${pattern_file}"/>
+        </File>
+        <RollingFile name="RollingFile" fileName="logs/log_root.txt" append="true"
+                     filePattern = "logs/${date:yyyy-MM-dd}/%d{yyyy-MM-dd_HH-mm}_%i.txt">
+            <PatternLayout pattern="${pattern_file}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="25 KB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
     </Appenders>
     <Loggers>
         <Root level = "ERROR">
-            <AppenderRef ref = "Console"/>
+            <AppenderRef ref = "RollingFile"/>
         </Root>
         <Logger name="by.zakharanka.task01javabasic.controller.Runner" level="DEBUG">
-            <AppenderRef ref = "File"/>
+            <AppenderRef ref = "FileImpl"/>
         </Logger>
-        <Logger name="by.zakharanka.task01javabasic.view.InputData" level="ERROR">
-            <AppenderRef ref = "File"/>
+        <Logger name="by.zakharanka.task01javabasic.view" level="INFO">
+            <AppenderRef ref = "FileIO"/>
+        </Logger>
+        <Logger name="by.zakharanka.task01javabasic.entity.menu.Menu" level="INFO">
+            <AppenderRef ref = "FileImpl"/>
+        </Logger>
+        <Logger name="by.zakharanka.task01javabasic.service" level="INFO">
+            <AppenderRef ref = "FileImpl"/>
         </Logger>
     </Loggers>
 </Configuration>

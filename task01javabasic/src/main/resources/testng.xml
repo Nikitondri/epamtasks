@@ -12,6 +12,7 @@
                     <include name="expressionTask8Test"/>
                     <include name="milkTaskTest"/>
                     <include name="functionRangeTest"/>
+                    <include name="sumRowMembersTest"/>
                 </methods>
             </class>
             <class name="test.zakharanka.task01javabasic.service.GeometricServiceTest">
@@ -27,11 +28,17 @@
                     <include name="isPositiveSumTest"/>
                     <include name="differenceTest"/>
                     <include name="rowNumbersTest"/>
+                    <include name="sumDigitsTest"/>
                 </methods>
             </class>
             <class name="test.zakharanka.task01javabasic.service.TimeServiceTest">
                 <methods>
                     <include name="expressionTask8Test"/>
+                </methods>
+            </class>
+            <class name="test.zakharanka.task01javabasic.service.DataValidationServiceTest">
+                <methods>
+                    <include name="identifierValidationTest"/>
                 </methods>
             </class>
         </classes>

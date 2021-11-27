@@ -79,4 +79,20 @@ public class ExpressionServiceTest {
         }
         assertEquals(actual, expected);
     }
+
+    @DataProvider(name = "sumRowMembers")
+    public Object[][] createDataForSumRowMembersTest(){
+        return
+                new Object[][]{
+                        {0.01, 0.3},
+                        {3, 0.0},
+                };
+    }
+
+    @Test(description = "positive scenario for sumRowMembers",
+            dataProvider = "sumRowMembers")
+    public void sumRowMembersTest(double arg, double expected){
+        double actual = expressionService.sumRowMembers(arg);
+        assertEquals(actual, expected, CALCULATION_ERROR);
+    }
 }
