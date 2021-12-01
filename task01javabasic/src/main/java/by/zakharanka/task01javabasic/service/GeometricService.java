@@ -7,6 +7,13 @@ public class GeometricService {
 
     static final Logger LOGGER = LogManager.getLogger(GeometricService.class.getName());
 
+    /**
+     * knowing the circumference, this method calculates the area of this circle,
+     * formula: S = pi * (l/(2*pi))^2,
+     * @see Math,
+     * @param length circumference,
+     * @return area of a circle
+     */
     public double findCircleArea(double length){
         LOGGER.info("findCircleArea run");
 //        l = 2*pi*r; S = pi*r^2; S = pi * (l/(2*pi))^2

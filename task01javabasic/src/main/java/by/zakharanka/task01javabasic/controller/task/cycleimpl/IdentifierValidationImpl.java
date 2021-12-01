@@ -10,12 +10,20 @@ import by.zakharanka.task01javabasic.view.OutputData;
 //первого символа допустимы только буквы и знак подчеркивания. Остальные символы могут быть
 //буквами, цифрами и знаком подчеркивания.
 
+/**
+ * The class for completing the task 32 "cycle"
+ */
 public class IdentifierValidationImpl implements Command {
 
     private static final String INPUT_STR = "Введите строку: ";
     private static final String TEXT_TASK = "Проверка корректности идентификатора\n";
 
 
+    /**
+     * The method uses {@code DataValidationService} class to perform the task
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         Data<String> data = new Data<>();

@@ -8,6 +8,9 @@ import by.zakharanka.task01javabasic.view.OutputData;
 
 //8. Вычисление выражение ((b+sqrt(b^2+4ac))/2a)-(a^3)c+(b^-2)
 
+/**
+ * The class for completing the task 8 "linear program"
+ */
 public class ExpressionTaskImpl implements Command {
 
     private static final String INPUT_A = "Введите число a: ";
@@ -16,6 +19,12 @@ public class ExpressionTaskImpl implements Command {
     private static final String TEXT_TASK = "Вычисление выражение ((b+sqrt(b^2+4ac))/2a)-(a^3)c+(b^-2)\n";
     private static final String INPUT_ERROR = "Ошибка ввода данных";
 
+    /**
+     * The method uses {@code ExpressionService} class to perform the task
+     * A division by zero check is being performed
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         Data<Double> data = new Data<>();

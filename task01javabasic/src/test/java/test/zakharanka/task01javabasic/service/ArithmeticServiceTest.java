@@ -181,4 +181,38 @@ public class ArithmeticServiceTest {
         double actual = arithmeticService.sumDigits(arg);
         assertEquals(actual, expected);
     }
+
+    @DataProvider(name = "swap")
+    public Object[][] createDataForSwapXORTest(){
+        return
+                new Object[][]{
+                        {new int[]{25, 7}, new int[]{7, 25}},
+                        {new int[]{0, 0}, new int[]{0, 0}},
+                        {new int[]{3, -3}, new int[]{-3, 3}},
+                        {new int[]{Integer.MAX_VALUE, 0}, new int[]{0, Integer.MAX_VALUE}},
+                        {new int[]{-5, -10}, new int[]{-10, -5}},
+                };
+    }
+
+    @Test(description = "positive scenario for swapXOR",
+            dataProvider = "swap")
+    public void swapXORTest(int[] actual, int[] expected){
+        arithmeticService.swapXOR(actual);
+        assertEquals(actual, expected);
+    }
+
+    @Test(description = "positive scenario for swapArithmeticOperations",
+            dataProvider = "swap")
+    public void swapArithmeticOperationsTest(int[] actual, int[] expected){
+        arithmeticService.swapArithmeticOperations(actual);
+        assertEquals(actual, expected);
+    }
+
+    @Test(description = "positive scenario for swapThirdVariable",
+            dataProvider = "swap")
+    public void swapThirdVariableTest(int[] actual, int[] expected){
+        arithmeticService.swapThirdVariable(actual);
+        assertEquals(actual, expected);
+    }
+
 }

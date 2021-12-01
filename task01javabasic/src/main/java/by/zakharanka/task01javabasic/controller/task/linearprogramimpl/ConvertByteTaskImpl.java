@@ -9,11 +9,19 @@ import by.zakharanka.task01javabasic.view.OutputData;
 //34. Дана величина А, выражающая объем информации в байтах. Перевести А в более крупные единицы измерения
 //информации
 
+/**
+ * The class for completing the task 34 "linear program"
+ */
 public class ConvertByteTaskImpl implements Command {
 
     private static final String INPUT_BYTE = "Введите кол-во байт: ";
     private static final String TEXT_TASK = "Перевод байт в более крупные единицы измерения информации\n";
 
+    /**
+     * The method uses {@code ConvertService} class to perform the task
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         InputData inputData = new InputData();

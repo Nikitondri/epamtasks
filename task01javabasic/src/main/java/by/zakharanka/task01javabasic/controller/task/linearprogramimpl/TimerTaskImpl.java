@@ -9,6 +9,9 @@ import by.zakharanka.task01javabasic.view.OutputData;
 //32. Текущее показание электронных часов: т ч (0 ≤ т ≤23) п мин (0 ≤ п ≤59) к с (0 ≤к ≤59). Какое время будут показывать
 //часы через р ч q мин r с?
 
+/**
+ * The class for completing the task 32 "linear program"
+ */
 public class TimerTaskImpl implements Command {
 
     private static final String TEXT_TASK = "Текущее показание электронных часов: т ч (0 ≤ т ≤23) п мин (0 ≤ п ≤59) к с (0 ≤к ≤59).\n" +
@@ -19,6 +22,11 @@ public class TimerTaskImpl implements Command {
     private static final String INPUT_ADDED_TIME = "Введите прибавляемое время\n";
     public static final int MAX_TIME = 35791394;
 
+    /**
+     * The method uses {@code TimeService} class to perform the task
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         TimeService timeService = new TimeService();

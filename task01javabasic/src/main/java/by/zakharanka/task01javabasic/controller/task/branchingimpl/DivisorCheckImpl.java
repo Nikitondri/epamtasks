@@ -8,6 +8,9 @@ import by.zakharanka.task01javabasic.view.OutputData;
 
 //20. Определить, делителем каких чисел а, b, с является число k.
 
+/**
+ * The class for completing the task 20 "branching"
+ */
 public class DivisorCheckImpl implements Command {
 
     private static final String INPUT_NUM1 = "Введите первое число: ";
@@ -31,6 +34,12 @@ public class DivisorCheckImpl implements Command {
         }
     }
 
+    /**
+     * The method uses {@code ArithmeticService} class to perform the task
+     * uses {@code formationResult} method to perform a string with the result
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         Data<Integer> data = new Data<>();

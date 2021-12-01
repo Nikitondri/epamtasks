@@ -8,6 +8,9 @@ import by.zakharanka.task01javabasic.view.OutputData;
 
 //8. Составить программу нахождения наименьшего из квадратов двух чисел а и b
 
+/**
+ * The class for completing the task 8 "branching"
+ */
 public class CheckMinSquareImpl implements Command {
 
     private static final String INPUT_NUM1 = "Введите первое число: ";
@@ -15,6 +18,12 @@ public class CheckMinSquareImpl implements Command {
     private static final String TEXT_TASK = "Определение наименьшего квадрата двух чисел\n";
     public static final double MAX_NUMBER = 1.3407807929942596E154;
 
+    /**
+     * The method uses {@code ArithmeticService} class to perform the task
+     * The equality of numbers is checked before comparison
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         Data<Double> data = new Data<>();

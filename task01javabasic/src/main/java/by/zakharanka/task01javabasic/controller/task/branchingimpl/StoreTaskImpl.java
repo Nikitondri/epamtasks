@@ -11,12 +11,20 @@ import by.zakharanka.task01javabasic.service.ArithmeticService;
 import by.zakharanka.task01javabasic.view.InputData;
 import by.zakharanka.task01javabasic.view.OutputData;
 
+/**
+ * The class for completing the task 34 "branching"
+ */
 public class StoreTaskImpl implements Command {
 
     private static final String INPUT_PRICE = "Введите стоимость: ";
     private static final String INPUT_CASH = "Введите сумму денег: ";
     private static final String TEXT_TASK = "Задача про магазин\n";
 
+    /**
+     * The method uses {@code ArithmeticService} class to perform the task
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         Data<Double> data = new Data<>();

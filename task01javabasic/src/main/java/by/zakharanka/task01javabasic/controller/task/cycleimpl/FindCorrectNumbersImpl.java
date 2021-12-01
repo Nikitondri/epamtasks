@@ -7,6 +7,9 @@ import by.zakharanka.task01javabasic.view.OutputData;
 
 //34. Найдите все четырехзначные числа, сумма цифр каждого из которых равна 15.
 
+/**
+ * The class for completing the task 34 "cycle"
+ */
 public class FindCorrectNumbersImpl implements Command {
 
     private static final String TEXT_TASK = "Найдите все четырехзначные числа, сумма цифр каждого из которых равна 15\n";
@@ -19,6 +22,12 @@ public class FindCorrectNumbersImpl implements Command {
         return result.toString();
     }
 
+    /**
+     * The method uses {@code ArithmeticService} class to perform the task
+     * uses {@code formationResult} method to perform a string with the result
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         OutputData outputData = new OutputData();

@@ -18,6 +18,11 @@ public class InputData {
     private static final String INPUT_SEC = "Введите секунды: ";
     private static final String INPUT_TIME = "Введите время\n";
 
+    /**
+     * starts a cycle until a correct double is entered
+     * @see java.util.Scanner
+     * @return correct double num
+     */
     public double inputDouble(){
         Scanner scanner = new Scanner(System.in);
         double num = 0.0;
@@ -36,6 +41,11 @@ public class InputData {
         return num;
     }
 
+    /**
+     * starts a cycle until a double number in the set interval is entered
+     * @see java.util.Scanner
+     * @return double num in the set interval
+     */
     public double inputDoubleRange(final double min, final double max){
         boolean isCorrect = true;
         double num;
@@ -51,6 +61,11 @@ public class InputData {
         return num;
     }
 
+    /**
+     * starts a cycle until a correct integer is entered
+     * @see java.util.Scanner
+     * @return correct integer num
+     */
     public int inputInteger(){
         Scanner scanner = new Scanner(System.in);
         int num = 0;
@@ -69,6 +84,11 @@ public class InputData {
         return num;
     }
 
+    /**
+     * starts a cycle until a correct long is entered
+     * @see java.util.Scanner
+     * @return correct long num
+     */
     public long inputLong(){
         Scanner scanner = new Scanner(System.in);
         long num = 0;
@@ -87,6 +107,11 @@ public class InputData {
         return num;
     }
 
+    /**
+     * starts a cycle until a long number in the set interval is entered
+     * @see java.util.Scanner
+     * @return long num in the set interval
+     */
     public long inputLongRange(final long min, final long max){
         boolean isCorrect = true;
         long num;
@@ -102,6 +127,11 @@ public class InputData {
         return num;
     }
 
+    /**
+     * starts a cycle until a integer number in the set interval is entered
+     * @see java.util.Scanner
+     * @return integer num in the set interval
+     */
     public int inputIntRange(final int min, final int max){
         boolean isCorrect = true;
         int num;
@@ -122,6 +152,10 @@ public class InputData {
         return scanner.nextLine();
     }
 
+    /**
+     * enter hours, minutes and seconds used {@code inputIntRange} method
+     * @return {@code Data} object with correct time
+     */
     public Data<Integer> inputTime(){
         OutputData outputData = new OutputData();
         Data<Integer> time = new Data<>();

@@ -2,6 +2,10 @@ package by.zakharanka.task01javabasic.entity.time;
 
 import by.zakharanka.task01javabasic.entity.Data;
 
+
+/**
+ * class stores the current set time and performs operations over time
+ */
 public class Watch {
     public static final int MAX_SEC = 59;
     public static final int MAX_MIN = 59;
@@ -17,6 +21,14 @@ public class Watch {
         this.currSec = currSec;
     }
 
+    /**
+     * Determines what time will be
+     * used in class {@code TimeService} in {@code checkNewTime} method for implementation task TimerTaskImpl
+     * @param hour which increases the time
+     * @param min which increases the time
+     * @param sec which increases the time
+     * @return new time
+     */
     public Data<Integer> timer(int hour, int min, int sec){
         int newHour;
         int newMin;

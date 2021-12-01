@@ -5,6 +5,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.HashSet;
 
+/**
+ * class for data validation
+ */
 public class DataValidationService {
 
     static final Logger LOGGER = LogManager.getLogger(DataValidationService.class.getName());
@@ -25,6 +28,15 @@ public class DataValidationService {
         }
     }
 
+    /**
+     * if first {@code HashSet} object is filled letters and '_'
+     * then check the first character of the checked string
+     * then {@code HashSet} object is added numbers
+     * then check the rest of the characters in the string
+     * @see HashSet
+     * @param str for check
+     * @return boolean result
+     */
     public boolean identifierValidation(String str){
         LOGGER.info("identifierValidation run");
         HashSet<Character> setValid = new HashSet<>();

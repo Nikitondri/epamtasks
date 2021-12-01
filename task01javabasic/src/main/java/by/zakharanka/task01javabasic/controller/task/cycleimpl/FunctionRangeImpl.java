@@ -9,6 +9,9 @@ import by.zakharanka.task01javabasic.view.OutputData;
 //8. Вычислить значения функции на отрезке [а,b] c шагом h:
 //y = (x + c) * 2, x == 15 || (x - c) + 6, x != 15
 
+/**
+ * The class for completing the task 8 "cycle"
+ */
 public class FunctionRangeImpl implements Command {
 
     private static final String INPUT_BEGIN = "Введите начало отрезка: ";
@@ -25,6 +28,12 @@ public class FunctionRangeImpl implements Command {
         return result.toString();
     }
 
+    /**
+     * The method uses {@code ExpressionService} class to perform the task
+     * uses {@code formationResult} method to perform a string with the result
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         Data<Double> data = new Data<>();

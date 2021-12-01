@@ -9,7 +9,9 @@ import by.zakharanka.task01javabasic.view.OutputData;
 //6. Написать код для решения задачи. В n малых бидонах 80 л молока. Сколько литров молока в m больших бидонах,
 //если в каждом большом бидоне на 12 л. больше, чем в малом?
 
-
+/**
+ * The class for completing the task 6 "linear program"
+ */
 public class MilkTaskImpl implements Command {
 
     private static final String INPUT_N = "Введите число n: ";
@@ -18,6 +20,11 @@ public class MilkTaskImpl implements Command {
             "если в каждом большом бидоне на 12 л. больше, чем в малом?\n";
     public static final int MAX_VALUE = 23342213;
 
+    /**
+     * The method uses {@code ExpressionService} class to perform the task
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         Data<Integer> data = new Data<>();

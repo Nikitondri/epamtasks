@@ -18,6 +18,13 @@ public class ArithmeticService {
         return Math.max(num1, num2);
     }
 
+    /**
+     * used in {@code CheckMinSquareImpl} class
+     * before calling this method the numbers are checked for equality
+     * @param num1 a number to compare
+     * @param num2 a number to compare
+     * @return the smallest square of two numbers
+     */
     public double minSquare(double num1, double num2){
         LOGGER.info("minSquare Run");
         double squareNum1 = num1 * num1;
@@ -25,6 +32,13 @@ public class ArithmeticService {
         return Math.min(squareNum1, squareNum2);
     }
 
+    /**
+     * used in {@code DivisorCheckImpl} class
+     * before calling this method the divisor are checked for inequality to zero (divisor != 0)
+     * @param numbers numbers for which the divisor is checked
+     * @param divisor divisor
+     * @return data that stores boolean values to determine the result
+     */
     public Data<Boolean> checkDivisor(Data<Integer> numbers, int divisor){
         LOGGER.info("checkDivisor Run");
         Data<Boolean> data = new Data<>();
@@ -38,6 +52,14 @@ public class ArithmeticService {
         return data;
     }
 
+    /**
+     * the next check of numbers for a positive sum is carried out
+     * if at least two numbers add up to a positive number, the method returns true
+     * @param num1 number for calculation
+     * @param num2 number for calculation
+     * @param num3 number for calculation
+     * @return {@code boolean} result value
+     */
     public boolean isPositiveSum(double num1, double num2, double num3){
         LOGGER.info("isPositiveSum Run");
         if(num1 + num2 > 0){
@@ -70,6 +92,11 @@ public class ArithmeticService {
         return sum;
     }
 
+    /**
+     * a cycle from 1000 to 9999 is performed, where each number is checked by the
+     * {@code sumDigits} method for equality of 15 sum of digits
+     * @return {@code Data} object with numbers whose sum of digits is 15
+     */
     public Data<Integer> findCorrectNumber(){
         LOGGER.info("findCorrectNumber Run");
         Data<Integer> data = new Data<>();
@@ -79,6 +106,40 @@ public class ArithmeticService {
             }
         }
         return data;
+    }
+
+    /**
+     * swap two number using third variable
+     * @param arr includes two number to swapping
+     */
+    public void swapThirdVariable(int[] arr){
+        LOGGER.info("swapThirdVariable Run");
+        int temp;
+        temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
+    }
+
+    /**
+     * swap two number using arithmetic operations
+     * @param arr includes two number to swapping
+     */
+    public void swapArithmeticOperations(int[] arr){
+        LOGGER.info("swapArithmeticOperations Run");
+        arr[0] = arr[0] + arr[1];
+        arr[1] = arr[0] - arr[1];
+        arr[0] = arr[0] - arr[1];
+    }
+
+    /**
+     * swap two number using XOR operation
+     * @param arr includes two number to swapping
+     */
+    public void swapXOR(int[] arr){
+        LOGGER.info("swapXOR Run");
+        arr[0] = arr[0]^arr[1];
+        arr[1] = arr[0]^arr[1];
+        arr[0] = arr[0]^arr[1];
     }
 
 }

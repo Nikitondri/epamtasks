@@ -29,6 +29,9 @@
                     <include name="differenceTest"/>
                     <include name="rowNumbersTest"/>
                     <include name="sumDigitsTest"/>
+                    <include name="swapXORTest"/>
+                    <include name="swapArithmeticOperationsTest"/>
+                    <include name="swapThirdVariableTest"/>
                 </methods>
             </class>
             <class name="test.zakharanka.task01javabasic.service.TimeServiceTest">

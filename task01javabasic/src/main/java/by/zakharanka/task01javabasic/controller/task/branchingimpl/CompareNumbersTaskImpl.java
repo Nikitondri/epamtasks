@@ -8,12 +8,20 @@ import by.zakharanka.task01javabasic.view.OutputData;
 
 //6. Составить программу: определения наибольшего из двух чисел а и b.
 
+/**
+ * The class for completing the task 6 "branching"
+ */
 public class CompareNumbersTaskImpl implements Command {
 
     private static final String INPUT_NUM1 = "Введите первое число: ";
     private static final String INPUT_NUM2 = "Введите второе число: ";
     private static final String TEXT_TASK = "Определение наибольшего числа\n";
 
+    /**
+     * The method uses {@code ArithmeticService} class to perform the task
+     * @see Command
+     * @return String literal with the result
+     */
     @Override
     public String exec() {
         Data<Double> data = new Data<>();
