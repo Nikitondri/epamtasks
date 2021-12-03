@@ -3,6 +3,7 @@ package by.zakharanka.task01javabasic.entity.time;
 import by.zakharanka.task01javabasic.entity.Data;
 
 
+
 /**
  * class stores the current set time and performs operations over time
  */
@@ -57,5 +58,34 @@ public class Watch {
         dataTime.push(newMin);
         dataTime.push(newSec);
         return dataTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Time: " + currHour + ":" +
+                currMin + ":" +
+                currSec;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Watch watch = (Watch) o;
+        return currHour == watch.currHour && currMin == watch.currMin && currSec == watch.currSec;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + currHour;
+        result = prime * result + currMin;
+        result = prime * result + currSec;
+        return result;
     }
 }

@@ -2,6 +2,7 @@ package by.zakharanka.task01javabasic.controller.task.linearprogramimpl;
 
 import by.zakharanka.task01javabasic.controller.task.Command;
 import by.zakharanka.task01javabasic.entity.Data;
+import by.zakharanka.task01javabasic.entity.time.Watch;
 import by.zakharanka.task01javabasic.service.TimeService;
 import by.zakharanka.task01javabasic.view.InputData;
 import by.zakharanka.task01javabasic.view.OutputData;
@@ -25,6 +26,7 @@ public class TimerTaskImpl implements Command {
     /**
      * The method uses {@code TimeService} class to perform the task
      * @see Command
+     * @see by.zakharanka.task01javabasic.entity.time.Watch
      * @return String literal with the result
      */
     @Override
@@ -49,7 +51,7 @@ public class TimerTaskImpl implements Command {
 
         Data<Integer> newTime = timeService.checkNewTime(currTime.getData(0), currTime.getData(1), currTime.getData(2),
                                                          time.getData(0), time.getData(1), time.getData(2));
-        return "Часы:" + newTime.getData(0) + " минуты:" + newTime.getData(1)
-                + " секунды:" + newTime.getData(2) + "\n";
+        Watch watch = new Watch(newTime.getData(0), newTime.getData(1), newTime.getData(2));
+        return watch.toString();
     }
 }

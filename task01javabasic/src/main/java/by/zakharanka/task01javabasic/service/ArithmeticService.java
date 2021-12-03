@@ -74,6 +74,10 @@ public class ArithmeticService {
         return Math.abs(num1 - num2);
     }
 
+    /**
+     * @param num the upper border of a row of numbers. lower bound = 0
+     * @return the sum of a series of numbers from 0 to num
+     */
     public int rowNumbers(int num){
         LOGGER.info("rowNumbers Run");
         int res = 0;
@@ -83,6 +87,12 @@ public class ArithmeticService {
         return res;
     }
 
+    /**
+     * the remainder of dividing the number by 10 is sequentially added to the sum
+     * then the number is divisible by 10
+     * @param num the number whose sum of digits is calculated
+     * @return sum of digits of a number
+     */
     public int sumDigits(int num){
         int sum = 0;
         while(num != 0){
