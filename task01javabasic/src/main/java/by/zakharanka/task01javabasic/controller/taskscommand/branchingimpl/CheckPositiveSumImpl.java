@@ -1,6 +1,6 @@
-package by.zakharanka.task01javabasic.controller.task.branchingimpl;
+package by.zakharanka.task01javabasic.controller.taskscommand.branchingimpl;
 
-import by.zakharanka.task01javabasic.controller.task.Command;
+import by.zakharanka.task01javabasic.controller.taskscommand.Command;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.ArithmeticService;
 import by.zakharanka.task01javabasic.view.InputData;

@@ -1,6 +1,6 @@
-package by.zakharanka.task01javabasic.controller.task.cycleimpl;
+package by.zakharanka.task01javabasic.controller.taskscommand.cycleimpl;
 
-import by.zakharanka.task01javabasic.controller.task.Command;
+import by.zakharanka.task01javabasic.controller.taskscommand.Command;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.ArithmeticService;
 import by.zakharanka.task01javabasic.view.OutputData;

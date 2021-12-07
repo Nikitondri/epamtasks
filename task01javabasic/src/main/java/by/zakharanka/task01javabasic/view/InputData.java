@@ -1,6 +1,6 @@
 package by.zakharanka.task01javabasic.view;
 
-import by.zakharanka.task01javabasic.entity.time.Watch;
+import by.zakharanka.task01javabasic.entity.Watch;
 import by.zakharanka.task01javabasic.entity.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

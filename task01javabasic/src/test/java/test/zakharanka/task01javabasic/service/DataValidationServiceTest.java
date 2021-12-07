@@ -1,7 +1,5 @@
 package test.zakharanka.task01javabasic.service;
 
-import by.zakharanka.task01javabasic.controller.task.linearprogramimpl.CheckAreaCircleImpl;
-import by.zakharanka.task01javabasic.service.ConvertService;
 import by.zakharanka.task01javabasic.service.DataValidationService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

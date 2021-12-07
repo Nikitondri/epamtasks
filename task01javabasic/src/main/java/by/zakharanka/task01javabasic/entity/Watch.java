@@ -1,7 +1,4 @@
-package by.zakharanka.task01javabasic.entity.time;
-
-import by.zakharanka.task01javabasic.entity.Data;
-
+package by.zakharanka.task01javabasic.entity;
 
 
 /**

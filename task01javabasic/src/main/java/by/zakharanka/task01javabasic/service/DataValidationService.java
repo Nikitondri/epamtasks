@@ -38,7 +38,7 @@ public class DataValidationService {
      * @return boolean result
      */
     public boolean identifierValidation(String str){
-        LOGGER.info("identifierValidation run");
+        LOGGER.trace("identifierValidation run");
         HashSet<Character> setValid = new HashSet<>();
         fillValidSet(setValid);
         char[] charArr = str.toCharArray();

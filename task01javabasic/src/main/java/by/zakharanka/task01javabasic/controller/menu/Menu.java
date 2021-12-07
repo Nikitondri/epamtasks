@@ -1,22 +1,17 @@
-package by.zakharanka.task01javabasic.entity.menu;
+package by.zakharanka.task01javabasic.controller.menu;
 
-import by.zakharanka.task01javabasic.controller.task.Command;
-import by.zakharanka.task01javabasic.controller.task.branchingimpl.*;
-import by.zakharanka.task01javabasic.controller.task.cycleimpl.*;
-import by.zakharanka.task01javabasic.controller.task.linearprogramimpl.*;
+
+import by.zakharanka.task01javabasic.controller.taskscommand.branchingimpl.*;
+import by.zakharanka.task01javabasic.controller.taskscommand.cycleimpl.*;
+import by.zakharanka.task01javabasic.controller.taskscommand.linearprogramimpl.*;
 import by.zakharanka.task01javabasic.view.InputData;
 import by.zakharanka.task01javabasic.view.OutputData;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 
 public class Menu {
 
-    static final Logger LOGGER = LogManager.getLogger(Menu.class.getName());
-
-    private static final int MAX_CHOICE = 17;
-    private static final int MIN_CHOICE = 1;
+    private static final int MAX_CHOICE = 16;
+    private static final int MIN_CHOICE = 0;
 
     public static final String MENU_TEXT = "\n\nВыбор задания(1-16)\n" +
             "Линейные программы\n" +
@@ -41,32 +36,6 @@ public class Menu {
             "17 - Выход\n" +
             "Ввод: ";
 
-    /**
-     * @param arg tasks number
-     * @return implementation of the {@code Command} interface or {@code null} to exit the program
-     */
-    private Command choice(int arg){
-        LOGGER.log(Level.INFO, "Choice is made");
-        return switch (arg) {
-            case 1 -> new ExpressionTaskImpl();
-            case 2 -> new MilkTaskImpl();
-            case 3 -> new CheckAreaCircleImpl();
-            case 4 -> new TimerTaskImpl();
-            case 5 -> new ConvertByteTaskImpl();
-            case 6 -> new SwapNumbersImpl();
-            case 7 -> new CompareNumbersTaskImpl();
-            case 8 -> new CheckMinSquareImpl();
-            case 9 -> new DivisorCheckImpl();
-            case 10 -> new CheckPositiveSumImpl();
-            case 11 -> new StoreTaskImpl();
-            case 12 -> new RowNumbersTask();
-            case 13 -> new FunctionRangeImpl();
-            case 14 -> new SumRowMembersImpl();
-            case 15 -> new IdentifierValidationImpl();
-            case 16 -> new FindCorrectNumbersImpl();
-            default -> null;
-        };
-    }
 
     /**
      * run infinite loop for selecting tasks
@@ -79,12 +48,27 @@ public class Menu {
         while(true) {
             outputData.output(MENU_TEXT);
 //            defining an interface Command implementation
-            Command command = choice(inputData.inputIntRange(MIN_CHOICE, MAX_CHOICE));
-//            exit condition
-            if(command == null)
-                break;
-//            response output
-            outputData.output(command.exec());
+
+            switch (inputData.inputIntRange(MIN_CHOICE, MAX_CHOICE)) {
+                case 0 -> System.exit(0);
+                case 1 -> outputData.output(new ExpressionTaskImpl().exec());
+                case 2 -> outputData.output(new MilkTaskImpl().exec());
+                case 3 -> outputData.output(new CheckAreaCircleImpl().exec());
+                case 4 -> outputData.output(new TimerTaskImpl().exec());
+                case 5 -> outputData.output(new ConvertByteTaskImpl().exec());
+                case 6 -> outputData.output(new SwapNumbersImpl().exec());
+                case 7 -> outputData.output(new CompareNumbersTaskImpl().exec());
+                case 8 -> outputData.output(new CheckMinSquareImpl().exec());
+                case 9 -> outputData.output(new DivisorCheckImpl().exec());
+                case 10 -> outputData.output(new CheckPositiveSumImpl().exec());
+                case 11 -> outputData.output(new StoreTaskImpl().exec());
+                case 12 -> outputData.output(new RowNumbersTask().exec());
+                case 13 -> outputData.output(new FunctionRangeImpl().exec());
+                case 14 -> outputData.output(new SumRowMembersImpl().exec());
+                case 15 -> outputData.output(new IdentifierValidationImpl().exec());
+                case 16 -> outputData.output(new FindCorrectNumbersImpl().exec());
+                default -> throw new IllegalStateException("Unexpected value");
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 package test.zakharanka.task01javabasic.service;
 
-import by.zakharanka.task01javabasic.controller.task.linearprogramimpl.MilkTaskImpl;
+import by.zakharanka.task01javabasic.controller.taskscommand.linearprogramimpl.MilkTaskImpl;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.ExpressionService;
 import org.testng.annotations.BeforeClass;

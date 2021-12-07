@@ -29,8 +29,8 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level = "ERROR">
-            <AppenderRef ref = "RollingFile"/>
+        <Root level = "DEBUG">
+            <AppenderRef ref = "Console"/>
         </Root>
         <Logger name="by.zakharanka.task01javabasic.controller.Runner" level="DEBUG">
             <AppenderRef ref = "FileImpl"/>
@@ -38,7 +38,7 @@
         <Logger name="by.zakharanka.task01javabasic.view" level="INFO">
             <AppenderRef ref = "FileIO"/>
         </Logger>
-        <Logger name="by.zakharanka.task01javabasic.entity.menu.Menu" level="INFO">
+        <Logger name="by.zakharanka.task01javabasic.controller.menu.Menu" level="INFO">
             <AppenderRef ref = "FileImpl"/>
         </Logger>
         <Logger name="by.zakharanka.task01javabasic.service" level="INFO">

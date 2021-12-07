@@ -1,6 +1,6 @@
-package by.zakharanka.task01javabasic.controller.task.linearprogramimpl;
+package by.zakharanka.task01javabasic.controller.taskscommand.linearprogramimpl;
 
-import by.zakharanka.task01javabasic.controller.task.Command;
+import by.zakharanka.task01javabasic.controller.taskscommand.Command;
 import by.zakharanka.task01javabasic.service.ArithmeticService;
 import by.zakharanka.task01javabasic.view.InputData;
 import by.zakharanka.task01javabasic.view.OutputData;

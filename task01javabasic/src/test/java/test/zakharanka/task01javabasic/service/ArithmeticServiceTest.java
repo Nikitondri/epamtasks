@@ -1,8 +1,8 @@
 package test.zakharanka.task01javabasic.service;
 
-import by.zakharanka.task01javabasic.controller.task.branchingimpl.CheckMinSquareImpl;
-import by.zakharanka.task01javabasic.controller.task.branchingimpl.CheckPositiveSumImpl;
-import by.zakharanka.task01javabasic.controller.task.cycleimpl.RowNumbersTask;
+import by.zakharanka.task01javabasic.controller.taskscommand.branchingimpl.CheckMinSquareImpl;
+import by.zakharanka.task01javabasic.controller.taskscommand.branchingimpl.CheckPositiveSumImpl;
+import by.zakharanka.task01javabasic.controller.taskscommand.cycleimpl.RowNumbersTask;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.ArithmeticService;
 import org.testng.annotations.BeforeClass;

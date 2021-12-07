@@ -1,8 +1,8 @@
-package by.zakharanka.task01javabasic.controller.task.linearprogramimpl;
+package by.zakharanka.task01javabasic.controller.taskscommand.linearprogramimpl;
 
-import by.zakharanka.task01javabasic.controller.task.Command;
+import by.zakharanka.task01javabasic.controller.taskscommand.Command;
 import by.zakharanka.task01javabasic.entity.Data;
-import by.zakharanka.task01javabasic.entity.time.Watch;
+import by.zakharanka.task01javabasic.entity.Watch;
 import by.zakharanka.task01javabasic.service.TimeService;
 import by.zakharanka.task01javabasic.view.InputData;
 import by.zakharanka.task01javabasic.view.OutputData;
@@ -26,7 +26,7 @@ public class TimerTaskImpl implements Command {
     /**
      * The method uses {@code TimeService} class to perform the task
      * @see Command
-     * @see by.zakharanka.task01javabasic.entity.time.Watch
+     * @see Watch
      * @return String literal with the result
      */
     @Override

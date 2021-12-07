@@ -1,4 +1,4 @@
-package by.zakharanka.task01javabasic.controller.task;
+package by.zakharanka.task01javabasic.controller.taskscommand;
 
 
 public interface Command {

@@ -40,7 +40,7 @@ public class ArithmeticService {
      * @return data that stores boolean values to determine the result
      */
     public Data<Boolean> checkDivisor(Data<Integer> numbers, int divisor){
-        LOGGER.info("checkDivisor Run");
+        LOGGER.trace("checkDivisor Run");
         Data<Boolean> data = new Data<>();
         for(int i = 0; i < numbers.size(); i++){
             if(numbers.getData(i) % divisor == 0){
@@ -61,7 +61,7 @@ public class ArithmeticService {
      * @return {@code boolean} result value
      */
     public boolean isPositiveSum(double num1, double num2, double num3){
-        LOGGER.info("isPositiveSum Run");
+        LOGGER.trace("isPositiveSum Run");
         if(num1 + num2 > 0){
             return true;
         } else if(num1 + num3 > 0){
@@ -70,7 +70,7 @@ public class ArithmeticService {
     }
 
     public double difference(double num1, double num2){
-        LOGGER.info("difference Run");
+        LOGGER.trace("difference Run");
         return Math.abs(num1 - num2);
     }
 
@@ -79,7 +79,7 @@ public class ArithmeticService {
      * @return the sum of a series of numbers from 0 to num
      */
     public int rowNumbers(int num){
-        LOGGER.info("rowNumbers Run");
+        LOGGER.trace("rowNumbers Run");
         int res = 0;
         for(int i = 0; i <= num; i++){
             res += i;
@@ -108,7 +108,7 @@ public class ArithmeticService {
      * @return {@code Data} object with numbers whose sum of digits is 15
      */
     public Data<Integer> findCorrectNumber(){
-        LOGGER.info("findCorrectNumber Run");
+        LOGGER.trace("findCorrectNumber Run");
         Data<Integer> data = new Data<>();
         for(int i = 1000; i < 9999; i++){
             if(sumDigits(i) == 15){
@@ -123,7 +123,7 @@ public class ArithmeticService {
      * @param arr includes two number to swapping
      */
     public void swapThirdVariable(int[] arr){
-        LOGGER.info("swapThirdVariable Run");
+        LOGGER.trace("swapThirdVariable Run");
         int temp;
         temp = arr[0];
         arr[0] = arr[1];
@@ -135,7 +135,7 @@ public class ArithmeticService {
      * @param arr includes two number to swapping
      */
     public void swapArithmeticOperations(int[] arr){
-        LOGGER.info("swapArithmeticOperations Run");
+        LOGGER.trace("swapArithmeticOperations Run");
         arr[0] = arr[0] + arr[1];
         arr[1] = arr[0] - arr[1];
         arr[0] = arr[0] - arr[1];
@@ -146,7 +146,7 @@ public class ArithmeticService {
      * @param arr includes two number to swapping
      */
     public void swapXOR(int[] arr){
-        LOGGER.info("swapXOR Run");
+        LOGGER.trace("swapXOR Run");
         arr[0] = arr[0]^arr[1];
         arr[1] = arr[0]^arr[1];
         arr[0] = arr[0]^arr[1];

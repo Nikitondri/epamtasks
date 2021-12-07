@@ -20,7 +20,7 @@ public class ConvertService {
      * @return {@code Data} object with other units of information
      */
     public Data<Double> convertByte(final double numByte){
-        LOGGER.info("convertByte run");
+        LOGGER.trace("convertByte run");
         Data<Double> memory = new Data<>();
         memory.push(numByte / MEMORY_DIFFERENCE); //Kilobytes
         memory.push(memory.getData(0) / MEMORY_DIFFERENCE); //Megabytes

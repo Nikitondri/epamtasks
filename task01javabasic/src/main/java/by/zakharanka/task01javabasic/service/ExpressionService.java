@@ -10,12 +10,12 @@ public class ExpressionService {
     static final Logger LOGGER = LogManager.getLogger(ExpressionService.class.getName());
 
     public double expressionTask8(double a, double b, double c){
-        LOGGER.info("expressionTask8 run");
+        LOGGER.trace("expressionTask8 run");
         return ((b + Math.sqrt((b * b) + 4 * a * c)) / (2 * a)) - (a * a * a * c) + (1 / (b * b));
     }
 
     public double milkTask(int n, int m){
-        LOGGER.info("milkTask run");
+        LOGGER.trace("milkTask run");
         return ((80 / (double)n) + 12) * m;
     }
 
@@ -25,7 +25,7 @@ public class ExpressionService {
     }
 
     public Data<Double> functionRange(double begin, double end, double num, double step){
-        LOGGER.info("functionRange run");
+        LOGGER.trace("functionRange run");
         Data<Double> data = new Data<>();
         for(double x = begin; x <= end; x += step){
             data.push(function(x, num));
@@ -34,7 +34,7 @@ public class ExpressionService {
     }
 
     public double sumRowMembers(double eps){
-        LOGGER.info("sumRowMembers run");
+        LOGGER.trace("sumRowMembers run");
         double member = 0.25;
         double res = 0;
         double n = 2;

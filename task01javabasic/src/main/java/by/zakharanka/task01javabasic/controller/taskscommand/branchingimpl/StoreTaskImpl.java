@@ -1,11 +1,11 @@
-package by.zakharanka.task01javabasic.controller.task.branchingimpl;
+package by.zakharanka.task01javabasic.controller.taskscommand.branchingimpl;
 
 //34. Составить программу, реализующую эпизод применения компьютера в книжном магазине. Компьютер
 //запрашивает стоимость книг, сумму денег, внесенную покупателем; если сдачи не требуется, печатает на экране
 //«спасибо»; если денег внесено больше, чем необходимо, то печатает «возьмите сдачу» и указывает сумму сдачи; если
 //денег недостаточно, то печатает сообщение об этом и указывает размер недостающей суммы.
 
-import by.zakharanka.task01javabasic.controller.task.Command;
+import by.zakharanka.task01javabasic.controller.taskscommand.Command;
 import by.zakharanka.task01javabasic.entity.Data;
 import by.zakharanka.task01javabasic.service.ArithmeticService;
 import by.zakharanka.task01javabasic.view.InputData;
