@@ -1,24 +1,24 @@
 package by.zakharanka.task02array.entity;
 
-import by.zakharanka.task02array.exception.MatrixException;
+import by.zakharanka.task02array.entity.exception.EntityException;
 
 import java.util.Arrays;
 
-public class Matrix<T> {
+public class Matrix {
 
-    private T[][] matrix;
+    private int[][] matrix;
 
-    public Matrix(T[][] newMatrix){
+    public Matrix(int[][] newMatrix){
         matrix = newMatrix;
     }
 
-//    public Matrix(int row, int column) throws MatrixException {
-//        if(row > 1 && column > 1){
-//            matrix = new int[row][column];
-//        } else{
-//            throw new MatrixException();
-//        }
-//    }
+    public Matrix(int row, int column) throws EntityException {
+        if(row > 1 && column > 1){
+            matrix = new int[row][column];
+        } else{
+            throw new EntityException();
+        }
+    }
 
     public int getNumRow(){
         return matrix.length;
@@ -32,20 +32,27 @@ public class Matrix<T> {
         return row >= 0 && row < matrix.length && column >= 0 && column <= matrix[0].length;
     }
 
-    public T getElement(int row, int column) throws MatrixException {
+    public int getElement(int row, int column) throws EntityException {
         if(checkRange(row, column)){
             return matrix[row][column];
         } else {
-            throw new MatrixException();
+            throw new EntityException();
         }
     }
 
-    public void setElement(int row, int column, T value) throws MatrixException{
+    public void setElement(int row, int column, int value) throws EntityException {
         if(checkRange(row, column)){
             matrix[row][column] = value;
         } else {
-            throw new MatrixException();
+            throw new EntityException();
         }
+    }
+
+    public void swapElements(int row1, int column1, int row2, int column2){
+        int buf;
+        buf = matrix[row1][column1];
+        matrix[row1][column1] = matrix[row2][column2];
+        matrix[row2][column2] = buf;
     }
 
     @Override
@@ -53,25 +60,12 @@ public class Matrix<T> {
         final String BLANK = " ";
         StringBuilder s = new StringBuilder("\nMatrix : " + matrix.length + "x"
                 + matrix[0].length + "\n");
-        for(T[] row: matrix){
-            for(T value: row){
+        for(int[] row: matrix){
+            for(int value: row){
                 s.append(value).append(BLANK);
             }
             s.append("\n");
         }
         return s.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Matrix<?> matrix1 = (Matrix<?>) o;
-        return Arrays.equals(matrix, matrix1.matrix);
-    }
-
-    @Override
-    public int hashCode() {
-        return Arrays.hashCode(matrix);
     }
 }

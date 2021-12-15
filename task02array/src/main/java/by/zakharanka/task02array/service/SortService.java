@@ -1,37 +1,15 @@
 package by.zakharanka.task02array.service;
 
-public class SortService {
+import by.zakharanka.task02array.entity.Array;
+import by.zakharanka.task02array.service.exception.ServiceException;
 
-    public void bubbleSort(){
-
-    }
-
-    public void shakerSort(){
-
-    }
-
-    public void simpleChoiceSort(){
-
-    }
-
-    public void simpleInsertSort(){
-
-    }
-
-    public void insertSort(){
-
-    }
-
-    public void binaryMergeSort(){
-
-    }
-
-    public void shellSort(){
-
-    }
-
-    public void externalSort(){
-
-    }
-
+public interface SortService {
+    String bubbleSort(Array<Integer> arr) throws ServiceException;
+    String shakerSort(Array<Integer> arr) throws ServiceException;
+    String simpleChoiceSort(Array<Integer> arr) throws ServiceException;
+    String simpleInsertSort(Array<Integer> arr) throws ServiceException;
+    String insertSort(Array<Integer> arr) throws ServiceException;
+    String binaryMergeSort(Array<Integer> arr) throws ServiceException;
+    String shellSort(Array<Integer> arr) throws ServiceException;
+    String externalSort(Array<Integer> arr) throws ServiceException;
 }
