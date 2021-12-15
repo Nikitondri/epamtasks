@@ -49,7 +49,7 @@ public class ArrayCreator {
             size = Integer.parseInt(arr[0]);
             minValue = Integer.parseInt(arr[1]);
             maxValue = Integer.parseInt(arr[2]);
-        } catch(NumberFormatException e){
+        } catch(NumberFormatException | ArrayIndexOutOfBoundsException e){
             throw new ServiceException("Not Correct random data");
         }
         Array<Integer> array = new Array<>(new Integer[size]);
