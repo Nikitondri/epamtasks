@@ -1,21 +1,17 @@
 package by.zakharanka.task02array.service.creator;
 
 import by.zakharanka.task02array.dal.ArrayDal;
-import by.zakharanka.task02array.dal.MatrixDal;
 import by.zakharanka.task02array.dal.exception.DalException;
 import by.zakharanka.task02array.dal.factory.DalFactory;
 import by.zakharanka.task02array.entity.Array;
-import by.zakharanka.task02array.entity.Data;
-import by.zakharanka.task02array.entity.Matrix;
 import by.zakharanka.task02array.entity.exception.EntityException;
 import by.zakharanka.task02array.service.exception.ServiceException;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class ArrayCreator {
 
-    private final String SPLIT_DELIMITER = " ";
+    private static final String SPLIT_DELIMITER = " ";
 
     public Array<Integer> createFromDataString(String data) throws ServiceException {
         String[] arrStr = data.split(SPLIT_DELIMITER);
@@ -40,7 +36,7 @@ public class ArrayCreator {
         }
     }
 
-    public Array<Integer> createRandom(String data) throws ServiceException, EntityException {
+    public Array<Integer> createRandom(String data) throws ServiceException {
         String[] arr = data.split(SPLIT_DELIMITER);
         int size;
         int minValue;
@@ -64,7 +60,7 @@ public class ArrayCreator {
         return array;
     }
 
-    public Array<Integer> createArray(String fillMethod, String data) throws ServiceException, EntityException {
+    public Array<Integer> createArray(String fillMethod, String data) throws ServiceException {
         return switch (fillMethod){
             case "FROM_FILE" -> createFromFile(data);
             case "RANDOM" -> createRandom(data);

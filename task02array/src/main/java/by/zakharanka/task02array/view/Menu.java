@@ -2,18 +2,23 @@ package by.zakharanka.task02array.view;
 
 import by.zakharanka.task02array.controller.Controller;
 import by.zakharanka.task02array.entity.Data;
+import by.zakharanka.task02array.view.exception.ViewException;
 import by.zakharanka.task02array.view.manager.MessageManager;
 
-import java.util.HashMap;
+import java.util.Map;
 
+
+/**
+ * a class that receives information from the user and outputs the response
+ */
 public class Menu {
 
-    private final String CHOICE_LANGUAGE_TEXT = "language";
-    private final String CHOICE_TASK_TEXT = "CHOICE_TASK_TEXT";
-    private final String CHOICE_FILL_TEXT = "CHOICE_FILL_TEXT";
-    private final String INPUT_PATH_TEXT = "INPUT_PATH_TEXT";
-    private final String ANSWER_TEXT = "ANSWER_TEXT";
-    private final String INPUT_RANDOM_DATA = "INPUT_RANDOM_DATA";
+    private static final String CHOICE_LANGUAGE_TEXT = "Language choice:\n1 - RU\n2 - BY\nOther - EN\nEnter: ";
+    private static final String CHOICE_TASK_TEXT = "CHOICE_TASK_TEXT";
+    private static final String CHOICE_FILL_TEXT = "CHOICE_FILL_TEXT";
+    private static final String INPUT_PATH_TEXT = "INPUT_PATH_TEXT";
+    private static final String ANSWER_TEXT = "ANSWER_TEXT";
+    private static final String INPUT_RANDOM_DATA = "INPUT_RANDOM_DATA";
 
 
     OutputData outputData;
@@ -58,7 +63,7 @@ public class Menu {
         };
     }
 
-    private void outputResult(HashMap<String, Exception> result){
+    private void outputResult(Map<String, Exception> result){
         for(String key: result.keySet()){
             if(key != null){
                 outputData.output(key);
@@ -69,13 +74,18 @@ public class Menu {
         }
     }
 
-    public void menu() {
+    /**
+     * a method that provides the user with information about the program,
+     * receives data from him and transfers them to the controller
+     * @see Controller
+     * @see by.zakharanka.task02array.controller.command.CommandName
+     */
+    public void menu() throws ViewException {
         outputData.output(CHOICE_LANGUAGE_TEXT);
         MessageManager mm = choiceLanguage(inputData.inputChar());
         outputData.output(mm.getString(CHOICE_TASK_TEXT));
         int name = inputData.inputInteger();
         String commandName = choiceTask(name);
-        outputData.output(commandName);
         boolean isDoubleData = "MATRIX_ADDITION".equals(commandName) ||
                 "MATRIX_MULTIPLICATION".equals(commandName) ||
                 "MATRIX_SUBTRACTION".equals(commandName);

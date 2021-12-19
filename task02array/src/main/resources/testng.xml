@@ -2,46 +2,39 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite">
     <test verbose="2" name="D:/epam/epamtasks/task02array">
         <classes>
-            <class name="test.zakharanka.task02array.service.creator.">
+            <class name="test.zakharanka.task02array.service.impl.sort.BubbleSorterTest">
                 <methods>
-                    <include name="expressionTask8Test"/>
+                    <include name="sortTest"/>
                 </methods>
             </class>
-            <class name="test.zakharanka.task01javabasic.service.ExpressionServiceTest">
+            <class name="test.zakharanka.task02array.service.impl.sort.ShakerSorterTest">
                 <methods>
-                    <include name="expressionTask8Test"/>
-                    <include name="milkTaskTest"/>
-                    <include name="functionRangeTest"/>
-                    <include name="sumRowMembersTest"/>
+                    <include name="sortTest"/>
                 </methods>
             </class>
-            <class name="test.zakharanka.task01javabasic.service.GeometricServiceTest">
+            <class name="test.zakharanka.task02array.service.impl.sort.ShellSorterTest">
                 <methods>
-                    <include name="expressionTask8Test"/>
+                    <include name="sortTest"/>
                 </methods>
             </class>
-            <class name="test.zakharanka.task01javabasic.service.ArithmeticServiceTest">
+            <class name="test.zakharanka.task02array.service.impl.sort.SimpleChoiceSorterTest">
                 <methods>
-                    <include name="checkMaxNumbersTest"/><include name="compareNumbersTest"/>
-                    <include name="minSquareTest"/>
-                    <include name="divisorCheckTest"/>
-                    <include name="isPositiveSumTest"/>
-                    <include name="differenceTest"/>
-                    <include name="rowNumbersTest"/>
-                    <include name="sumDigitsTest"/>
-                    <include name="swapXORTest"/>
-                    <include name="swapArithmeticOperationsTest"/>
-                    <include name="swapThirdVariableTest"/>
+                    <include name="sortTest"/>
                 </methods>
             </class>
-            <class name="test.zakharanka.task01javabasic.service.TimeServiceTest">
+            <class name="test.zakharanka.task02array.service.impl.sort.SimpleInsertSorterTest">
                 <methods>
-                    <include name="expressionTask8Test"/>
+                    <include name="sortTest"/>
                 </methods>
             </class>
-            <class name="test.zakharanka.task01javabasic.service.DataValidationServiceTest">
+            <class name="test.zakharanka.task02array.service.impl.matrix.AdderTest">
                 <methods>
-                    <include name="identifierValidationTest"/>
+                    <include name="additionTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharanka.task02array.service.impl.matrix.MultiplierTest">
+                <methods>
+                    <include name="multiplyTest"/>
                 </methods>
             </class>
         </classes>

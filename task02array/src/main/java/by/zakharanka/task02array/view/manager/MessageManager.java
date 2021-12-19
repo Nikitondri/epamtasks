@@ -1,9 +1,6 @@
 package by.zakharanka.task02array.view.manager;
 
-import by.zakharanka.task02array.view.exception.ViewException;
-
 import java.util.Locale;
-import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 public enum MessageManager {
@@ -12,7 +9,7 @@ public enum MessageManager {
     BY(ResourceBundle.getBundle("language.ui_be_BY", new Locale("be", "BY"))),
     RU(ResourceBundle.getBundle("language.ui_ru_RU", new Locale("ru", "RU")));
 
-    private ResourceBundle bundle;
+    private final ResourceBundle bundle;
     MessageManager(ResourceBundle bundle) {
         this.bundle = bundle;
     }

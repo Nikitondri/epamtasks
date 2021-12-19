@@ -6,8 +6,8 @@ import by.zakharanka.task02array.entity.exception.EntityException;
 import by.zakharanka.task02array.service.exception.ServiceException;
 
 public interface MatrixService {
-    String multiplication(Matrix matrix1, Matrix matrix2) throws ServiceException, EntityException;
-    String addition(Matrix matrix1, Matrix matrix2) throws ServiceException;
-    String transposition(Matrix matrix);
-    String subtraction(Matrix matrix1, Matrix matrix2) throws ServiceException;
+    String multiplication(Matrix<Integer> matrix1, Matrix<Integer> matrix2) throws ServiceException, EntityException;
+    String addition(Matrix<Integer> matrix1, Matrix<Integer> matrix2) throws ServiceException;
+    String transposition(Matrix<Integer> matrix);
+    String subtraction(Matrix<Integer> matrix1, Matrix<Integer> matrix2) throws ServiceException;
 }

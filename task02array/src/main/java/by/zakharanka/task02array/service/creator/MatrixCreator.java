@@ -13,17 +13,9 @@ import java.util.Random;
 
 public class MatrixCreator {
 
-    private final String SPLIT_DELIMITER = " ";
+    private static final String SPLIT_DELIMITER = " ";
 
-    public int[][] createArray(String arg) {
-        return null;
-    }
-
-    public int[][] createArray(int row, int column){
-        return new int[row][column];
-    }
-
-    public Matrix createFromDataString(Data<String> data) throws ServiceException{
+    public Matrix<Integer> createFromDataString(Data<String> data) throws ServiceException {
         int row = data.findSize();
         int[][] matrix = new int[row][];
         for(int i = 0; i < row; i++){
@@ -33,10 +25,16 @@ public class MatrixCreator {
                 throw new ServiceException("Not correct data in file");
             }
         }
-        return new Matrix(matrix);
+        Integer[][] matrixResult = new Integer[matrix.length][matrix[0].length];
+        for(int i = 0; i < matrixResult.length; i++){
+            for(int j = 0; j < matrixResult[0].length; j++){
+                matrixResult[i][j] = matrix[i][j];
+            }
+        }
+        return new Matrix<>(matrixResult);
     }
 
-    public Matrix createFromFile(String path) throws ServiceException {
+    public Matrix<Integer> createFromFile(String path) throws ServiceException {
         try{
             DalFactory dalFactory = DalFactory.getInstance();
             MatrixDal matrixDal = dalFactory.getTxtFileMatrixDal();
@@ -46,7 +44,7 @@ public class MatrixCreator {
         }
     }
 
-    public Matrix createRandom(String data) throws ServiceException, EntityException {
+    public Matrix<Integer> createRandom(String data) throws ServiceException {
         String[] arr = data.split(SPLIT_DELIMITER);
         int row;
         int column;
@@ -60,7 +58,7 @@ public class MatrixCreator {
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException e){
             throw new ServiceException("Not correct random data");
         }
-        Matrix matrix = new Matrix(row ,column);
+        Matrix<Integer> matrix = new Matrix<>(new Integer[row][column]);
         for(int i = 0; i < row; i++){
             for(int j = 0; j < column; j++){
                 Random random = new Random();
@@ -74,7 +72,7 @@ public class MatrixCreator {
         return matrix;
     }
 
-    public Matrix createMatrix(String fillMethod, String data) throws ServiceException, EntityException {
+    public Matrix<Integer> createMatrix(String fillMethod, String data) throws ServiceException {
         return switch (fillMethod){
             case "FROM_FILE" -> createFromFile(data);
             case "RANDOM" -> createRandom(data);

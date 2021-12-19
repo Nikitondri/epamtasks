@@ -1,5 +1,8 @@
 package by.zakharanka.task02array.controller.command;
 
+/**
+ * Enum including names of commands and wrong command
+ */
 public enum CommandName {
     MATRIX_ADDITION,
     MATRIX_MULTIPLICATION,

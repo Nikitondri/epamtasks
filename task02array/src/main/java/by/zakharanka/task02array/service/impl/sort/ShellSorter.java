@@ -16,12 +16,3 @@ public class ShellSorter implements Sort{
     }
 }
 
-//for (int step = n / 2; step > 0; step /= 2) {
-//    for (int i = step; i < n; i++) {
-//        for (int j = i - step; j >= 0 && a[j] > a[j + step] ; j -= step) {
-//            int x = a[j];
-//            a[j] = a[j + step];
-//            a[j + step] = x;
-//        }
-//    }
-//}

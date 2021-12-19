@@ -1,20 +1,33 @@
 package by.zakharanka.task02array.controller.command.sortimpl;
 
 import by.zakharanka.task02array.controller.command.Command;
+import by.zakharanka.task02array.controller.exception.ControllerException;
 import by.zakharanka.task02array.entity.Array;
 import by.zakharanka.task02array.entity.Data;
-import by.zakharanka.task02array.entity.exception.EntityException;
 import by.zakharanka.task02array.service.SortService;
 import by.zakharanka.task02array.service.creator.ArrayCreator;
 import by.zakharanka.task02array.service.exception.ServiceException;
 import by.zakharanka.task02array.service.factory.ServiceFactory;
-import by.zakharanka.task02array.service.impl.SortServiceImpl;
-
 import java.util.HashMap;
 
+/**
+ * Class for calling methods for sorting array using external sort
+ * @see Command
+ * @see SortService
+ */
 public class ExternalSort implements Command {
+
+    /**
+     * Method for calling methods for sorting array using external sort and exception handling
+     * @see Command
+     * @see Data
+     * @see SortService
+     * @param request data from user including filling method and directly data
+     * @return {@code HashMap} object including result result of sorting array or exception
+     * @throws ControllerException handled on method {@code execute} invocation
+     */
     @Override
-    public HashMap<String, Exception> execute(Data<String> request) throws ServiceException, EntityException {
+    public HashMap<String, Exception> execute(Data<String> request) throws ControllerException {
         HashMap<String, Exception> res = new HashMap<>();
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         SortService sortService = serviceFactory.getSortService();

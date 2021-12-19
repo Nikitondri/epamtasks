@@ -2,70 +2,59 @@ package by.zakharanka.task02array.entity;
 
 import by.zakharanka.task02array.entity.exception.EntityException;
 
-import java.util.Arrays;
+public class Matrix<T extends Number> {
 
-public class Matrix {
+    private final T[][] m;
 
-    private int[][] matrix;
-
-    public Matrix(int[][] newMatrix){
-        matrix = newMatrix;
+    public Matrix(T[][] newMatrix){
+        m = newMatrix;
     }
 
-    public Matrix(int row, int column) throws EntityException {
-        if(row > 1 && column > 1){
-            matrix = new int[row][column];
-        } else{
-            throw new EntityException();
-        }
-    }
 
     public int getNumRow(){
-        return matrix.length;
+        return m.length;
     }
 
     public int getNumColumn(){
-        return matrix[0].length;
+        return m[0].length;
     }
 
     private boolean checkRange(int row, int column){
-        return row >= 0 && row < matrix.length && column >= 0 && column <= matrix[0].length;
+        return row >= 0 && row < m.length && column >= 0 && column <= m[0].length;
     }
 
-    public int getElement(int row, int column) throws EntityException {
+    public T getElement(int row, int column) throws EntityException {
         if(checkRange(row, column)){
-            return matrix[row][column];
+            return m[row][column];
         } else {
             throw new EntityException();
         }
     }
 
-    public void setElement(int row, int column, int value) throws EntityException {
+    public void setElement(int row, int column, T value) throws EntityException {
         if(checkRange(row, column)){
-            matrix[row][column] = value;
+            m[row][column] = value;
         } else {
             throw new EntityException();
         }
     }
 
     public void swapElements(int row1, int column1, int row2, int column2){
-        int buf;
-        buf = matrix[row1][column1];
-        matrix[row1][column1] = matrix[row2][column2];
-        matrix[row2][column2] = buf;
+        T buf;
+        buf = m[row1][column1];
+        m[row1][column1] = m[row2][column2];
+        m[row2][column2] = buf;
     }
 
     @Override
     public String toString() {
-        final String BLANK = " ";
-        StringBuilder s = new StringBuilder("\nMatrix : " + matrix.length + "x"
-                + matrix[0].length + "\n");
-        for(int[] row: matrix){
-            for(int value: row){
-                s.append(value).append(BLANK);
+        StringBuilder res = new StringBuilder("Matrix:\n");
+        for (T[] ts : m) {
+            for (int j = 0; j < m[0].length; j++) {
+                res.append(ts[j]).append(" ");
             }
-            s.append("\n");
+            res.append("\n");
         }
-        return s.toString();
+        return res.toString();
     }
 }

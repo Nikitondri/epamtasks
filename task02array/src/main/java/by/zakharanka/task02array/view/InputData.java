@@ -7,31 +7,20 @@ import java.util.Scanner;
 
 public class InputData {
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public InputData() {
         scanner = new Scanner(System.in);
     }
 
-//    public int inputInteger(){
-//        int num = 0;
-//        try{
-//            String str = scanner.nextLine();
-//            num = Integer.parseInt(str);
-//        } catch(Exception e){
-//            //TODO: add log
-//        }
-//        return num;
-//    }
-
     public int inputInteger(){
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int num = 0;
         boolean isCorrect;
         do{
             isCorrect = true;
             try{
-                num = Integer.parseInt(scanner.nextLine());
+                num = Integer.parseInt(sc.nextLine());
             } catch(Exception e){
                 isCorrect = false;
             }
@@ -43,12 +32,12 @@ public class InputData {
         return scanner.nextLine();
     }
 
-    public char inputChar(){
-        char ch = 0;
+    public char inputChar() throws ViewException {
+        char ch;
         try{
             ch = (char)System.in.read();
         } catch (IOException e){
-            //TODO: add log
+            throw new ViewException();
         }
         return ch;
     }

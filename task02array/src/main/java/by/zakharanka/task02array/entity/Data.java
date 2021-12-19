@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Data<T> {
-    private List<T> list = new ArrayList<>();
+    private final List<T> list = new ArrayList<>();
 
     public T getElement(int index){
         return list.get(index);
@@ -24,8 +24,10 @@ public class Data<T> {
 
     @Override
     public String toString() {
-        return "Data{" +
-                "list=" + list +
-                '}';
+        StringBuilder res = new StringBuilder("Data:\n");
+        for (T ts : list) {
+            res.append(ts).append(" ");
+        }
+        return res.toString();
     }
 }

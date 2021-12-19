@@ -8,7 +8,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-
+/**
+ * a class that implements reading an matrix from a text file
+ * @see DataReader
+ */
 public class MatrixReader extends DataReader{
 
     private final BufferedReader br;
@@ -18,10 +21,18 @@ public class MatrixReader extends DataReader{
         try {
             br = new BufferedReader(new FileReader(path));
         } catch (FileNotFoundException e) {
-            throw new DalException(e);
+            throw new DalException("Not correct path file");
         }
     }
 
+    /**
+     * a matrix is read from a file
+     * the file is checked for correctness by the method {@code isCorrectPath} of the super class {@code DataReader}
+     * the correctness of the matrix dimensions is checked
+     * @see BufferedReader
+     * @see DataReader
+     * @return a string containing an matrix read from a text file
+     */
     public Data<String> readMatrix() throws DalException{
         if(!isCorrectPath()){
             throw new DalException("not correct file");
@@ -34,10 +45,10 @@ public class MatrixReader extends DataReader{
                 line = br.readLine();
             }
         } catch (IOException e) {
-            throw new DalException();
+            throw new DalException("not correct file");
         }
         if(data.findSize() < 2){
-            throw new DalException("Not correct Matrix");
+            throw new DalException("Not correct size Matrix");
         }
         int columns = data.getElement(0).split("").length;
         for(int i = 0; i < data.findSize(); i++){

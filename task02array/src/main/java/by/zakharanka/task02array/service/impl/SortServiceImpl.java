@@ -4,11 +4,7 @@ import by.zakharanka.task02array.entity.Array;
 import by.zakharanka.task02array.entity.exception.EntityException;
 import by.zakharanka.task02array.service.SortService;
 import by.zakharanka.task02array.service.exception.ServiceException;
-import by.zakharanka.task02array.service.impl.matrix.Adder;
-import by.zakharanka.task02array.service.impl.sort.BubbleSorter;
-import by.zakharanka.task02array.service.impl.sort.ShakerSorter;
-import by.zakharanka.task02array.service.impl.sort.ShellSorter;
-import by.zakharanka.task02array.service.impl.sort.SimpleChoiceSorter;
+import by.zakharanka.task02array.service.impl.sort.*;
 
 public class SortServiceImpl implements SortService {
     @Override
@@ -45,22 +41,34 @@ public class SortServiceImpl implements SortService {
     }
 
     @Override
-    public String simpleInsertSort(Array arr) {
+    public String simpleInsertSort(Array<Integer> arr) throws ServiceException {
+        SimpleInsertSorter simpleInsertSorter = new SimpleInsertSorter();
+        try{
+            simpleInsertSorter.sort(arr);
+            return arr.toString();
+        }catch (EntityException e){
+            throw new ServiceException(e);
+        }
+    }
+
+    @Override
+    public String insertSort(Array<Integer> arr) {
         return null;
     }
 
     @Override
-    public String insertSort(Array arr) {
-        return null;
+    public String binaryMergeSort(Array<Integer> arr) throws ServiceException {
+        BinaryMergeSorter binaryMergeSorter = new BinaryMergeSorter();
+        try{
+            binaryMergeSorter.sort(arr);
+            return arr.toString();
+        }catch (EntityException | ServiceException e){
+            throw new ServiceException(e);
+        }
     }
 
     @Override
-    public String binaryMergeSort(Array arr) {
-        return null;
-    }
-
-    @Override
-    public String shellSort(Array arr) throws ServiceException {
+    public String shellSort(Array<Integer> arr) throws ServiceException {
         ShellSorter shellSorter = new ShellSorter();
         try{
             shellSorter.sort(arr);
@@ -71,7 +79,7 @@ public class SortServiceImpl implements SortService {
     }
 
     @Override
-    public String externalSort(Array arr) {
+    public String externalSort(Array<Integer> arr) {
         return null;
     }
 }

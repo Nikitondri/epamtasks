@@ -19,6 +19,5 @@ public class BubbleSorter implements Sort{
                 break;
             }
         }
-        System.out.println(array);
     }
 }

@@ -1,6 +1,7 @@
 package by.zakharanka.task02array.controller.command.matriximpl;
 
 import by.zakharanka.task02array.controller.command.Command;
+import by.zakharanka.task02array.controller.exception.ControllerException;
 import by.zakharanka.task02array.entity.Data;
 import by.zakharanka.task02array.entity.Matrix;
 import by.zakharanka.task02array.entity.exception.EntityException;
@@ -11,20 +12,35 @@ import by.zakharanka.task02array.service.factory.ServiceFactory;
 
 import java.util.HashMap;
 
-public class MatrixAddition implements Command {
+
+/**
+ * Class for calling methods for matrix additional
+ * @see Command
+ * @see MatrixService
+ */
+public class MatrixAdditionImpl implements Command {
+
+    /**
+     * Method for calling methods for matrix additional and exception handling
+     * @see Command
+     * @see Data
+     * @see MatrixService
+     * @param request data from user including filling method and directly data
+     * @return {@code HashMap} object including result result of matrix additional or exception
+     * @throws ControllerException handled on method {@code execute} invocation
+     */
     @Override
-    public HashMap<String, Exception> execute(Data<String> request) {
+    public HashMap<String, Exception> execute(Data<String> request) throws ControllerException {
         HashMap<String, Exception> res = new HashMap<>();
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         MatrixService matrixService = serviceFactory.getMatrixService();
         MatrixCreator matrixCreator = new MatrixCreator();
         try{
-            Matrix matrix1 = matrixCreator.createMatrix(request.getElement(0), request.getElement(1));
-            Matrix matrix2 = matrixCreator.createMatrix(request.getElement(0), request.getElement(2));
+            Matrix<Integer> matrix1 = matrixCreator.createMatrix(request.getElement(0), request.getElement(1));
+            Matrix<Integer> matrix2 = matrixCreator.createMatrix(request.getElement(0), request.getElement(2));
             res.put(matrixService.addition(matrix1, matrix2), null);
         } catch(ServiceException | EntityException e) {
-            res.put(null, e);
-            //TODO: add log
+            throw new ControllerException(e);
         }
         return res;
     }
