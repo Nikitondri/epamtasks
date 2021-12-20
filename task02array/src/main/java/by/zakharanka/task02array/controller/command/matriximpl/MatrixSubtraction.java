@@ -4,7 +4,6 @@ import by.zakharanka.task02array.controller.command.Command;
 import by.zakharanka.task02array.controller.exception.ControllerException;
 import by.zakharanka.task02array.entity.Data;
 import by.zakharanka.task02array.entity.Matrix;
-import by.zakharanka.task02array.entity.exception.EntityException;
 import by.zakharanka.task02array.service.creator.MatrixCreator;
 import by.zakharanka.task02array.service.MatrixService;
 import by.zakharanka.task02array.service.exception.ServiceException;
@@ -38,7 +37,7 @@ public class MatrixSubtraction implements Command {
             Matrix<Integer> matrix1 = matrixCreator.createMatrix(request.getElement(0), request.getElement(1));
             Matrix<Integer> matrix2 = matrixCreator.createMatrix(request.getElement(0), request.getElement(2));
             res.put(matrixService.subtraction(matrix1, matrix2), null);
-        } catch(ServiceException | EntityException e) {
+        } catch(ServiceException e) {
             throw new ControllerException(e);
         }
         return res;
