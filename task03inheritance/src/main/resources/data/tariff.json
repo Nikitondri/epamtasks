@@ -1,0 +1,221 @@
+{
+  "limitTariff": {
+      "list": [
+        {
+          "tariffName": "tariffLimit1",
+          "listClient": [
+            {
+              "name": "Nikita",
+              "phoneNumber": 6525166,
+              "tariff": "tariffLimit1"
+            },
+            {
+              "name": "Yulia",
+              "phoneNumber": 1231232,
+              "tariff": "tariffLimit1"
+            }
+          ],
+          "monthlyCost": 550,
+          "minCount": 500,
+          "gbCount": 500,
+          "smsCount": 300,
+          "extraMinPrice": 2,
+          "extraGBPrice": 2,
+          "extraSMSPrice": 3
+        },
+        {
+          "tariffName": "tariffLimit2",
+          "listClient": [
+            {
+              "name": "EEE",
+              "phoneNumber": 7777777,
+              "tariff": "tariffLimit2"
+            },
+            {
+              "name": "BBB",
+              "phoneNumber": 7777777,
+              "tariff": "tariffLimit2"
+            }
+          ],
+          "monthlyCost": 555,
+          "minCount": 555,
+          "gbCount": 555,
+          "smsCount": 355,
+          "extraMinPrice": 5,
+          "extraGBPrice": 5,
+          "extraSMSPrice": 5
+        }
+        ]
+    },
+  "fullUnlimitedTariff": {
+    "list": [
+      {
+        "tariffName": "tariff2",
+        "listClient": [
+          {
+            "name": "Oleg",
+            "phoneNumber": 6525166,
+            "tariff": "tariff2"
+          },
+          {
+            "name": "James",
+            "phoneNumber": 1231232,
+            "tariff": "tariff2"
+          }
+        ],
+        "monthlyCost": 1300,
+        "roamingMinCount": 1000
+      }
+    ]
+  },
+  "childTariff": {
+    "list": [
+      {
+        "tariffName": "Child1",
+        "listClient": [
+          {
+            "name": "Tommy",
+            "phoneNumber": 6525166,
+            "tariff": "Child1"
+          },
+          {
+            "name": "Yulia",
+            "phoneNumber": 1231232,
+            "tariff": "Child1"
+          }
+        ],
+        "monthlyCost": 300,
+        "minCount": 500,
+        "gbCount": 500,
+        "smsCount": 300,
+        "extraMinPrice": 2,
+        "extraGBPrice": 2,
+        "extraSMSPrice": 3,
+        "mother": {
+          "name": "Mother",
+          "phoneNumber": 11223344,
+          "tariff": "tariff2"
+        },
+        "dad": {
+          "name": "Dad",
+          "phoneNumber": 88223344,
+          "tariff": "tariff2"
+        }
+      },
+      {
+        "tariffName": "Child2",
+        "listClient": [
+          {
+            "name": "James",
+            "phoneNumber": 6525166,
+            "tariff": "Child2"
+          },
+          {
+            "name": "Harry",
+            "phoneNumber": 1431232,
+            "tariff": "Child2"
+          }
+        ],
+        "monthlyCost": 425,
+        "minCount": 500,
+        "gbCount": 500,
+        "smsCount": 300,
+        "extraMinPrice": 2,
+        "extraGBPrice": 2,
+        "extraSMSPrice": 3,
+        "mother": {
+          "name": "Mother2",
+          "phoneNumber": 11223344,
+          "tariff": "tariff2"
+        },
+        "dad": {
+          "name": "Dad2",
+          "phoneNumber": 88223344,
+          "tariff": "tariff2"
+        }
+      }
+    ]
+  },
+  "pensionTariff": {
+    "list": [
+      {
+        "tariffName": "Pension_Tariff",
+        "listClient": [
+          {
+            "name": "Jhon",
+            "phoneNumber": 6525166,
+            "tariff": "Pension_Tariff"
+          }
+        ],
+        "monthlyCost": 250,
+        "minCount": 500,
+        "gbCount": 500,
+        "smsCount": 300,
+        "extraMinPrice": 2,
+        "extraGBPrice": 2,
+        "extraSMSPrice": 3,
+        "selectedClients": [
+          {
+            "name": "Son",
+            "phoneNumber": 11223344,
+            "tariff": "Child1"
+          },
+          {
+            "name": "Daughter",
+            "phoneNumber": 11223344,
+            "tariff": "Child2"
+          }
+        ]
+      }
+    ]
+  },
+  "unlimitedInternetTariff": {
+    "list": [
+      {
+        "tariffName": "super1",
+        "listClient": [
+          {
+            "name": "Oleg",
+            "phoneNumber": 6525166,
+            "tariff": "tariff2"
+          },
+          {
+            "name": "James",
+            "phoneNumber": 1231232,
+            "tariff": "tariff2"
+          }
+        ],
+        "monthlyCost": 900,
+        "minCount": 1000,
+        "smsCount": 1000,
+        "extraMinPrice": 2,
+        "extraSMSPrice": 3
+      }
+    ]
+  },
+  "unlimitedMinTariff": {
+    "list": [
+      {
+        "tariffName": "super2",
+        "listClient": [
+          {
+            "name": "Oleg",
+            "phoneNumber": 6525166,
+            "tariff": "tariff2"
+          },
+          {
+            "name": "James",
+            "phoneNumber": 1231232,
+            "tariff": "tariff2"
+          }
+        ],
+        "monthlyCost": 850,
+        "gbCount": 10000,
+        "smsCount": 1000,
+        "extraGBPrice": 5,
+        "extraSMSPrice": 3
+      }
+    ]
+  }
+
+}

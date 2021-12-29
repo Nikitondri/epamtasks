@@ -29,9 +29,7 @@ public final class Controller {
      */
     public Map<String, Exception> executeTask(String commandName, Data<String> request) {
         Command executionCommand;
-
         executionCommand = provider.getCommand(commandName);
-
         HashMap<String, Exception> response = new HashMap<>();
         try {
             response = executionCommand.execute(request);
