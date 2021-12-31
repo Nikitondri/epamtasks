@@ -4,10 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParametersList {
-    private final List<String> list = new ArrayList<>();
+    private List<String> list = new ArrayList<>();
 
     public String getElement(int index){
         return list.get(index);
+    }
+
+    public ParametersList(List<String> list) {
+        this.list = list;
+    }
+
+    public ParametersList(){
+
     }
 
     @Override

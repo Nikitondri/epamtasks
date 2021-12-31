@@ -1,6 +1,8 @@
 package by.zakharanka.task03inheritance.entity.tariff;
 
 
+import java.util.Objects;
+
 public class AllTariffs {
     private final ListTariff<LimitTariff> limitTariff;
     private final ListTariff<FullUnlimitedTariff> fullUnlimitedTariff;
@@ -44,6 +46,18 @@ public class AllTariffs {
         return unlimitedMinTariff.list.toArray(new UnlimitedMinTariff[0]);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AllTariffs that = (AllTariffs) o;
+        return limitTariff.equals(that.limitTariff) && fullUnlimitedTariff.equals(that.fullUnlimitedTariff) && childTariff.equals(that.childTariff) && pensionTariff.equals(that.pensionTariff) && unlimitedInternetTariff.equals(that.unlimitedInternetTariff) && unlimitedMinTariff.equals(that.unlimitedMinTariff);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(limitTariff, fullUnlimitedTariff, childTariff, pensionTariff, unlimitedInternetTariff, unlimitedMinTariff);
+    }
 
     @Override
     public String toString() {

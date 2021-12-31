@@ -13,6 +13,8 @@ import by.zakharanka.task03inheritance.service.factory.ServiceFactory;
 import java.util.HashMap;
 
 public class SortTariffsImpl implements Command {
+    private static final String PATH = "data/RandomParametersTariff.json";
+
     @Override
     public HashMap<String, Exception> execute(String request) throws ControllerException {
         HashMap<String, Exception> res = new HashMap<>();
@@ -20,7 +22,7 @@ public class SortTariffsImpl implements Command {
         TariffService tariffService = serviceFactory.getTariffService();
         Creator<ListTariff<Tariff>> creator = new TariffListCreator();
         try{
-            res.put(tariffService.sortTariffs(creator.createFromFile()), null);
+            res.put(tariffService.sortTariffs(creator.createFromFile(PATH)), null);
         } catch (ServiceException e){
             throw new ControllerException(e);
         }

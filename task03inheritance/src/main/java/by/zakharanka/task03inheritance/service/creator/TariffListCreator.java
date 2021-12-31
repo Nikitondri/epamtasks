@@ -12,15 +12,13 @@ import by.zakharanka.task03inheritance.service.exception.ServiceException;
 import java.io.File;
 
 public class TariffListCreator implements Creator<ListTariff<Tariff>>{
-    private static final String PATH = "data/RandomParametersTariff.json";
-
     @Override
-    public ListTariff<Tariff> createFromFile() throws ServiceException {
+    public ListTariff<Tariff> createFromFile(String path) throws ServiceException {
         FileResourcesUtils fileResourcesUtils = new FileResourcesUtils();
         try{
             DalFactory dalFactory = DalFactory.getInstance();
             JSONDal jsonDal = dalFactory.getJSONFileDal();
-            File file = fileResourcesUtils.getFileFromResource(PATH);
+            File file = fileResourcesUtils.getFileFromResource(path);
             AllTariffs allTariffs = jsonDal.readTariffsFromJSON(file.getPath());
             return allTariffsToListTariff(allTariffs);
         } catch (DalException e){

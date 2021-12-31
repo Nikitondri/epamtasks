@@ -30,7 +30,7 @@ public class JSONDalImpl implements JSONDal {
         try {
             return gson.fromJson(new FileReader(path), ParametersList.class);
         } catch (FileNotFoundException | JsonSyntaxException e) {
-            throw new DalException(e);
+            throw new DalException("JSON Dal exception");
         }
     }
 

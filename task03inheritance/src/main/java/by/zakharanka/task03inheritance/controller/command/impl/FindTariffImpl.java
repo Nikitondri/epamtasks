@@ -15,6 +15,9 @@ import by.zakharanka.task03inheritance.service.factory.ServiceFactory;
 import java.util.HashMap;
 
 public class FindTariffImpl implements Command {
+    private static final String PATH_PARAMETERS = "data/parametersTariff.json";
+    private static final String PATH = "data/RandomParametersTariff.json";
+
     @Override
     public HashMap<String, Exception> execute(String request) throws ControllerException {
         HashMap<String, Exception> res = new HashMap<>();
@@ -23,7 +26,7 @@ public class FindTariffImpl implements Command {
         Creator<ListTariff<Tariff>> creatorListTariff = new TariffListCreator();
         Creator<ParametersList> creatorListParameters = new ParametersListCreator();
         try{
-            res.put(tariffService.findTariff(creatorListTariff.createFromFile(), creatorListParameters.createFromFile()), null);
+            res.put(tariffService.findTariff(creatorListTariff.createFromFile(PATH), creatorListParameters.createFromFile(PATH_PARAMETERS)), null);
         } catch (ServiceException e){
             throw new ControllerException(e);
         }

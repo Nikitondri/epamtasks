@@ -3,6 +3,7 @@ package by.zakharanka.task03inheritance.entity.tariff;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class ListTariff<T extends Tariff> {
     List<T> list;
@@ -31,6 +32,19 @@ public class ListTariff<T extends Tariff> {
 
     public T getTariff(int index){
         return list.get(index);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ListTariff<?> that = (ListTariff<?>) o;
+        return list.equals(that.list);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(list);
     }
 
     @Override

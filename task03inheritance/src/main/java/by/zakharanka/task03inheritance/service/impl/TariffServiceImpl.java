@@ -41,7 +41,7 @@ public class TariffServiceImpl implements TariffService {
                     resultList.addTariff(listTariff.getTariff(i));
                 }
             } catch (Exception e) {
-                throw new ServiceException(e);
+                throw new ServiceException("Service exception");
             }
         }
         return resultList.toString();
