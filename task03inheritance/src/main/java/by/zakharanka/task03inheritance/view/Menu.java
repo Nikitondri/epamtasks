@@ -33,6 +33,10 @@ public class Menu {
         };
     }
 
+    /**
+     * method for user interaction
+     * provides the user with a task to select and receives the execution result from the controller layer
+     */
     public void openMenu() {
         MessageManager mm = MessageManager.EN;
         outputData.output(mm.getString("CHOICE_LANGUAGE_TEXT"));

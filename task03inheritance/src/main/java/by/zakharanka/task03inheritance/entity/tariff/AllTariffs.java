@@ -3,6 +3,9 @@ package by.zakharanka.task03inheritance.entity.tariff;
 
 import java.util.Objects;
 
+/**
+ * class, the fields of which contain data on tariffs
+ */
 public class AllTariffs {
     private final ListTariff<LimitTariff> limitTariff;
     private final ListTariff<FullUnlimitedTariff> fullUnlimitedTariff;

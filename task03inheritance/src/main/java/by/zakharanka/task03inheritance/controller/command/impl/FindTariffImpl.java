@@ -11,6 +11,8 @@ import by.zakharanka.task03inheritance.service.creator.ParametersListCreator;
 import by.zakharanka.task03inheritance.service.creator.TariffListCreator;
 import by.zakharanka.task03inheritance.service.exception.ServiceException;
 import by.zakharanka.task03inheritance.service.factory.ServiceFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 
@@ -18,6 +20,18 @@ public class FindTariffImpl implements Command {
     private static final String PATH_PARAMETERS = "data/parametersTariff.json";
     private static final String PATH = "data/RandomParametersTariff.json";
 
+    static final Logger LOGGER = LogManager.getLogger(FindTariffImpl.class.getName());
+
+    /**
+     * Method for calling methods to search for a tariff by specified parameters from the list of parameters
+     * and exception handling
+     * @see Command
+     * @see TariffService
+     * @see Creator
+     * @param request user-selected command
+     * @return {@code HashMap} object including tariff search result or exception
+     * @throws ControllerException handled on method {@code execute} invocation
+     */
     @Override
     public HashMap<String, Exception> execute(String request) throws ControllerException {
         HashMap<String, Exception> res = new HashMap<>();
@@ -26,6 +40,7 @@ public class FindTariffImpl implements Command {
         Creator<ListTariff<Tariff>> creatorListTariff = new TariffListCreator();
         Creator<ParametersList> creatorListParameters = new ParametersListCreator();
         try{
+            LOGGER.trace("FindTariffImpl completed correctly");
             res.put(tariffService.findTariff(creatorListTariff.createFromFile(PATH), creatorListParameters.createFromFile(PATH_PARAMETERS)), null);
         } catch (ServiceException e){
             throw new ControllerException(e);

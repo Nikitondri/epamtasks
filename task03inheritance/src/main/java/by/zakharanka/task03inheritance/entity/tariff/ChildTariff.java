@@ -3,6 +3,7 @@ package by.zakharanka.task03inheritance.entity.tariff;
 import by.zakharanka.task03inheritance.entity.Client;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ChildTariff extends LimitTariff{
     Client mother;
@@ -14,6 +15,18 @@ public class ChildTariff extends LimitTariff{
         this.dad = dad;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ChildTariff that = (ChildTariff) o;
+        return mother.equals(that.mother) && dad.equals(that.dad);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mother, dad);
+    }
 
     @Override
     public String toString() {

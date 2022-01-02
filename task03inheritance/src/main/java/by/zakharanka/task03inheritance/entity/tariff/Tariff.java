@@ -3,6 +3,7 @@ package by.zakharanka.task03inheritance.entity.tariff;
 import by.zakharanka.task03inheritance.entity.Client;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Tariff {
     String tariffName;
@@ -25,6 +26,19 @@ public abstract class Tariff {
 
     public String getTariffName() {
         return tariffName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tariff tariff = (Tariff) o;
+        return monthlyCost == tariff.monthlyCost && Objects.equals(tariffName, tariff.tariffName) && Objects.equals(listClient, tariff.listClient);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tariffName, listClient, monthlyCost);
     }
 
     @Override

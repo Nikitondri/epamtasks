@@ -3,6 +3,7 @@ package by.zakharanka.task03inheritance.entity.tariff;
 import by.zakharanka.task03inheritance.entity.Client;
 
 import java.util.List;
+import java.util.Objects;
 
 public class UnlimitedMinTariff extends Tariff{
     int gbCount;
@@ -16,6 +17,20 @@ public class UnlimitedMinTariff extends Tariff{
         this.smsCount = smsCount;
         this.extraGBPrice = extraGBPrice;
         this.extraSMSPrice = extraSMSPrice;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        UnlimitedMinTariff that = (UnlimitedMinTariff) o;
+        return gbCount == that.gbCount && smsCount == that.smsCount && extraGBPrice == that.extraGBPrice && extraSMSPrice == that.extraSMSPrice;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), gbCount, smsCount, extraGBPrice, extraSMSPrice);
     }
 
     @Override

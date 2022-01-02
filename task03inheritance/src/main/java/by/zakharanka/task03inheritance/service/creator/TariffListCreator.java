@@ -12,6 +12,14 @@ import by.zakharanka.task03inheritance.service.exception.ServiceException;
 import java.io.File;
 
 public class TariffListCreator implements Creator<ListTariff<Tariff>>{
+
+    /**
+     * initializes an ListTariff object with data from a file
+     * @see ListTariff
+     * @param path the path to the file
+     * @return ListTariff object with initialized fields
+     * @throws ServiceException to handle exceptions
+     */
     @Override
     public ListTariff<Tariff> createFromFile(String path) throws ServiceException {
         FileResourcesUtils fileResourcesUtils = new FileResourcesUtils();

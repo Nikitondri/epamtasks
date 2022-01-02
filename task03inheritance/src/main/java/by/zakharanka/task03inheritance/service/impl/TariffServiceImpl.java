@@ -8,6 +8,11 @@ import by.zakharanka.task03inheritance.service.exception.ServiceException;
 
 
 public class TariffServiceImpl implements TariffService {
+    /**
+     * counts the total number of customers from the list of tariffs
+     * @param listTariff list with tariff data
+     * @return total number of clients
+     */
     @Override
     public String totalNumberClients(ListTariff<Tariff> listTariff) throws ServiceException {
         int total = 0;
@@ -21,6 +26,11 @@ public class TariffServiceImpl implements TariffService {
         return Integer.toString(total);
     }
 
+    /**
+     * sorts tariffs in ascending monthly order using simple insert sorting
+     * @param listTariff list with tariff data
+     * @return sorted list
+     */
     @Override
     public String sortTariffs(ListTariff<Tariff> listTariff) {
         for(int i = 0; i < listTariff.size(); i++){
@@ -31,6 +41,11 @@ public class TariffServiceImpl implements TariffService {
         return listTariff.toString();
     }
 
+    /**
+     * finds from the list of tariffs the tariff corresponding to the parameters from the list of parameters
+     * @param listTariff list with tariff data
+     * @return desired tariff
+     */
     @Override
     public String findTariff(ListTariff<Tariff> listTariff, ParametersList parameters) throws ServiceException {
         ListTariff<Tariff> resultList = new ListTariff<>();

@@ -9,7 +9,17 @@ import by.zakharanka.task03inheritance.service.exception.ServiceException;
 
 import java.io.File;
 
+/**
+ * class for initializing {@code ParametersListCreator} object fields
+ */
 public class ParametersListCreator implements Creator<ParametersList> {
+    /**
+     * initializes an ParametersList object with data from a file
+     * @see ParametersList
+     * @param path the path to the file
+     * @return ParametersList object with initialized fields
+     * @throws ServiceException to handle exceptions
+     */
     @Override
     public ParametersList createFromFile(String path) throws ServiceException {
         FileResourcesUtils fileResourcesUtils = new FileResourcesUtils();

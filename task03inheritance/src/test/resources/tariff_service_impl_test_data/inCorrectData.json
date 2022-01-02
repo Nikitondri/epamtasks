@@ -1,0 +1,49 @@
+{
+  "limitTariff": {
+    "Field": [
+      {
+        "tariffName": "tariffLimit1",
+        "listClient": [
+          {
+            "name": "Nikita",
+            "phoneNumber": 6525166,
+            "tariff": "tariffLimit1"
+          },
+          {
+            "name": "Yulia",
+            "phoneNumber": 1231232,
+            "tariff": "tariffLimit1"
+          }
+        ],
+        "extraField": "NONE",
+        "monthlyCost": 550,
+        "smsCount": 300,
+        "extraMinPrice": 2,
+        "extraGBPrice": 2,
+        "extraSMSPrice": 3
+      },
+      {
+        "tariffName": "tariffLimit2",
+        "listClient": [
+          {
+            "name": "EEE",
+            "phoneNumber": 7777777,
+            "tariff": "tariffLimit2"
+          },
+          {
+            "name": "BBB",
+            "phoneNumber": 7777777,
+            "tariff": "tariffLimit2"
+          }
+        ],
+        "monthlyCost": 555,
+        "minCount": 555,
+        "gbCount": 555,
+        "smsCount": 355,
+        "extraMinPrice": 5,
+        "extraGBPrice": 5,
+        "extraSMSPrice": 5
+      }
+    ]
+  }
+}
