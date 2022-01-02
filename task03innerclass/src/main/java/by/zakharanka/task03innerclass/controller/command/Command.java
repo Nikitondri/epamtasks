@@ -1,6 +1,6 @@
-package by.zakharanka.task03inheritance.controller.command;
+package by.zakharanka.task03innerclass.controller.command;
 
-import by.zakharanka.task03inheritance.controller.exception.ControllerException;
+import by.zakharanka.task03innerclass.controller.exception.ControllerException;
 
 import java.util.HashMap;
 
