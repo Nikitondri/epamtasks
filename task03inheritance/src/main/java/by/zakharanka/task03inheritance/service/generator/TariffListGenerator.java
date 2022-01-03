@@ -14,6 +14,7 @@ import java.util.Random;
 public class TariffListGenerator implements Generator{
     private static final String PATH = "src/main/resources/data/RandomParametersTariff.json";
 
+
     @Override
     public void generateRandomDataToFile() throws ServiceException {
         try{

@@ -12,7 +12,15 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class CalendarCreator implements Creator<MyCalendar>{
+    public static final String ERROR = "Error creator calendar";
 
+    /**
+     * initializes an MyCalendar object with data from a file
+     * @see MyCalendar
+     * @param path the path to the file
+     * @return MyCalendar object with initialized fields
+     * @throws ServiceException to handle exceptions
+     */
     @Override
     public MyCalendar createFromFile(String path) throws ServiceException {
         FileResourcesUtils fileResourcesUtils = new FileResourcesUtils();
@@ -25,11 +33,15 @@ public class CalendarCreator implements Creator<MyCalendar>{
             createRedDays(calendar);
             return calendar;
         } catch (DalException e){
-            throw new ServiceException("Error creator calendar");
+            throw new ServiceException(ERROR);
         }
     }
 
-    private void createRedDays(MyCalendar calendar){
+    /**
+     * method for filling red days based on the year
+     * @param calendar to fill red days
+     */
+    public void createRedDays(MyCalendar calendar){
         Calendar cal = new GregorianCalendar(calendar.getYear(), Calendar.JANUARY, 1);
         for(int i = 0; i < calendar.dayOfYear(); i++){
             if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY){

@@ -10,6 +10,13 @@ import by.zakharanka.task03innerclass.service.exception.ServiceException;
 import java.io.File;
 
 public class DateCreator implements Creator<Date>{
+    /**
+     * initializes an {@code Date} object with data from a file
+     * @see Date
+     * @param path the path to the file
+     * @return {@code Date} object with initialized fields
+     * @throws ServiceException to handle exceptions
+     */
     @Override
     public Date createFromFile(String path) throws ServiceException {
         FileResourcesUtils fileResourcesUtils = new FileResourcesUtils();

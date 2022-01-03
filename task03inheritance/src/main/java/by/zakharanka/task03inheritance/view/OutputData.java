@@ -8,6 +8,12 @@ public class OutputData {
         System.out.println(arg);
     }
 
+    /**
+     * method to output the result from {@code Map} object
+     * if the command is executed successfully, the result is the key
+     * on unsuccessful execution of the command, the result is the value containing the exception
+     * @param result {@code Map} object with the result of the command
+     */
     public void outputResult(Map<String, Exception> result){
         for(String key: result.keySet()){
             if(key != null){

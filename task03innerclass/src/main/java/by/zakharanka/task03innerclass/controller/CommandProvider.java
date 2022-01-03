@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.EnumMap;
 
-public class CommandProvider {
+public class    CommandProvider {
     private final EnumMap<CommandName, Command> repository = new EnumMap<>(CommandName.class);
     static final Logger LOGGER = LogManager.getLogger(CommandProvider.class.getName());
 

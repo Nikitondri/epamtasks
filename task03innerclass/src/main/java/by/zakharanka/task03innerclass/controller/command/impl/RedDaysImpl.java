@@ -18,6 +18,16 @@ public class RedDaysImpl implements Command {
 
     static final Logger LOGGER = LogManager.getLogger(RedDaysImpl.class.getName());
 
+    /**
+     * Method for calling methods to find red days
+     * and exception handling
+     * @see Command
+     * @see CalendarService
+     * @see Creator
+     * @param request user-selected command
+     * @return {@code HashMap} object including result or exception
+     * @throws ControllerException handled on method {@code execute} invocation
+     */
     @Override
     public HashMap<String, Exception> execute(String request) throws ControllerException {
         HashMap<String, Exception> res = new HashMap<>();

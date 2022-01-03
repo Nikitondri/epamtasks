@@ -6,18 +6,28 @@ import by.zakharanka.task03innerclass.dal.factory.DalFactory;
 import by.zakharanka.task03innerclass.entity.Date;
 import by.zakharanka.task03innerclass.entity.MyCalendar;
 import by.zakharanka.task03innerclass.service.exception.ServiceException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
 
 public class DateGenerator implements Generator{
     private static final String PATH = "src/main/resources/data/date.json";
 
+    static final Logger LOGGER = LogManager.getLogger(DateGenerator.class.getName());
+
+    /**
+     * method for generating a plausible date in a json file
+     * @see Date
+     * @throws ServiceException to handle exceptions
+     */
     @Override
     public void generateRandomDataToFile() throws ServiceException {
         try{
             DalFactory dalFactory = DalFactory.getInstance();
             JSONDal jsonDal = dalFactory.getJSONFileDal();
             jsonDal.writeDateToJSON(PATH, generateDate());
+            LOGGER.trace("date generated");
         } catch (DalException e){
             throw new ServiceException("Error generator");
         }
