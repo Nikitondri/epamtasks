@@ -37,6 +37,26 @@
                     <include name="multiplyTest"/>
                 </methods>
             </class>
+            <class name="test.zakharanka.task02array.service.impl.matrix.SubtractorTest">
+                <methods>
+                    <include name="subtractionTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharanka.task02array.service.impl.matrix.TransporterTest">
+                <methods>
+                    <include name="transpositionTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharanka.task02array.dal.reader.ArrayReaderTest">
+                <methods>
+                    <include name="readArrayTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharanka.task02array.dal.reader.MatrixReaderTest">
+                <methods>
+                    <include name="readMatrixTest"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

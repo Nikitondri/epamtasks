@@ -4,6 +4,11 @@ import by.zakharanka.task02array.entity.Array;
 import by.zakharanka.task02array.entity.exception.EntityException;
 
 public class ShakerSorter implements Sort{
+    /**
+     * method sorts the array using shaker sort
+     * @see Sort
+     * @param array sortable array
+     */
     @Override
     public void sort(Array<Integer> array) throws EntityException {
         int beginIndex = 0;

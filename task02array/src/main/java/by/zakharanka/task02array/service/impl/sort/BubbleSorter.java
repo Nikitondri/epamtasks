@@ -4,6 +4,11 @@ import by.zakharanka.task02array.entity.Array;
 import by.zakharanka.task02array.entity.exception.EntityException;
 
 public class BubbleSorter implements Sort{
+    /**
+     * method sorts the array using bubble sort
+     * @see Sort
+     * @param array sortable array
+     */
     @Override
     public void sort(Array<Integer> array) throws EntityException {
         boolean isSort;

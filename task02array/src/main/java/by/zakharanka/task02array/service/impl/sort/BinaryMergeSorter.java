@@ -55,6 +55,11 @@ public class BinaryMergeSorter implements Sort{
         }
     }
 
+    /**
+     * method sorts the array using binary sort
+     * @see Sort
+     * @param array sortable array
+     */
     @Override
     public void sort(Array<Integer> array) throws EntityException, ServiceException {
         try {

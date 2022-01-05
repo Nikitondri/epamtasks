@@ -18,7 +18,7 @@ public class TransporterTest {
     }
 
     @DataProvider(name = "transposition")
-    public Object[][] createDataForSubtractionTest(){
+    public Object[][] createDataForTranspositionTest(){
         return
                 new Object[][]{
                         {       new Matrix<>(new Integer[][]{
@@ -48,7 +48,7 @@ public class TransporterTest {
 
     @Test(description = "positive scenario for matrix transposition",
             dataProvider = "transposition")
-    public void subtractionTest(Matrix<Integer> arg, Matrix<Integer> expected){
+    public void transpositionTest(Matrix<Integer> arg, Matrix<Integer> expected){
         assertEquals(transporter.transposition(arg).toString(), expected.toString());
     }
 }

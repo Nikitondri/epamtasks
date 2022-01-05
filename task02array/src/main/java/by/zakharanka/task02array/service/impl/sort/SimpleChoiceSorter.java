@@ -4,6 +4,11 @@ import by.zakharanka.task02array.entity.Array;
 import by.zakharanka.task02array.entity.exception.EntityException;
 
 public class SimpleChoiceSorter implements Sort{
+    /**
+     * method sorts the array using simple choice sort
+     * @see Sort
+     * @param array sortable array
+     */
     @Override
     public void sort(Array<Integer> array) throws EntityException {
         for(int min = 0; min < array.getSize() - 1; min++){

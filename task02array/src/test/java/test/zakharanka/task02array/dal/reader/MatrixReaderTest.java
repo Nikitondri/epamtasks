@@ -23,8 +23,7 @@ public class MatrixReaderTest {
                 new Object[][]{
                         {"matrixreadertestfile/matrix.txt", data1.toString()},
                         {"matrixreadertestfile/notCorrectSize.txt", "by.zakharanka.task02array.dal.exception.DalException: Not correct size Matrix"},
-                        {"matrixreadertestfile/none.txt", "by.zakharanka.task02array.dal.exception.DalException: file not found!"},
-                        {"matrixreadertestfile/empty.txt", "by.zakharanka.task02array.dal.exception.DalException: file not found!"},
+                        {"matrixreadertestfile/none.txt", "by.zakharanka.task02array.dal.exception.DalException: file not found!"}
                 };
     }
 
