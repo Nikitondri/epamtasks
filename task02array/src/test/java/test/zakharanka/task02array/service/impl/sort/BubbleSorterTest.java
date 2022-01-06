@@ -24,6 +24,7 @@ public class BubbleSorterTest {
                         {new Integer[]{3, 4, 2, 1}, new Integer[]{1, 2, 3, 4}},
                         {new Integer[]{3}, new Integer[]{3}},
                         {new Integer[]{9, 8, 9, 8, 1, 1, 1}, new Integer[]{1, 1, 1, 8, 8, 9, 9}},
+                        {new Integer[]{1, 200, 40, 5, 700, 80, 9}, new Integer[]{1, 5, 9, 40, 80, 200, 700}},
                 };
     }
 

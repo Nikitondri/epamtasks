@@ -57,6 +57,11 @@
                     <include name="readMatrixTest"/>
                 </methods>
             </class>
+            <class name="test.zakharanka.task02array.service.impl.sort.AddressCalculationSorterTest">
+                <methods>
+                    <include name="sortTest"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
