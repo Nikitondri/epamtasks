@@ -79,9 +79,22 @@ public class SortServiceImpl implements SortService {
         }
     }
 
+    /**
+     * calls the sort method from the class {@code AddressCalculationSorter}
+     * @see AddressCalculationSorter
+     * @see SortService
+     * @param arr sortable array
+     * @return sort result
+     */
     @Override
-    public String insertSort(Array<Integer> arr) {
-        return null;
+    public String insertSort(Array<Integer> arr) throws ServiceException {
+        AddressCalculationSorter addressCalculationSorter = new AddressCalculationSorter();
+        try{
+            addressCalculationSorter.sort(arr);
+            return arr.toString();
+        }catch (EntityException | ServiceException e){
+            throw new ServiceException(e);
+        }
     }
 
     /**
