@@ -20,6 +20,7 @@ public class AddressCalculationSorterTest {
 
     @DataProvider(name = "addressCalculationSort")
     public Object[][] createDataForSortTest(){
+        //TODO: create objects
         return
                 new Object[][]{
                         {new Integer[]{3, 4, 2, 1}, new Integer[]{1, 2, 3, 4}},
@@ -35,6 +36,7 @@ public class AddressCalculationSorterTest {
         Array<Integer> array = new Array<>(arg);
         Array<Integer> resArr = new Array<>(expected);
         addressCalculationSorter.sort(array);
-        assertEquals(array.toString(), resArr.toString());
+        //TODO: delete toString
+        assertEquals(array, resArr);
     }
 }

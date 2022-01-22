@@ -17,5 +17,6 @@ public interface Command {
      * @param request data from user including filling method and directly data
      * @return {@code HashMap} with an execution result or an exception
      */
+    //TODO: Exception -> object
     HashMap<String, Exception> execute(Data<String> request) throws ControllerException;
 }

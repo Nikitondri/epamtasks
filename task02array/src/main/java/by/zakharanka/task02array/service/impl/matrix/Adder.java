@@ -16,6 +16,7 @@ public class Adder {
      * @param matrix2 term
      * @return sum
      */
+    //TODO: parametrization
     public Matrix<Integer> addition(Matrix<Integer> matrix1, Matrix<Integer> matrix2) throws ServiceException, EntityException {
         if(matrix1.getNumRow() != matrix2.getNumRow() || matrix1.getNumColumn() != matrix2.getNumColumn()){
             throw new ServiceException("Not correct sizes Matrix");

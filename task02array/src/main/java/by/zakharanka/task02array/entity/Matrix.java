@@ -2,6 +2,8 @@ package by.zakharanka.task02array.entity;
 
 import by.zakharanka.task02array.entity.exception.EntityException;
 
+import java.util.Arrays;
+
 public class Matrix<T extends Number> {
 
     private final T[][] m;
@@ -44,6 +46,20 @@ public class Matrix<T extends Number> {
         buf = m[row1][column1];
         m[row1][column1] = m[row2][column2];
         m[row2][column2] = buf;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        //TODO: check realization
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Matrix<?> matrix = (Matrix<?>) o;
+        return Arrays.deepEquals(m, matrix.m);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.deepHashCode(m);
     }
 
     @Override

@@ -38,6 +38,7 @@ public class Array<T> {
     }
 
     public void swapElements(int index1, int index2){
+        //TODO: check
         T buf = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = buf;
