@@ -1,12 +1,10 @@
 package by.zakharenko.task04oop.repository;
 
-import by.zakharenko.task04oop.dal.exception.DAOException;
+import by.zakharenko.task04oop.repository.exception.RepositoryException;
 import by.zakharenko.task04oop.repository.specification.Specification;
 import by.zakharenko.task04oop.entity.Quadrangle;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class QuadrangleRepository implements Repository<Quadrangle>{
@@ -27,9 +25,26 @@ public class QuadrangleRepository implements Repository<Quadrangle>{
 
     @Override
     public void add(Quadrangle quadrangle) {
-        storage.add(quadrangle); //TODO: set id
-        //TODO: добавить регистратор, привязать к сущности
-        //TODO: создать репозиторий регистраторов
+        storage.add(quadrangle);
+    }
+
+    @Override
+    public Quadrangle get(long id) {
+        for(Quadrangle quadrangle: storage){
+            if(quadrangle.getId() == id){
+                return quadrangle;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public SortedSet<Long> getSetId() {
+        SortedSet<Long> setId = new TreeSet<>();
+        for(Quadrangle quadrangle: storage){
+            setId.add(quadrangle.getId());
+        }
+        return setId;
     }
 
     @Override
@@ -49,22 +64,37 @@ public class QuadrangleRepository implements Repository<Quadrangle>{
     }
 
     @Override
-    public void update(Quadrangle oldQuadrangle, Quadrangle newQuadrangle) throws DAOException {
+    public void update(Quadrangle oldQuadrangle, Quadrangle newQuadrangle) throws RepositoryException {
         if(storage.contains(oldQuadrangle)){
             int oldQuadrangleIndex = storage.indexOf(oldQuadrangle);
             storage.set(oldQuadrangleIndex, newQuadrangle);
         } else {
-            throw new DAOException("Not correct oldPerson");
+            throw new RepositoryException("Not correct oldQuadrangle");
         }
     }
 
     @Override
-    public void remove(long id) {
+    public void update(long id, Quadrangle newT) throws RepositoryException {
+        try {
+            storage.set(storage.indexOf(get(id)), newT);
+        } catch (NullPointerException e){
+            throw new RepositoryException("Incorrect key in method update QuadrangleRepository");
+        }
+    }
+
+    @Override
+    public boolean remove(long id) {
         for(Quadrangle quadrangle: storage){
             if(quadrangle.getId() == id){
-                storage.remove(quadrangle); //TODO: удалить регистратор
-                break;
+                storage.remove(quadrangle);
+                return true;
             }
         }
+        return false;
+    }
+
+    @Override
+    public int findSize() {
+        return storage.size();
     }
 }

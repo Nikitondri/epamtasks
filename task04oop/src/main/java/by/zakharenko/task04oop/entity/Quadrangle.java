@@ -1,15 +1,22 @@
 package by.zakharenko.task04oop.entity;
 
+import by.zakharenko.task04oop.service.exception.ServiceException;
+import by.zakharenko.task04oop.service.observer.Observable;
+import by.zakharenko.task04oop.service.observer.Observer;
+import by.zakharenko.task04oop.service.observer.QuadrangleEvent;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Quadrangle {
+public class Quadrangle implements Observable<QuadrangleEvent> {
     private long id;
     private String name;
     private Point pointA;
     private Point pointB;
     private Point pointC;
     private Point pointD;
-    private QuadrangleType type;
+    private final List<Observer<QuadrangleEvent>> observers = new ArrayList<>();
 
     public Quadrangle(String newName, Point newPointA, Point newPointB, Point newPointC, Point newPointD) {
         id = 0;
@@ -29,6 +36,15 @@ public class Quadrangle {
         pointD = newPointD;
     }
 
+    public Quadrangle(long id, String name, Point pointA, Point pointB, Point pointC, Point pointD) {
+        this.id = id;
+        this.name = name;
+        this.pointA = pointA;
+        this.pointB = pointB;
+        this.pointC = pointC;
+        this.pointD = pointD;
+    }
+
     public Quadrangle(){ }
 
     public long getId() {
@@ -37,6 +53,7 @@ public class Quadrangle {
 
     public void setId(long id) {
         this.id = id;
+        notifyObservers();
     }
 
     public String getName() {
@@ -53,6 +70,7 @@ public class Quadrangle {
 
     public void setPointA(Point pointA) {
         this.pointA = pointA;
+        notifyObservers();
     }
 
     public Point getPointB() {
@@ -61,6 +79,7 @@ public class Quadrangle {
 
     public void setPointB(Point pointB) {
         this.pointB = pointB;
+        notifyObservers();
     }
 
     public Point getPointC() {
@@ -69,6 +88,7 @@ public class Quadrangle {
 
     public void setPointC(Point pointC) {
         this.pointC = pointC;
+        notifyObservers();
     }
 
     public Point getPointD() {
@@ -77,14 +97,7 @@ public class Quadrangle {
 
     public void setPointD(Point pointD) {
         this.pointD = pointD;
-    }
-
-    public QuadrangleType getType() {
-        return type;
-    }
-
-    public void setType(QuadrangleType type) {
-        this.type = type;
+        notifyObservers();
     }
 
     @Override
@@ -110,5 +123,26 @@ public class Quadrangle {
                 ", pointC=" + pointC +
                 ", pointD=" + pointD +
                 '}';
+    }
+
+    @Override
+    public void subscribe(Observer<QuadrangleEvent> observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void unsubscribe(Observer<QuadrangleEvent> observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        observers.forEach(observer -> {
+            try {
+                observer.update(new QuadrangleEvent(this));
+            } catch (ServiceException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

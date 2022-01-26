@@ -1,7 +1,7 @@
 package by.zakharenko.task04oop.repository.specification;
 
 public class NotSpecification<T> extends CompositeSpecification<T> {
-    private Specification<T> other;
+    private final Specification<T> other;
 
     public NotSpecification(Specification<T> newOther){
         other = newOther;

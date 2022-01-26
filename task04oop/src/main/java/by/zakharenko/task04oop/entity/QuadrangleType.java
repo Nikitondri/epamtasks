@@ -5,5 +5,6 @@ public enum QuadrangleType {
     SQUARE,
     RECTANGLE,
     RHOMBUS,
-    TRAPEZE
+    TRAPEZE,
+    PARALLELOGRAM
 }

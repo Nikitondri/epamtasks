@@ -31,12 +31,14 @@ class PointServiceImplTest {
                 new Point(-5, -2),
                 new Point(5, -1),
                 new Point(0, 0),
-                new Point(0.5, 0),
+                new Point(0.5, 0),//7
                 new Point(-1, 1),
                 new Point(0, 5),
-                new Point(0, 1),
+                new Point(0, 1),//10
                 new Point(2, 1),
-                new Point(2, 2)
+                new Point(2, 2),
+                new Point(0, -1),//13
+                new Point(-0.5, 0)
         ));
     }
 
@@ -88,5 +90,21 @@ class PointServiceImplTest {
     @MethodSource("isOnOneLineData")
     void isOnOneLineTest(Point pointA, Point pointB, Point pointC, boolean expected){
         Assertions.assertEquals(expected, pointService.isOnOneLine(pointA, pointB, pointC));
+    }
+
+    public static Stream<Arguments> isSegmentsIntersectData(){
+        return Stream.of(
+                Arguments.of(list.get(0), list.get(3), list.get(1), list.get(2), true),
+                Arguments.of(list.get(0), list.get(1), list.get(2), list.get(3), false),
+                Arguments.of(list.get(0), list.get(12), list.get(1), list.get(3), false),
+                Arguments.of(list.get(0), list.get(12), list.get(1), list.get(2), true),
+                Arguments.of(list.get(10), list.get(13), list.get(7), list.get(14), true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("isSegmentsIntersectData")
+    void isSegmentsIntersectTest(Point pointA, Point pointB, Point pointC, Point pointD, boolean expected){
+        Assertions.assertEquals(expected, pointService.isSegmentsIntersect(pointA, pointB, pointC, pointD));
     }
 }

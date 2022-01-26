@@ -17,21 +17,24 @@ public class ParserQuadrangleServiceImpl implements ParserService<Quadrangle> {
 
     @Override
     public List<Quadrangle> parse(List<String> lines) {
-        ValidatorService validatorService = ServiceFactory.getInstance().getValidatorQuadrangleService();
+        ValidatorService<Quadrangle> validatorService = ServiceFactory.getInstance().getValidatorQuadrangleService();
         List<String> correctLines = lines.stream().filter(validatorService::isCorrectLine).collect(Collectors.toList());
         logger.info("Correct lines: {}", correctLines.size());
         List<Quadrangle> list = new ArrayList<>();
         for(String line: correctLines){
             String[] params = line.split("\\s+");
-            list.add(new Quadrangle(
+            Quadrangle quadrangle = new Quadrangle(
                     params[0],
                     new Point(Double.parseDouble(params[1]), Double.parseDouble(params[2])),
                     new Point(Double.parseDouble(params[3]), Double.parseDouble(params[4])),
                     new Point(Double.parseDouble(params[5]), Double.parseDouble(params[6])),
                     new Point(Double.parseDouble(params[7]), Double.parseDouble(params[8]))
-            ));
+            );
+            if(validatorService.isCorrectObject(quadrangle)){
+                list.add(quadrangle);
+            }
         }
-        logger.trace("Successfully parse");
+        logger.info("Correct quadrangles: {}", list.size());
         return list;
     }
 }
