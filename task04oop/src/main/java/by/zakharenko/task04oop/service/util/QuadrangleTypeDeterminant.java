@@ -5,8 +5,10 @@ import by.zakharenko.task04oop.entity.QuadrangleType;
 import by.zakharenko.task04oop.service.PointService;
 import by.zakharenko.task04oop.service.factory.ServiceFactory;
 
+/** class for defining the type of quadrilateral */
 public class QuadrangleTypeDeterminant {
 
+    /** sides and diagonals of a quadrilateral */
     private final double ab;
     private final double bc;
     private final double cd;
@@ -55,6 +57,12 @@ public class QuadrangleTypeDeterminant {
                 ((x1 - x4) * (y2 - y3) == (y1 - y4) * (x2 - x3) && da != bc);
     }
 
+    /**
+     * a method that determines the type of quadrilateral
+     * @see Quadrangle
+     * @see QuadrangleType
+     * @return type of Quadrangle
+     */
     public QuadrangleType determineType(){
         if(isSquare()){
             return QuadrangleType.SQUARE;

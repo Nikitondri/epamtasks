@@ -7,6 +7,11 @@ import by.zakharenko.task04oop.entity.Quadrangle;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * a repository class that stores logger class objects for {@code @Quadrangle} objects
+ * @see Repository
+ * @see by.zakharenko.task04oop.entity.Quadrangle
+ */
 public class QuadrangleRepository implements Repository<Quadrangle>{
     private static QuadrangleRepository instance;
 
@@ -38,6 +43,8 @@ public class QuadrangleRepository implements Repository<Quadrangle>{
         return null;
     }
 
+    /** a method that returns the set of identifiers
+     * that the objects in the repository have */
     @Override
     public SortedSet<Long> getSetId() {
         SortedSet<Long> setId = new TreeSet<>();
@@ -47,6 +54,11 @@ public class QuadrangleRepository implements Repository<Quadrangle>{
         return setId;
     }
 
+    /**
+     * method for various search of objects from storage
+     * @param specification class objects that inherit from a class {@code CompositeSpecification}
+     * @return list of objects matching the specification
+     */
     @Override
     public List<Quadrangle> findBySpecification(Specification<Quadrangle> specification) {
         List<Quadrangle> quadrangleList = new ArrayList<>();
@@ -61,16 +73,6 @@ public class QuadrangleRepository implements Repository<Quadrangle>{
     @Override
     public List<Quadrangle> sortByComparator(Comparator<Quadrangle> comparator) {
         return new ArrayList<>(storage).stream().sorted(comparator).collect(Collectors.toList());
-    }
-
-    @Override
-    public void update(Quadrangle oldQuadrangle, Quadrangle newQuadrangle) throws RepositoryException {
-        if(storage.contains(oldQuadrangle)){
-            int oldQuadrangleIndex = storage.indexOf(oldQuadrangle);
-            storage.set(oldQuadrangleIndex, newQuadrangle);
-        } else {
-            throw new RepositoryException("Not correct oldQuadrangle");
-        }
     }
 
     @Override

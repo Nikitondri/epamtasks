@@ -12,9 +12,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/** Parser for {@code Quadrangle} class */
 public class ParserQuadrangleServiceImpl implements ParserService<Quadrangle> {
     private final Logger logger = LogManager.getLogger(ParserQuadrangleServiceImpl.class);
 
+    /**
+     * method that selects valid quads from a list of strings
+     * where the parameters for the quad are separated by spaces
+     * @see ValidatorQuadrangleServiceImpl
+     * @see Quadrangle
+     * @param lines List of strings received from reader classes for {@code Quadrangle}
+     * @return list of correct {@code Quadrangle} objects
+     */
     @Override
     public List<Quadrangle> parse(List<String> lines) {
         ValidatorService<Quadrangle> validatorService = ServiceFactory.getInstance().getValidatorQuadrangleService();

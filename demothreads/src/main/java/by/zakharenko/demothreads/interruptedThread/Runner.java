@@ -6,10 +6,10 @@ public class Runner {
         JThread t = new JThread("JThread");
         t.start();
         try{
-            Thread.sleep(150);
+            Thread.sleep(31);
             t.interrupt();
 
-            Thread.sleep(150);
+            Thread.sleep(31);
         }
         catch(InterruptedException e){
             System.out.println("Thread has been interrupted");

@@ -13,8 +13,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * class for calculations related to {@code Quadrangle} class
+ */
 public class QuadrangleCalculateServiceImpl implements QuadrangleCalculateService {
 
+    /** method that calculates the perimeter of a quadrilateral*/
     @Override
     public double findPerimeter(Quadrangle quadrangle) {
         PointService pointService = ServiceFactory.getInstance().getPointService();
@@ -24,6 +28,7 @@ public class QuadrangleCalculateServiceImpl implements QuadrangleCalculateServic
                 pointService.findLength(quadrangle.getPointD(), quadrangle.getPointA());
     }
 
+    /** method that calculates the area of a quadrilateral */
     @Override
     public double findArea(Quadrangle quadrangle) {
         PointService pointService = ServiceFactory.getInstance().getPointService();
@@ -36,6 +41,7 @@ public class QuadrangleCalculateServiceImpl implements QuadrangleCalculateServic
         return 0.25 * Math.sqrt(4 * ac * ac * bd * bd - Math.pow((ab * ab + cd * cd - bc * bc - da * da), 2));
     }
 
+    /** method that determines whether a quadrilateral is convex */
     @Override
     public boolean isConvex(Quadrangle quadrangle) {
         Point pA = quadrangle.getPointA();
@@ -51,6 +57,7 @@ public class QuadrangleCalculateServiceImpl implements QuadrangleCalculateServic
                 (pointC.getX() * (pointA.getY() - pointB.getY()));
     }
 
+    /** a method that determines in which quarters a quadrilateral lies */
     @Override
     public Set<Integer> findQuarters(Quadrangle quadrangle) {
         PointService pointService = ServiceFactory.getInstance().getPointService();
@@ -68,6 +75,12 @@ public class QuadrangleCalculateServiceImpl implements QuadrangleCalculateServic
         return quarters;
     }
 
+    /**
+     * a method that determines what type a quadrilateral is
+     * @see Quadrangle
+     * @see QuadrangleType
+     * @return quadrilateral type
+     */
     @Override
     public QuadrangleType determineType(Quadrangle quadrangle) {
         QuadrangleTypeDeterminant determinant = new QuadrangleTypeDeterminant(quadrangle);

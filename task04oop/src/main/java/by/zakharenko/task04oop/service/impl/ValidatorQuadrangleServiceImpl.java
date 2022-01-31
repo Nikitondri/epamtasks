@@ -8,11 +8,18 @@ import by.zakharenko.task04oop.service.factory.ServiceFactory;
 
 public class ValidatorQuadrangleServiceImpl implements ValidatorService<Quadrangle> {
 
+    /** method for validating the received string */
     @Override
     public boolean isCorrectLine(String line) {
         return line.matches("\\w+(\\s+\\d+\\.\\d+){8}");
     }
 
+    /**
+     * a method that checks the validity of an {@code Quadrangle} object
+     * checks if the points do not lie on the same line
+     * eliminates the intersection of segments
+     * @see PointService
+     */
     @Override
     public boolean isCorrectObject(Quadrangle quadrangle) {
         PointService pointService = ServiceFactory.getInstance().getPointService();

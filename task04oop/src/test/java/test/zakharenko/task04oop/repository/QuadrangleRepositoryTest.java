@@ -1,60 +1,66 @@
 package test.zakharenko.task04oop.repository;
 
-import by.zakharenko.task04oop.repository.QuadrangleRepository;
-import by.zakharenko.task04oop.repository.specification.Specification;
-import by.zakharenko.task04oop.repository.specification.quadrangle.FindSpecificationByQuadrangleId;
-import by.zakharenko.task04oop.repository.specification.quadrangle.FindSpecificationByQuadrangleLessId;
-import by.zakharenko.task04oop.repository.specification.quadrangle.FindSpecificationByQuadrangleMoreId;
-import by.zakharenko.task04oop.repository.specification.quadrangle.FindSpecificationByQuadrangleName;
 import by.zakharenko.task04oop.entity.Point;
 import by.zakharenko.task04oop.entity.Quadrangle;
+import by.zakharenko.task04oop.repository.QuadrangleRepository;
+import by.zakharenko.task04oop.repository.Repository;
+import by.zakharenko.task04oop.repository.specification.Specification;
+import by.zakharenko.task04oop.repository.specification.quadrangle.SpecificationByQuadrangleLessId;
+import by.zakharenko.task04oop.repository.specification.quadrangle.SpecificationByQuadrangleMoreId;
+import by.zakharenko.task04oop.repository.specification.quadrangle.SpecificationByQuadrangleId;
+import by.zakharenko.task04oop.repository.specification.quadrangle.SpecificationByQuadrangleName;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Stream;
 
 class QuadrangleRepositoryTest {
-    private static Stream<Arguments> dayOfWeekData(){
+    private static Repository<Quadrangle> repository;
+
+    @BeforeAll
+    public static void init(){
+        repository = QuadrangleRepository.getInstance();
+        repository.add(new Quadrangle(1, "Quadrangle99", new Point(1, 1), new Point(1, 3), new Point(3, 3), new Point(3, 1)));
+        repository.add(new Quadrangle(2, "Quadrangle02", new Point(1, 1), new Point(1, 5), new Point(10, 5), new Point(10, 1)));
+        repository.add(new Quadrangle(3, "Quadrangle03", new Point(1, 1), new Point(3, 3), new Point(5, 3), new Point(6, 1)));
+        repository.add(new Quadrangle(4, "Quadrangle04", new Point(1, 1), new Point(6, 5), new Point(3, 8), new Point(4, 4)));
+        repository.add(new Quadrangle(5, "Quadrangle05", new Point(1, 1), new Point(4, 3), new Point(8, 3), new Point(5, 1)));
+        repository.add(new Quadrangle(6, "Quadrangle06", new Point(3, 1), new Point(2, 4), new Point(3, 7), new Point(4, 4)));
+    }
+
+
+    private static Stream<Arguments> findBySpecificationData(){
         return Stream.of(
-                Arguments.of(1, 1)
+                Arguments.of(new SpecificationByQuadrangleId(1), new ArrayList<>(Collections.singletonList(
+                        repository.get(1)
+                ))),
+                Arguments.of(new SpecificationByQuadrangleName("Quadrangle04"), new ArrayList<>(Collections.singletonList(
+                        repository.get(4)
+                ))),
+                Arguments.of(
+                        new SpecificationByQuadrangleMoreId(2).and(new SpecificationByQuadrangleLessId(5)),
+                        new ArrayList<>(Arrays.asList(
+                                repository.get(3),
+                                repository.get(4)
+                        ))
+                ),
+                Arguments.of(new SpecificationByQuadrangleMoreId(3),
+                        new ArrayList<>(Arrays.asList(
+                                repository.get(4),
+                                repository.get(5),
+                                repository.get(6)
+                        ))
+                )
         );
     }
 
     @ParameterizedTest
-    @MethodSource("dayOfWeekData")
-    void dayOfWeekTest(int x, int y){
-        Quadrangle quadrangle1 = new Quadrangle("1", new Point(1, 1), new Point(2, 2), new Point(3, 3), new Point(1, 1));
-        Quadrangle quadrangle2 = new Quadrangle("3", new Point(1, 1), new Point(2, 2), new Point(3, 3), new Point(1, 1));
-        Quadrangle quadrangle3 = new Quadrangle("3", new Point(1, 1), new Point(2, 2), new Point(3, 3), new Point(1, 1));
-        Quadrangle quadrangle4 = new Quadrangle("4", new Point(1, 1), new Point(2, 2), new Point(3, 3), new Point(1, 1));
-        quadrangle1.setId(10);
-        quadrangle2.setId(2);
-        quadrangle3.setId(3);
-        quadrangle4.setId(1);
-        QuadrangleRepository repo = QuadrangleRepository.getInstance();
-        repo.add(quadrangle1);
-        repo.add(quadrangle2);
-        repo.add(quadrangle3);
-        repo.add(quadrangle4);
-        Specification<Quadrangle> specification = new FindSpecificationByQuadrangleName("3");
-        Specification<Quadrangle> specification1 = new FindSpecificationByQuadrangleId(3);
-        Specification<Quadrangle> specification2 = new FindSpecificationByQuadrangleMoreId(1);
-        Specification<Quadrangle> specification3 = new FindSpecificationByQuadrangleLessId(4);
-
-        Comparator<Quadrangle> comparator = new Comparator<Quadrangle>() {
-            @Override
-            public int compare(Quadrangle o1, Quadrangle o2) {
-                return (int)(o1.getId() - o2.getId());
-            }
-        };
-        List<Quadrangle> list = repo.sortByComparator(comparator);
-        for(Quadrangle q: list){
-            System.out.println(q);
-        }
-        Assertions.assertEquals(x, y);
+    @MethodSource("findBySpecificationData")
+    void findBySpecificationTest(Specification<Quadrangle> specification, List<Quadrangle> expected){
+        Assertions.assertEquals(expected, repository.findBySpecification(specification));
     }
 }

@@ -7,6 +7,12 @@ import by.zakharenko.task04oop.repository.specification.Specification;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * a repository class that stores logger class objects for {@code @QuadrangleRegistrar} objects
+ * @see Repository
+ * @see by.zakharenko.task04oop.entity.Quadrangle
+ * @see QuadrangleRegistrar
+ */
 public class QuadrangleRegistrarRepository implements Repository<QuadrangleRegistrar>{
     private static QuadrangleRegistrarRepository instance;
 
@@ -16,6 +22,7 @@ public class QuadrangleRegistrarRepository implements Repository<QuadrangleRegis
         storage = new ArrayList<>();
     }
 
+    /** thread-unsafe variant of the singleton pattern */
     public static QuadrangleRegistrarRepository getInstance(){
         if(instance == null){
             instance = new QuadrangleRegistrarRepository();
@@ -33,6 +40,8 @@ public class QuadrangleRegistrarRepository implements Repository<QuadrangleRegis
         return null;
     }
 
+    /** a method that returns the set of identifiers
+     * that the objects in the repository have */
     @Override
     public SortedSet<Long> getSetId() {
         SortedSet<Long> setId = new TreeSet<>();
@@ -47,6 +56,11 @@ public class QuadrangleRegistrarRepository implements Repository<QuadrangleRegis
         storage.add(quadrangleRegistrar);
     }
 
+    /**
+     * method for various search of objects from storage
+     * @param specification class objects that inherit from a class {@code CompositeSpecification}
+     * @return list of objects matching the specification
+     */
     @Override
     public List<QuadrangleRegistrar> findBySpecification(Specification<QuadrangleRegistrar> specification) {
         List<QuadrangleRegistrar> quadrangleRegistrarList = new ArrayList<>();
@@ -61,16 +75,6 @@ public class QuadrangleRegistrarRepository implements Repository<QuadrangleRegis
     @Override
     public List<QuadrangleRegistrar> sortByComparator(Comparator<QuadrangleRegistrar> comparator) {
         return new ArrayList<>(storage).stream().sorted(comparator).collect(Collectors.toList());
-    }
-
-    @Override
-    public void update(QuadrangleRegistrar oldRegistrar, QuadrangleRegistrar newRegistrar) throws RepositoryException {
-        if(storage.contains(oldRegistrar)){
-            int oldQuadrangleIndex = storage.indexOf(oldRegistrar);
-            storage.set(oldQuadrangleIndex, newRegistrar);
-        } else {
-            throw new RepositoryException("Not correct oldRegistrar");
-        }
     }
 
     @Override

@@ -24,7 +24,20 @@ import org.apache.commons.io.FilenameUtils;
 
 import java.util.List;
 
+/**
+ * a class that combines actions for operations related to a {@code Quadrangle}
+ */
 public class QuadrangleActionServiceImpl implements QuadrangleActionService {
+
+    /**
+     * a method that adds quads read from a file to the repository, doing validation
+     * @see Quadrangle
+     * @see QuadrangleRegistrar
+     * @see ParserQuadrangleServiceImpl
+     * @see ReaderDAO
+     * @param path path to file
+     * @throws ServiceException in case of error while executing methods
+     */
     @Override
     public void addQuadranglesFromFile(String path) throws ServiceException {
         ParserService<Quadrangle> parser = ServiceFactory.getInstance().getParserQuadrangleService();
@@ -42,6 +55,13 @@ public class QuadrangleActionServiceImpl implements QuadrangleActionService {
         }
     }
 
+    /**
+     * a method that creates a comparator and calls a method to sort the quads
+     * @see QuadrangleComparatorType
+     * @see by.zakharenko.task04oop.service.comparator.QuadrangleComparator
+     * @param type sort type
+     * @return sorted list
+     */
     @Override
     public List<Quadrangle> sort(QuadrangleComparatorType type) {
         Repository<Quadrangle> repository = QuadrangleRepository.getInstance();
@@ -80,6 +100,15 @@ public class QuadrangleActionServiceImpl implements QuadrangleActionService {
         return QuadrangleRepository.getInstance().get(id);
     }
 
+    /**
+     * method that returns the computed quad parameter stored in the logger
+     * @see Quadrangle
+     * @see QuadrangleRegistrar
+     * @see Repository
+     * @param id quadrangles id
+     * @param parameterType parameter to be returned
+     * @return required parameter
+     */
     @Override
     public String findParameter(long id, String parameterType) throws ServiceException {
         QuadrangleRegistrar registrar = QuadrangleRegistrarRepository.getInstance().get(id);

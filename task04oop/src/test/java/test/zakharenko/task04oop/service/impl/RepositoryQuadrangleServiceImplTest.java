@@ -89,4 +89,27 @@ public class RepositoryQuadrangleServiceImplTest {
     void removeTest(long id, boolean expected) {
         Assertions.assertEquals(expected, repositoryService.remove(id));
     }
+
+    public static Stream<Arguments> addListData(){
+        return Stream.of(
+                Arguments.of(
+                        new ArrayList<>(Arrays.asList(
+                                list.get(0),
+                                list.get(1),
+                                list.get(2)
+                        )),
+                        new ArrayList<>(Arrays.asList(
+                                1,
+                                2,
+                                3
+                        ))
+                )
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("addListData")
+    void addListTest(List<Quadrangle> quadrangles, List<Long> expected) throws ServiceException {
+        Assertions.assertEquals(expected.toString(), repositoryService.addList(quadrangles).toString());
+    }
 }

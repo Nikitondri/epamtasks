@@ -9,9 +9,18 @@ import by.zakharenko.task04oop.service.exception.ServiceException;
 import by.zakharenko.task04oop.service.factory.ServiceFactory;
 import by.zakharenko.task04oop.service.observer.Observer;
 import by.zakharenko.task04oop.service.observer.QuadrangleEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class QuadrangleObserverImpl implements Observer<QuadrangleEvent> {
+    private final Logger logger = LogManager.getLogger(QuadrangleObserverImpl.class);
+
+    /**
+     * a method that implements the recalculation of the parameters
+     * stored in the registrar for the quad
+     * @param quadrangleEvent class to track change for quadrangle
+     */
     @Override
     public void update(QuadrangleEvent quadrangleEvent) throws ServiceException {
         Quadrangle quadrangle = quadrangleEvent.getSource();
@@ -28,6 +37,7 @@ public class QuadrangleObserverImpl implements Observer<QuadrangleEvent> {
         registrar.setType(service.determineType(quadrangle));
         try {
             QuadrangleRegistrarRepository.getInstance().update(id, registrar);
+            logger.trace("Recalculated quadrilateral parameters with id: {}", id);
         } catch (RepositoryException e) {
             throw new ServiceException(e);
         }

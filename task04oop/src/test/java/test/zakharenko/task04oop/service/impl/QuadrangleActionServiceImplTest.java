@@ -45,7 +45,7 @@ public class QuadrangleActionServiceImplTest {
                         "Quadrangle04",
                         new Point(1.0, 1.0),
                         new Point(6.0, 5.0),
-                        new Point(3.0, 7.0),
+                        new Point(3.0, 8.0),
                         new Point(4.0, 4.0)
                 ))
         );

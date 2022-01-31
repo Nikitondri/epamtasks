@@ -3,18 +3,29 @@ package by.zakharenko.task04oop.service.impl;
 import by.zakharenko.task04oop.entity.Point;
 import by.zakharenko.task04oop.service.PointService;
 
+/**
+ * class for calculations related to {@code Point} class objects
+ * @see Point
+ * @see PointService
+ */
 public class PointServiceImpl implements PointService {
     public static final int FIRST_QUARTER = 1;
     public static final int SECOND_QUARTER = 2;
     public static final int THIRD_QUARTER = 3;
     public static final int FOURTH_QUARTER = 4;
 
+    /** a method that calculates the distance between two points */
     @Override
     public double findLength(Point pointA, Point pointB) {
         return Math.sqrt((pointB.getX() - pointA.getX()) * (pointB.getX() - pointA.getX()) +
                 (pointB.getY() - pointA.getY()) * (pointB.getY() - pointA.getY()));
     }
 
+    /**
+     * a method that calculates which quarter a point lies in
+     * @param point point
+     * @return quarter number or 0 if the point lies on the axis
+     */
     @Override
     public int findQuarter(Point point) {
         if(point.getX() > 0 && point.getY() > 0){
@@ -29,12 +40,21 @@ public class PointServiceImpl implements PointService {
         return 0;
     }
 
+    /** method to determine if three points lie on the same line */
     @Override
     public boolean isOnOneLine(Point pointA, Point pointB, Point pointC) {
         return ((pointC.getX() - pointA.getX()) * (pointB.getY() - pointA.getY())) ==
                 ((pointC.getY() - pointA.getY()) * (pointB.getX() - pointA.getX()));
     }
 
+    /**
+     * a method that determines whether segments given by points intersect
+     * @param pointA start of the first segment
+     * @param pointB end of the first segment
+     * @param pointC start of the second segment
+     * @param pointD end of the second segment
+     * @return boolean value
+     */
     @Override
     public boolean isSegmentsIntersect(Point pointA, Point pointB, Point pointC, Point pointD) {
         double x1 = pointA.getX();

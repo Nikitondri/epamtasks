@@ -12,10 +12,12 @@ import java.util.Objects;
 public class Quadrangle implements Observable<QuadrangleEvent> {
     private long id;
     private String name;
+    /** 4 points that belong to a quadrangle */
     private Point pointA;
     private Point pointB;
     private Point pointC;
     private Point pointD;
+    /** a list of observers that perform actions to change class fields */
     private final List<Observer<QuadrangleEvent>> observers = new ArrayList<>();
 
     public Quadrangle(String newName, Point newPointA, Point newPointB, Point newPointC, Point newPointD) {
@@ -100,6 +102,10 @@ public class Quadrangle implements Observable<QuadrangleEvent> {
         notifyObservers();
     }
 
+    public int findObserversSize(){
+        return observers.size();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -125,16 +131,19 @@ public class Quadrangle implements Observable<QuadrangleEvent> {
                 '}';
     }
 
+    /** method that adds observers */
     @Override
     public void subscribe(Observer<QuadrangleEvent> observer) {
         observers.add(observer);
     }
 
+    /** method that removes observers */
     @Override
     public void unsubscribe(Observer<QuadrangleEvent> observer) {
         observers.remove(observer);
     }
 
+    /** method that fires when fields change */
     @Override
     public void notifyObservers() {
         observers.forEach(observer -> {

@@ -11,6 +11,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ReaderJSONDAOImpl implements ReaderDAO {
+
+    /**
+     * Method that reads and returns an array of strings from a JSON file
+     * @param path the path to the file
+     * @return List containing string lines from a file
+     * @throws DAOException in case the file is not found
+     */
     @Override
     public List<String> readFile(String path) throws DAOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

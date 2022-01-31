@@ -4,6 +4,10 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * a class that stores the computed characteristics of objects {@code Quadrangle} class
+ * @see Quadrangle
+ */
 public class QuadrangleRegistrar {
     private long id;
     private double perimeter;

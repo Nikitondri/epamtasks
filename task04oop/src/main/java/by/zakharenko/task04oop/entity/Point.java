@@ -2,7 +2,11 @@ package by.zakharenko.task04oop.entity;
 
 import java.util.Objects;
 
+/**
+ * Point class whose fields contain coordinates in three-dimensional space
+ */
 public class Point {
+    /** coordinates possessed by a point */
     private double x;
     private double y;
 
