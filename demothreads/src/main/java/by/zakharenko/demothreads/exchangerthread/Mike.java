@@ -13,7 +13,7 @@ public class Mike extends Thread {
     public void run() {
         try {
             exchanger.exchange("Hello, I'm Mike");
-            sleep(1000);
+//            sleep(1000);
             exchanger.exchange("I am 19 y.o.");
         } catch (InterruptedException e) {
             e.printStackTrace();

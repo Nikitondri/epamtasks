@@ -1,5 +1,6 @@
 package by.zakharenko.demothreads.reentrantlockthread;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class CountThread implements Runnable{
@@ -19,7 +20,7 @@ public class CountThread implements Runnable{
             for (int i = 1; i < 5; i++) {
                 System.out.printf("%s %d \n", Thread.currentThread().getName(), res.x);
                 res.x++;
-                Thread.sleep(100);
+                TimeUnit.SECONDS.sleep(1);
             }
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
