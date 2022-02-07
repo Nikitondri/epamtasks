@@ -14,6 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class DayOfWeekImpl implements Command {
     private static final String PATH_CALENDAR = "data/year.json";
@@ -32,15 +33,15 @@ public class DayOfWeekImpl implements Command {
      * @throws ControllerException handled on method {@code execute} invocation
      */
     @Override
-    public HashMap<String, Exception> execute(String request) throws ControllerException {
-        HashMap<String, Exception> res = new HashMap<>();
+    public Map<Boolean, String> execute(String request) throws ControllerException {
+        Map<Boolean, String> res = new HashMap<>();
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         CalendarService tariffService = serviceFactory.getCalendarService();
         Creator<MyCalendar> creatorCalendar = new CalendarCreator();
         Creator<Date> creatorDate = new DateCreator();
         try{
             Date date = creatorDate.createFromFile(PATH_DATE);
-            res.put(tariffService.dayOfWeek(creatorCalendar.createFromFile(PATH_CALENDAR), date.getDay(), date.getMonth()), null);
+            res.put(true, tariffService.dayOfWeek(creatorCalendar.createFromFile(PATH_CALENDAR), date.getDay(), date.getMonth()));
             LOGGER.trace("DayOfWeekImpl completed correctly");
         } catch (ServiceException e){
             throw new ControllerException(e);

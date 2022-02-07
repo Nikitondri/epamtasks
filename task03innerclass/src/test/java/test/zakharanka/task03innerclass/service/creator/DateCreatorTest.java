@@ -17,21 +17,30 @@ class DateCreatorTest {
         return Stream.of(
                 Arguments.of(MyCalendar.getInstance(2022), 0, 1, "сб"),
                 Arguments.of(MyCalendar.getInstance(2022), 0, 3, "пн"),
-                Arguments.of(MyCalendar.getInstance(2023), 0, 1, "вс"),
-                Arguments.of(MyCalendar.getInstance(2022), 12, 1, CalendarServiceImpl.INCORRECT_DATA),
-                Arguments.of(MyCalendar.getInstance(2022), 2, 29, CalendarServiceImpl.INCORRECT_DATA)
+                Arguments.of(MyCalendar.getInstance(2023), 0, 1, "вс")
         );
     }
 
     @ParameterizedTest
     @MethodSource("dayOfWeekData")
-    void dayOfWeekTest(MyCalendar arg, int month, int day, String expected){
+    void dayOfWeekTest(MyCalendar arg, int month, int day, String expected) throws ServiceException {
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         CalendarService calendarService = serviceFactory.getCalendarService();
-        try {
-            Assertions.assertEquals(calendarService.dayOfWeek(arg, day, month), expected);
-        } catch (ServiceException e) {
-            Assertions.assertEquals(expected, e.getMessage());
-        }
+        Assertions.assertEquals(calendarService.dayOfWeek(arg, day, month), expected);
+    }
+
+    private static Stream<Arguments> dayOfWeekExceptionData(){
+        return Stream.of(
+                Arguments.of(MyCalendar.getInstance(2022), 12, 1),
+                Arguments.of(MyCalendar.getInstance(2022), 2, 29)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("dayOfWeekExceptionData")
+    void dayOfWeekExceptionTest(MyCalendar arg, int month, int day){
+        ServiceFactory serviceFactory = ServiceFactory.getInstance();
+        CalendarService calendarService = serviceFactory.getCalendarService();
+        Assertions.assertThrows(ServiceException.class, () -> calendarService.dayOfWeek(arg, day, month));
     }
 }

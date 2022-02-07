@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
-
+import java.util.Map;
 
 
 public class GenerateTariffsImpl implements Command {
@@ -29,13 +29,13 @@ public class GenerateTariffsImpl implements Command {
      * @throws ControllerException handled on method {@code execute} invocation
      */
     @Override
-    public HashMap<String, Exception> execute(String request) throws ControllerException {
-        HashMap<String, Exception> res = new HashMap<>();
+    public Map<Boolean, String> execute(String request) throws ControllerException {
+        Map<Boolean, String> res = new HashMap<>();
         Generator generator = new TariffListGenerator();
         try{
             LOGGER.trace("GenerateTariffsImpl completed correctly");
             generator.generateRandomDataToFile();
-            res.put("Successfully", null);
+            res.put(true, "Successfully");
         } catch (ServiceException e){
             throw new ControllerException(e);
         }

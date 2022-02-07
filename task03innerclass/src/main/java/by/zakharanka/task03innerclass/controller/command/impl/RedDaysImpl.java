@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class RedDaysImpl implements Command {
     private static final String PATH_CALENDAR = "data/year.json";
@@ -29,13 +30,13 @@ public class RedDaysImpl implements Command {
      * @throws ControllerException handled on method {@code execute} invocation
      */
     @Override
-    public HashMap<String, Exception> execute(String request) throws ControllerException {
-        HashMap<String, Exception> res = new HashMap<>();
+    public Map<Boolean, String> execute(String request) throws ControllerException {
+        Map<Boolean, String> res = new HashMap<>();
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         CalendarService tariffService = serviceFactory.getCalendarService();
         Creator<MyCalendar> creatorCalendar = new CalendarCreator();
         try{
-            res.put(tariffService.findRedDays(creatorCalendar.createFromFile(PATH_CALENDAR)), null);
+            res.put(true, tariffService.findRedDays(creatorCalendar.createFromFile(PATH_CALENDAR)));
             LOGGER.trace("RedDaysImpl completed correctly");
         } catch (ServiceException e){
             throw new ControllerException(e);

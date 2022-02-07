@@ -14,14 +14,11 @@ public class OutputData {
      * on unsuccessful execution of the command, the result is the value containing the exception
      * @param result {@code Map} object with the result of the command
      */
-    public void outputResult(Map<String, Exception> result){
-        for(String key: result.keySet()){
-            if(key != null){
-                output(key);
-            } else {
-                output("Error");
-                output(result.get(null).toString());
-            }
+    public void outputResult(Map<Boolean, String> result){
+        if (result.containsKey(true)) {
+            output(result.get(true));
+        } else {
+            output(result.get(false));
         }
     }
 }

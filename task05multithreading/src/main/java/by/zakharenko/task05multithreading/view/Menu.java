@@ -4,9 +4,6 @@ import by.zakharenko.task05multithreading.controller.Controller;
 import by.zakharenko.task05multithreading.controller.ControllerImpl;
 import by.zakharenko.task05multithreading.entity.Data;
 
-import java.util.Map;
-
-
 /**
  * a class that receives information from the user and outputs the response
  */
@@ -18,17 +15,6 @@ public class Menu {
 
     public Menu(){
         outputData = new OutputData();
-    }
-
-    private void outputResult(Data<Map<Boolean, String>> resultData){
-        for(Map<Boolean, String> result: resultData.getList()) {
-            if (result.containsKey(true)) {
-                outputData.output(result.get(true));
-            } else {
-                outputData.output(result.get(false));
-            }
-            outputData.output("\n\n\n");
-        }
     }
 
     /**
@@ -47,6 +33,6 @@ public class Menu {
             commandNameData.put(request.remove(0));
             requestData.put(request);
         }
-        outputResult(controllerImpl.executeTask(commandNameData, requestData));
+        outputData.outputResult(controllerImpl.executeTask(commandNameData, requestData));
     }
 }

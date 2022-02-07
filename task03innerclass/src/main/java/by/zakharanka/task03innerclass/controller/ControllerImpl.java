@@ -21,15 +21,15 @@ public class ControllerImpl implements Controller{
      * @param commandName user-selected command
      * @return {@code HashMap} object including execution result
      */
-    public Map<String, Exception> executeAction(String commandName) {
+    public Map<Boolean, String> executeAction(String commandName) {
         Command executionCommand;
         executionCommand = provider.getCommand(commandName);
-        HashMap<String, Exception> response = new HashMap<>();
+        Map<Boolean, String> response = new HashMap<>();
         try {
             response = executionCommand.execute(commandName);
         } catch(ControllerException e) {
             LOGGER.error(e);
-            response.put(null, e);
+            response.put(false, e.getMessage());
         }
         return response;
     }

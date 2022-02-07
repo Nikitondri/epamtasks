@@ -25,24 +25,19 @@ class TariffServiceImplTest {
 
     private static Stream<Arguments> totalNumberClientsData(){
         return Stream.of(
-                Arguments.of("tariff_service_impl_test_data/listTariff.json", "15"),
-                Arguments.of("tariff_service_impl_test_data/InCorrectPath.json", "Error creator"),
+                Arguments.of("tariff_service_impl_test_data/listTariff.json", "14"),
                 Arguments.of("tariff_service_impl_test_data/notClientList.json", "0")
         );
     }
 
     @ParameterizedTest
     @MethodSource("totalNumberClientsData")
-    void totalNumberClientsTest(String arg, String expected){
-        try {
-            Creator<ListTariff<Tariff>> creator = new TariffListCreator();
-            ListTariff<Tariff> list = creator.createFromFile(arg);
-            ServiceFactory serviceFactory = ServiceFactory.getInstance();
-            TariffService tariffService = serviceFactory.getTariffService();
-            Assertions.assertEquals(Objects.requireNonNullElseGet(tariffService.totalNumberClients(list), String::new), expected);
-        } catch (ServiceException e){
-            Assertions.assertEquals(expected, e.getMessage());
-        }
+    void totalNumberClientsTest(String arg, String expected) throws ServiceException {
+        Creator<ListTariff<Tariff>> creator = new TariffListCreator();
+        ListTariff<Tariff> list = creator.createFromFile(arg);
+        ServiceFactory serviceFactory = ServiceFactory.getInstance();
+        TariffService tariffService = serviceFactory.getTariffService();
+        Assertions.assertEquals(Objects.requireNonNullElseGet(tariffService.totalNumberClients(list), String::new), expected);
     }
 
     private static Stream<Arguments> findTariffData(){
@@ -52,23 +47,18 @@ class TariffServiceImplTest {
         list.addTariff(new LimitTariff("tariffLimit1", listClient, 550, 500, 500, 300, 2, 2, 3));
         return Stream.of(
                 Arguments.of("tariff_service_impl_test_data/listTariff.json", "tariff_service_impl_test_data/parameters.json",  list.toString()),
-                Arguments.of("tariff_service_impl_test_data/InCorrectPath.json", "tariff_service_impl_test_data/parameters.json", "Error creator"),
                 Arguments.of("tariff_service_impl_test_data/listTariff.json", "tariff_service_impl_test_data/notCorrectParameters.json",  "class java.util.ArrayList:\n\n"));
     }
 
     @ParameterizedTest
     @MethodSource("findTariffData")
-    void findTariffTest(String arg, String path, String expected){
-        try {
-            Creator<ListTariff<Tariff>> creator = new TariffListCreator();
-            Creator<ParametersList> parametersListCreator = new ParametersListCreator();
-            ListTariff<Tariff> list = creator.createFromFile(arg);
-            ParametersList parametersList = parametersListCreator.createFromFile(path);
-            ServiceFactory serviceFactory = ServiceFactory.getInstance();
-            TariffService tariffService = serviceFactory.getTariffService();
-            Assertions.assertEquals(Objects.requireNonNullElseGet(tariffService.findTariff(list, parametersList), String::new), expected);
-        } catch (ServiceException e){
-            Assertions.assertEquals(expected, e.getMessage());
-        }
+    void findTariffTest(String arg, String path, String expected) throws ServiceException {
+        Creator<ListTariff<Tariff>> creator = new TariffListCreator();
+        Creator<ParametersList> parametersListCreator = new ParametersListCreator();
+        ListTariff<Tariff> list = creator.createFromFile(arg);
+        ParametersList parametersList = parametersListCreator.createFromFile(path);
+        ServiceFactory serviceFactory = ServiceFactory.getInstance();
+        TariffService tariffService = serviceFactory.getTariffService();
+        Assertions.assertEquals(Objects.requireNonNullElseGet(tariffService.findTariff(list, parametersList), String::new), expected);
     }
 }

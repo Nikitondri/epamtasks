@@ -15,6 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class FindTariffImpl implements Command {
     private static final String PATH_PARAMETERS = "data/parametersTariff.json";
@@ -33,15 +34,15 @@ public class FindTariffImpl implements Command {
      * @throws ControllerException handled on method {@code execute} invocation
      */
     @Override
-    public HashMap<String, Exception> execute(String request) throws ControllerException {
-        HashMap<String, Exception> res = new HashMap<>();
+    public Map<Boolean, String> execute(String request) throws ControllerException {
+        Map<Boolean, String> res = new HashMap<>();
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         TariffService tariffService = serviceFactory.getTariffService();
         Creator<ListTariff<Tariff>> creatorListTariff = new TariffListCreator();
         Creator<ParametersList> creatorListParameters = new ParametersListCreator();
         try{
             LOGGER.trace("FindTariffImpl completed correctly");
-            res.put(tariffService.findTariff(creatorListTariff.createFromFile(PATH), creatorListParameters.createFromFile(PATH_PARAMETERS)), null);
+            res.put(true, tariffService.findTariff(creatorListTariff.createFromFile(PATH), creatorListParameters.createFromFile(PATH_PARAMETERS)));
         } catch (ServiceException e){
             throw new ControllerException(e);
         }

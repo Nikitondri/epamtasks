@@ -15,15 +15,12 @@ import java.util.stream.Stream;
 
 class ParametersListCreatorTest {
 
-    public static final String ERROR_MESSAGE = "Error creator";
-
     private static Stream<Arguments> data(){
         List<String> list = new ArrayList<>();
         list.add("tariffLimit2");
         list.add("555");
         return Stream.of(
                 Arguments.of("parameters_list_creator_data/parameters.json", new ParametersList(list)),
-                Arguments.of("InCorrectPath.json", new ParametersList()),
                 Arguments.of("parameters_list_creator_data/empty.json", new ParametersList()),
                 Arguments.of("parameters_list_creator_data/incorrectFile.json", new ParametersList())
         );
@@ -31,13 +28,24 @@ class ParametersListCreatorTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    void test(String arg, ParametersList expected){
-        try {
-            ParametersListCreator creator = new ParametersListCreator();
-            ParametersList parametersList = creator.createFromFile(arg);
-            Assertions.assertEquals(Objects.requireNonNullElseGet(parametersList, ParametersList::new).toString(), expected.toString());
-        } catch (ServiceException e){
-            Assertions.assertEquals(ERROR_MESSAGE, e.getMessage());
-        }
+    void test(String arg, ParametersList expected) throws ServiceException {
+        ParametersListCreator creator = new ParametersListCreator();
+        ParametersList parametersList = creator.createFromFile(arg);
+        Assertions.assertEquals(Objects.requireNonNullElseGet(parametersList, ParametersList::new), expected);
+    }
+
+    private static Stream<Arguments> dataException(){
+        return Stream.of(
+                Arguments.of("InCorrectPath.json")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("dataException")
+    void testException(String arg) {
+        ParametersListCreator creator = new ParametersListCreator();
+        Assertions.assertThrows(ServiceException.class, () -> {
+            creator.createFromFile(arg);
+        });
     }
 }

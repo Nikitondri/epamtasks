@@ -17,21 +17,32 @@ class CalendarCreatorTest {
         MyCalendar calendar = MyCalendar.getInstance(2020);
         creator.createRedDays(calendar);
         return Stream.of(
-                Arguments.of("calendar_creator_test_data/2020year.json", calendar.toString()),
-                Arguments.of("calendar_creator_test_data/InCorrectPath.json", CalendarCreator.ERROR),
-                Arguments.of("calendar_creator_test_data/incorrect_data.json", CalendarCreator.ERROR)
+                Arguments.of("calendar_creator_test_data/2020year.json", calendar)
         );
     }
 
     @ParameterizedTest
     @MethodSource("createFromFileData")
-    void createFromFileTest(String arg, String expected){
+    void createFromFileTest(String arg, MyCalendar expected) throws ServiceException {
         Creator<MyCalendar> creator = new CalendarCreator();
-        try {
-            Assertions.assertEquals(expected, creator.createFromFile(arg).toString());
-        } catch (ServiceException e) {
-            Assertions.assertEquals(expected, e.getMessage());
-        }
+        Assertions.assertEquals(expected, creator.createFromFile(arg));
+    }
+
+    private static Stream<Arguments> createFromFileExceptionData(){
+        CalendarCreator creator = new CalendarCreator();
+        MyCalendar calendar = MyCalendar.getInstance(2020);
+        creator.createRedDays(calendar);
+        return Stream.of(
+                Arguments.of("calendar_creator_test_data/InCorrectPath.json"),
+                Arguments.of("calendar_creator_test_data/incorrect_data.json")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("createFromFileExceptionData")
+    void createFromFileExceptionTest(String arg){
+        Creator<MyCalendar> creator = new CalendarCreator();
+        Assertions.assertThrows(ServiceException.class, () -> creator.createFromFile(arg));
     }
 
 }
