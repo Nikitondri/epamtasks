@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/** interpreter pattern for evaluating an expression in postfix form */
 public class Client {
     private static final String EXPRESSION_REGEX = "([<>]+)|([\\d]+)|[()&|~^]";
     private final List<AbstractMathExpression> listExpression;

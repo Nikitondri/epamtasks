@@ -19,6 +19,11 @@ public class ParserToSentence extends BaseParser{
         }
     }
 
+    /**
+     * Parses the text into sentence and calls the next parser from the chain of responsibility
+     * @param text text to parse
+     * @return Composite element that stores sentences
+     */
     @Override
     public TextComponent parse(String text) throws ServiceException {
         TextComponent result = new TextComposite();

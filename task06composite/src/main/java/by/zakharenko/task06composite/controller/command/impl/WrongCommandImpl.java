@@ -6,6 +6,10 @@ import by.zakharenko.task06composite.controller.exception.ControllerException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Class for handling an invalid command exception
+ * @see Command
+ */
 public class WrongCommandImpl implements Command {
     @Override
     public Map<Boolean, String> execute(List<String> request) throws ControllerException {

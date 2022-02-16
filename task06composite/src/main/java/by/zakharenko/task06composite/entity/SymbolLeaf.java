@@ -8,6 +8,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * a class that is a leaf in a composite structure for storing text
+ */
 public class SymbolLeaf implements TextComponent{
     private static final Logger LOGGER = LogManager.getLogger(SymbolLeaf.class);
     private final char symbol;
@@ -24,18 +27,6 @@ public class SymbolLeaf implements TextComponent{
     @Override
     public void add(int index, TextComponent component) {
         LOGGER.log(Level.ERROR, "Can't call a method add on a class SymbolLeaf");
-    }
-
-    @Override
-    public boolean remove(TextComponent component) {
-        LOGGER.log(Level.ERROR, "Can't call a method remove on a class SymbolLeaf");
-        return false;
-    }
-
-    @Override
-    public TextComponent getChild(int index) {
-        LOGGER.log(Level.ERROR, "Can't call a method getChild on a class SymbolLeaf");
-        return null;
     }
 
     @Override

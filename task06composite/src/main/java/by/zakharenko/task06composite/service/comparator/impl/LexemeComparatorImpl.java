@@ -14,6 +14,14 @@ public class LexemeComparatorImpl implements TextComponentComparator {
         ch = newCh;
     }
 
+    /**
+     * the method compares two elements of the composite class in
+     * descending order of the number of occurrences of a character,
+     * and in case of equality - in alphabetical order
+     * @param o1 {@code TextComponent} object
+     * @param o2 {@code TextComponent} object
+     * @return comparison result
+     */
     @Override
     public int compare(TextComponent o1, TextComponent o2) {
         List<TextComponent> lexeme1Symbols = createLexemeSymbols(o1);

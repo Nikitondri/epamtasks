@@ -9,9 +9,11 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
+/** a class that is a node in a composite structure for storing text */
 public class TextComposite implements TextComponent{
     private static final Logger LOGGER = LogManager.getLogger(TextComposite.class);
     private final List<TextComponent> components;
+    /** The text that separates this component from the previous one. */
     private String delimiter;
 
     public TextComposite(){
@@ -35,16 +37,6 @@ public class TextComposite implements TextComponent{
     @Override
     public void add(int index, TextComponent component) {
         components.add(index, component);
-    }
-
-    @Override
-    public boolean remove(TextComponent component) {
-        return components.remove(component);
-    }
-
-    @Override
-    public TextComponent getChild(int index) {
-        return components.get(index);
     }
 
     @Override
@@ -87,7 +79,7 @@ public class TextComposite implements TextComponent{
         try {
             return collector.collect(this);
         } catch (ServiceException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.ERROR, "Error in class TextComposite in method toString");
         }
         return "";
     }

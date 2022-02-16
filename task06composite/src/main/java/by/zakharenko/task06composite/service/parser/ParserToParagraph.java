@@ -18,6 +18,11 @@ public class ParserToParagraph extends BaseParser{
         }
     }
 
+    /**
+     * Parses the text into paragraphs and calls the next parser from the chain of responsibility
+     * @param text text to parse
+     * @return Composite element that stores paragraphs
+     */
     @Override
     public TextComponent parse(String text) throws ServiceException {
         TextComponent result = new TextComposite();

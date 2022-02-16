@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite">
+    <test verbose="2" name="D:/epam/epamtasks/task06composite">
+        <classes>
+            <class name="test.zakharenko.task06composite.controller.command.impl.CollectTextImplTest">
+                <methods>
+                    <include name="executeTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task06composite.controller.command.impl.SortLexemeImplTest">
+                <methods>
+                    <include name="executeTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task06composite.controller.command.impl.SortParagraphImplTest">
+                <methods>
+                    <include name="executeTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task06composite.controller.command.impl.SortWordImplTest">
+                <methods>
+                    <include name="executeTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task06composite.service.impl.TextServiceImplTest">
+                <methods>
+                    <include name="collectText"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task06composite.service.collector.impl.TextComponentCollectorImplTest">
+                <methods>
+                    <include name="collectTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task06composite.service.converter.impl.ConverterRPNImplTest">
+                <methods>
+                    <include name="convertTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task06composite.service.interpreter.math.ClientTest">
+                <methods>
+                    <include name="calculateTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task06composite.service.parser.ParserToParagraphTest">
+                <methods>
+                    <include name="parseTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task06composite.service.parser.ParserToSymbolsTest">
+                <methods>
+                    <include name="parseTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task06composite.dao.impl.ReaderDaoTxtImplTest">
+                <methods>
+                    <include name="readFileTest"/>
+                    <include name="readFileExceptionTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

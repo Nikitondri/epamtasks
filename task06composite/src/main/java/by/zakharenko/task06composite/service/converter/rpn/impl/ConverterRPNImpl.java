@@ -9,6 +9,7 @@ import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/** class for translating an infix expression into a postfix one */
 public class ConverterRPNImpl implements ConverterRPN {
     private static final String EXPRESSION_REGEX = "([<>]+)|([\\d]+)|[()&|~^]";
     private final List<String> stack;
@@ -34,29 +35,26 @@ public class ConverterRPNImpl implements ConverterRPN {
         while (matcher.find()){
             String current = matcher.group();
             if(priority.containsKey(current)){
-                postfixNotation.append(gotOperator(current, priority.get(current))).append(" ");
+                postfixNotation.append(gotOperator(current, priority.get(current)));
             } else if("(".equals(current)){
                 stack.add(0, current);
             } else if(")".equals(current)){
-                postfixNotation.append(gotClosingBracket()).append(" ");
+                postfixNotation.append(gotClosingBracket());
             } else {
-                postfixNotation.append(current);
+                postfixNotation.append(current).append(" ");
             }
         }
         while (!stack.isEmpty()){
             postfixNotation.append(stack.remove(0)).append(" ");
         }
-        return postfixNotation.toString();
+        return postfixNotation.toString().trim();
     }
 
     private String gotOperator(String current, int currentPriority){
         StringBuilder line = new StringBuilder();
         while (!stack.isEmpty()) {
             String top = stack.remove(0);
-            if("(".equals(top)){
-                stack.add(0, top);
-                break;
-            } else if(priority.get(top) < currentPriority){
+            if("(".equals(top) || priority.get(top) < currentPriority){
                 stack.add(0, top);
                 break;
             } else {

@@ -1,5 +1,8 @@
 package by.zakharenko.task06composite.service.parser;
 
+/**
+ * Chain of responsibility pattern for parsing text to store it in a composite structure
+ */
 public abstract class BaseParser implements Parser{
     private Parser next;
 

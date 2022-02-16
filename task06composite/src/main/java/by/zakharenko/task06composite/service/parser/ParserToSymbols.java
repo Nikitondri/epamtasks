@@ -15,6 +15,11 @@ public class ParserToSymbols extends BaseParser{
         super(null);
     }
 
+    /**
+     * the final parser from the chain of responsibilities, which parses the text into characters
+     * @param text text to parse
+     * @return Composite element that stores symbols
+     */
     @Override
     public TextComponent parse(String text) {
         TextComponent result = new TextComposite();

@@ -12,6 +12,15 @@ import java.util.List;
 import java.util.Map;
 
 public class SortWordImpl implements Command {
+    /**
+     * This method parses the text and then sorts the words in each
+     * sentence of the text by length.
+     * @see Command
+     * @see TextComponent
+     * @see TextService
+     * @param request user request
+     * @return {@code Map} object that stores the result of execution
+     */
     @Override
     public Map<Boolean, String> execute(List<String> request) throws ControllerException {
         Map<Boolean, String> result = new HashMap<>();

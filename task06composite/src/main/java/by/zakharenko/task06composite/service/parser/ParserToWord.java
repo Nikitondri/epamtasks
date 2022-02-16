@@ -22,6 +22,11 @@ public class ParserToWord extends BaseParser{
         }
     }
 
+    /**
+     * Parses the text into words, math expressions and marks and calls the next parser from the chain of responsibility
+     * @param text text to parse
+     * @return Composite element that stores words
+     */
     @Override
     public TextComponent parse(String text) throws ServiceException {
         TextComponent result = new TextComposite();

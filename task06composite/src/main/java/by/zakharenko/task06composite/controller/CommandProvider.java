@@ -8,6 +8,13 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.EnumMap;
 
+/**
+ * command provider {@code class}
+ * class for defining the command to be executed
+ * @see Command
+ * @see Controller
+ * @see CommandName
+ */
 public class CommandProvider {
     private final EnumMap<CommandName, Command> repository = new EnumMap<>(CommandName.class);
     static final Logger LOGGER = LogManager.getLogger(CommandProvider.class.getName());
@@ -20,6 +27,13 @@ public class CommandProvider {
         repository.put(CommandName.WRONG_COMMAND, new WrongCommandImpl());
     }
 
+    /**
+     * The method receives data from the user and returns the command being executed
+     * @see CommandName
+     * @see Command
+     * @param name data containing the command from the user
+     * @return an object of a class that implements an {@code interface} {@code Command}
+     */
     Command getCommand(String name){
         CommandName commandName;
         Command command;

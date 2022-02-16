@@ -12,6 +12,16 @@ import java.util.List;
 import java.util.Map;
 
 public class SortLexemeImpl implements Command {
+    /**
+     * This method parses the text and then sorts the tokens
+     * of the given text in descending order by the number
+     * of occurrences of the given character
+     * @see Command
+     * @see TextComponent
+     * @see TextService
+     * @param request user request
+     * @return {@code Map} object that stores the result of execution
+     */
     @Override
     public Map<Boolean, String> execute(List<String> request) throws ControllerException {
         Map<Boolean, String> result = new HashMap<>();

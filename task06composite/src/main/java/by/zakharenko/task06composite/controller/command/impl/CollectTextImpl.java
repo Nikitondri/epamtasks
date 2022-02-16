@@ -12,6 +12,14 @@ import java.util.List;
 import java.util.Map;
 
 public class CollectTextImpl implements Command {
+    /**
+     * This method calls methods that parse the text and then collect the given text back
+     * @see Command
+     * @see TextComponent
+     * @see TextService
+     * @param request user request
+     * @return {@code Map} object that stores the result of execution
+     */
     @Override
     public Map<Boolean, String> execute(List<String> request) throws ControllerException {
         Map<Boolean, String> result = new HashMap<>();

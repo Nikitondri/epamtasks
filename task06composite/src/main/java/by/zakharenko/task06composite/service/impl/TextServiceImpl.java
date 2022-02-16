@@ -20,12 +20,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TextServiceImpl implements TextService {
+
+    /**
+     * assembles the text into a string from the composite structure
+     * @param component composite root element
+     * @return A String containing text
+     */
     @Override
     public String collectText(TextComponent component) throws ServiceException {
         TextComponentCollector collector = new TextComponentCollectorImpl();
         return collector.collect(component);
     }
 
+    /**
+     * sorts the words in the text by length, taking into
+     * account that the words in the composite structure have a nesting level of 4
+     * @param component composite root element
+     * @return A String containing result
+     */
     @Override
     public TextComponent sortWord(TextComponent component) {
         TextComponent result = new TextComposite();
@@ -59,6 +71,12 @@ public class TextServiceImpl implements TextService {
         return listWord;
     }
 
+    /**
+     * sorts the words paragraphs by the number of sentences,
+     * taking into account that the paragraphs in the composite structure have a nesting level of 1
+     * @param component composite root element
+     * @return A String containing result
+     */
     @Override
     public TextComponent sortParagraph(TextComponent component) {
         TextComponent result = new TextComposite();
@@ -70,6 +88,12 @@ public class TextServiceImpl implements TextService {
         return result;
     }
 
+    /**
+     * sorts the tokens in descending order of the number of occurrences of the character,
+     * taking into account that the tokens in the composite structure have a nesting level of 3
+     * @param component composite root element
+     * @return A String containing result
+     */
     @Override
     public TextComponent sortLexemesByOrder(TextComponent component, char symbol) {
         TextComponent result = new TextComposite();
@@ -90,6 +114,12 @@ public class TextServiceImpl implements TextService {
         return result;
     }
 
+    /**
+     * performs the transformation of string text into a composite
+     * structure using parsers that implement a chain of responsibilities
+     * @param path path to text file
+     * @return composite root element
+     */
     @Override
     public TextComponent parseTextFromFile(String path) throws ServiceException {
         ReaderDAO reader = DAOFactory.getInstance().getReaderDAOTxt();

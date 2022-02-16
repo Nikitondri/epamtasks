@@ -18,6 +18,11 @@ public class ParserToLexeme extends BaseParser{
         }
     }
 
+    /**
+     * Parses the text into lexemes and calls the next parser from the chain of responsibility
+     * @param text text to parse
+     * @return Composite element that stores lexemes
+     */
     @Override
     public TextComponent parse(String text) throws ServiceException {
         TextComponent result = new TextComposite();
