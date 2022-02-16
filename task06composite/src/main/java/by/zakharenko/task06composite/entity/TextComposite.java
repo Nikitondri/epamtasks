@@ -2,6 +2,7 @@ package by.zakharenko.task06composite.entity;
 
 import by.zakharenko.task06composite.service.collector.TextComponentCollector;
 import by.zakharenko.task06composite.service.collector.impl.TextComponentCollectorImpl;
+import by.zakharenko.task06composite.service.exception.ServiceException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -83,6 +84,11 @@ public class TextComposite implements TextComponent{
     @Override
     public String toString() {
         TextComponentCollector collector = new TextComponentCollectorImpl();
-        return collector.collect(this);
+        try {
+            return collector.collect(this);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }

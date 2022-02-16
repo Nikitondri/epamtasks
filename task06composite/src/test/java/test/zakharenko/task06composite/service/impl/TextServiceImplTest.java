@@ -4,6 +4,7 @@ import by.zakharenko.task06composite.entity.SymbolLeaf;
 import by.zakharenko.task06composite.entity.TextComponent;
 import by.zakharenko.task06composite.entity.TextComposite;
 import by.zakharenko.task06composite.service.TextService;
+import by.zakharenko.task06composite.service.exception.ServiceException;
 import by.zakharenko.task06composite.service.factory.ServiceFactory;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -59,7 +60,7 @@ public class TextServiceImplTest {
 
     @Test(description = "positive scenario for collectText",
             dataProvider = "collectText")
-    public void readFileTest(TextComponent component, String expected) {
+    public void readFileTest(TextComponent component, String expected) throws ServiceException {
         assertEquals(textService.collectText(component), expected);
     }
 

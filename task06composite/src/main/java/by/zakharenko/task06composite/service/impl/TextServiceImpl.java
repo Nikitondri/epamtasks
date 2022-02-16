@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class TextServiceImpl implements TextService {
     @Override
-    public String collectText(TextComponent component) {
+    public String collectText(TextComponent component) throws ServiceException {
         TextComponentCollector collector = new TextComponentCollectorImpl();
         return collector.collect(component);
     }
