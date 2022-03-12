@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://zakharenko.by/task07xml/entity/reviews"
+        xmlns:tns="http://zakharenko.by/task07xml/entity/reviews"
+        elementFormDefault="qualified" attributeFormDefault="qualified">
+    <element name="reviews">
+        <complexType>
+            <sequence>
+                <element name="review"
+                         type="tns:Review"
+                         minOccurs="5"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Review">
+        <sequence>
+            <element name="id" type="long"/>
+            <element name="dish" type="tns:Dish"/>
+            <element name="user" type="tns:User"/>
+            <element name="parentId" type="int"/>
+            <element name="text" type="string"/>
+            <element name="createDate" type="dateTime"/>
+        </sequence>
+    </complexType>
+    <complexType name="Dish">
+        <sequence>
+            <element name="dishId" type="int"/>
+            <element name="name" type="string"/>
+            <element name="cost" type="double"/>
+            <element name="type" type="tns:DishType"/>
+            <element name="weight" type="int"/>
+            <element name="description" type="string"/>
+            <element name="picturePath" type="string"/>
+        </sequence>
+        <attribute name="isEnable" type="tns:IsEnable" default="1" form="unqualified"/>
+    </complexType>
+    <complexType name="User">
+        <all>
+            <element name="userId" type="long"/>
+            <element name="login" type="string"/>
+            <element name="password" type="string"/>
+<!--            <element name="status" type="tns:Status"/>-->
+        </all>
+        <attribute name="role" type="tns:RoleType" use="required" form="unqualified"/>
+        <attribute name="status" type="tns:Status" default="1" form="unqualified"/>
+    </complexType>
+    <complexType name="DishType">
+        <sequence>
+            <element name="typeId" type="int"/>
+            <element name="typeName" type="string"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="RoleType">
+        <restriction base="string">
+            <enumeration value="CLIENT"/>
+            <enumeration value="ADMIN"/>
+            <enumeration value="WORKER"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="Status">
+        <restriction base="int">
+            <enumeration value="0"/>
+            <enumeration value="1"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="IsEnable">
+        <restriction base="int">
+            <enumeration value="0"/>
+            <enumeration value="1"/>
+        </restriction>
+    </simpleType>
+</schema>

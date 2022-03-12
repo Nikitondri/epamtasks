@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<reviews xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://zakharenko.by/task07xml/entity/reviews"
+         xsi:schemaLocation="http://zakharenko.by/task07xml/entity/reviews reviews.xsd">
+    <review>
+        <id>1</id>
+        <dish isEnable="0">
+            <dishId>1</dishId>
+            <name>Паста Порчини</name>
+            <cost>12.4</cost>
+            <type>
+                <typeId>1</typeId>
+                <typeName>main</typeName>
+            </type>
+            <weight>300</weight>
+            <description>Паста с белыми грибами</description>
+            <picturePath>none</picturePath>
+        </dish>
+        <user role="CLIENT">
+            <userId>2</userId>
+            <login>login2</login>
+            <password>password2</password>
+        </user>
+        <parentId>0</parentId>
+        <text>Вкусно!</text>
+        <createDate>2022-02-03T13:23:12</createDate>
+    </review>
+    <review>
+        <id>2</id>
+        <dish isEnable="0">
+            <dishId>1</dishId>
+            <name>Паста Порчини</name>
+            <cost>12.4</cost>
+            <type>
+                <typeId>1</typeId>
+                <typeName>main</typeName>
+            </type>
+            <weight>300</weight>
+            <description>Паста с белыми грибами</description>
+            <picturePath>none</picturePath>
+        </dish>
+        <user role="ADMIN">
+            <userId>1</userId>
+            <login>login1</login>
+            <password>password1</password>
+        </user>
+        <parentId>1</parentId>
+        <text>Спасибо за отзыв!</text>
+        <createDate>2022-02-03T15:13:00</createDate>
+    </review>
+    <review>
+        <id>3</id>
+        <dish>
+            <dishId>2</dishId>
+            <name>Маргарита</name>
+            <cost>9.6</cost>
+            <type>
+                <typeId>2</typeId>
+                <typeName>pizza</typeName>
+            </type>
+            <weight>540</weight>
+            <description>Соус из протертых томатов, Моцарелла</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="CLIENT">
+            <userId>3</userId>
+            <password>password3</password>
+            <login>login3</login>
+        </user>
+        <parentId>0</parentId>
+        <text>Хорошая пицца!</text>
+        <createDate>2022-03-03T20:22:52</createDate>
+    </review>
+    <review>
+        <id>4</id>
+        <dish>
+            <dishId>2</dishId>
+            <name>Маргарита</name>
+            <cost>9.6</cost>
+            <type>
+                <typeId>2</typeId>
+                <typeName>pizza</typeName>
+            </type>
+            <weight>540</weight>
+            <description>Соус из протертых томатов, Моцарелла</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="ADMIN">
+            <login>login1</login>
+            <userId>1</userId>
+            <password>password1</password>
+        </user>
+        <parentId>3</parentId>
+        <text>Спасибо за отзыв!</text>
+        <createDate>2022-03-03T21:22:52</createDate>
+    </review>
+    <review>
+        <id>5</id>
+        <dish>
+            <dishId>2</dishId>
+            <name>Маргарита</name>
+            <cost>9.6</cost>
+            <type>
+                <typeId>2</typeId>
+                <typeName>pizza</typeName>
+            </type>
+            <weight>540</weight>
+            <description>Соус из протертых томатов, Моцарелла</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="CLIENT">
+            <userId>4</userId>
+            <login>login4</login>
+            <password>password4</password>
+        </user>
+        <parentId>3</parentId>
+        <text>Поддерживаю</text>
+        <createDate>2022-05-03T12:02:31</createDate>
+    </review>
+</reviews>
+

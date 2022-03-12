@@ -39,6 +39,7 @@ public class AdderMultithreaded {
         List<Callable<Integer[]>> treads = new ArrayList<>();
         List<Future<Integer[]>> futures = new ArrayList<>();
         for(int i = 0; i < matrixResult.getNumRow(); i++){
+            //TODO: оптимизировать, ограничивать кол-во потоков
             treads.add(new AdderThread(matrix1.getRow(i), matrix2.getRow(i)));
         }
         try {
