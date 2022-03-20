@@ -3,6 +3,7 @@ package by.zakharenko.task07xml.service.builder;
 import by.zakharenko.task07xml.entity.Review;
 import by.zakharenko.task07xml.service.exception.ServiceException;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,6 @@ public abstract class AbstractBuilder {
         return listReview;
     }
 
-    public abstract void buildListReview(String path) throws ServiceException;
+    public abstract void buildListReview(InputStream inputStream) throws ServiceException;
 
 }

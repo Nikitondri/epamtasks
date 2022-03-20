@@ -17,6 +17,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 
 public class ReviewsDOMBuilder extends AbstractBuilder{
@@ -31,9 +32,9 @@ public class ReviewsDOMBuilder extends AbstractBuilder{
     }
 
     @Override
-    public void buildListReview(String path) throws ServiceException {
+    public void buildListReview(InputStream inputStream) throws ServiceException {
         try {
-            Document document = docBuilder.parse(path);
+            Document document = docBuilder.parse(inputStream);
             Element root = document.getDocumentElement();
             NodeList nodeList = root.getChildNodes();
             for(int i = 0; i < nodeList.getLength(); i++){

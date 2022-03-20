@@ -42,6 +42,10 @@ public class Dish {
         return isEnable;
     }
 
+    public boolean getIsEnable() {
+        return isEnable;
+    }
+
     public DishType getTypeId() {
         return typeId;
     }

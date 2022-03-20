@@ -6,6 +6,9 @@ import by.zakharenko.task07xml.entity.Review;
 import by.zakharenko.task07xml.entity.UserAccount;
 import by.zakharenko.task07xml.entity.enumeration.UserRole;
 import by.zakharenko.task07xml.service.exception.ServiceException;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -14,12 +17,14 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewsSAXBuilder extends AbstractBuilder{
 
+    static final Logger LOGGER = LogManager.getLogger(ReviewsSAXBuilder.class.getName());
     private final ReviewsHandler reviewsHandler;
     private final SAXParserFactory factory = SAXParserFactory.newInstance();
 
@@ -28,10 +33,10 @@ public class ReviewsSAXBuilder extends AbstractBuilder{
     }
 
     @Override
-    public void buildListReview(String path) throws ServiceException {
+    public void buildListReview(InputStream inputStream) throws ServiceException {
         try {
             SAXParser saxParser = factory.newSAXParser();
-            saxParser.parse(path, reviewsHandler);
+            saxParser.parse(inputStream, reviewsHandler);
         } catch (ParserConfigurationException | SAXException | IOException e) {
             throw new ServiceException(e);
         }
@@ -106,6 +111,7 @@ public class ReviewsSAXBuilder extends AbstractBuilder{
                 case "parentId" -> builder.withParent(findParent(Long.parseLong(content)));
                 case "text" -> builder.withText(content);
                 case "createDate" -> builder.withDateTime(LocalDateTime.parse(content));
+                default -> LOGGER.log(Level.ERROR, "Unknown element in tag review");
             }
 
         }

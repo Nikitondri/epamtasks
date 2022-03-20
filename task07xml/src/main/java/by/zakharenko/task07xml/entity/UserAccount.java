@@ -41,6 +41,10 @@ public class UserAccount {
         return status;
     }
 
+    public boolean getIsStatus() {
+        return status;
+    }
+
     public void setId(long id) {
         this.id = id;
     }

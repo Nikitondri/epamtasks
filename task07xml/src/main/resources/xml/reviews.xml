@@ -117,5 +117,235 @@
         <text>Поддерживаю</text>
         <createDate>2022-05-03T12:02:31</createDate>
     </review>
+    <review>
+        <id>6</id>
+        <dish>
+            <dishId>3</dishId>
+            <name>Кофе</name>
+            <cost>3.0</cost>
+            <type>
+                <typeId>3</typeId>
+                <typeName>drink</typeName>
+            </type>
+            <weight>300</weight>
+            <description>Кофе с пенкой</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="CLIENT">
+            <userId>5</userId>
+            <login>login5</login>
+            <password>password5</password>
+        </user>
+        <parentId>0</parentId>
+        <text>Вкусный кофе</text>
+        <createDate>2022-05-03T12:02:31</createDate>
+    </review>
+    <review>
+        <id>7</id>
+        <dish>
+            <dishId>3</dishId>
+            <name>Кофе</name>
+            <cost>3.0</cost>
+            <type>
+                <typeId>3</typeId>
+                <typeName>drink</typeName>
+            </type>
+            <weight>300</weight>
+            <description>Кофе с пенкой</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="ADMIN">
+            <userId>1</userId>
+            <login>login1</login>
+            <password>password1</password>
+        </user>
+        <parentId>6</parentId>
+        <text>Спасибо за отзыв!</text>
+        <createDate>2022-06-03T12:12:31</createDate>
+    </review>
+    <review>
+        <id>8</id>
+        <dish>
+            <dishId>3</dishId>
+            <name>Кофе</name>
+            <cost>3.0</cost>
+            <type>
+                <typeId>3</typeId>
+                <typeName>drink</typeName>
+            </type>
+            <weight>300</weight>
+            <description>Кофе с пенкой</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="CLIENT">
+            <userId>3</userId>
+            <login>login3</login>
+            <password>password3</password>
+        </user>
+        <parentId>6</parentId>
+        <text>Согласен</text>
+        <createDate>2022-06-03T18:12:31</createDate>
+    </review>
+    <review>
+        <id>9</id>
+        <dish>
+            <dishId>4</dishId>
+            <name>Салат "Цезарь"</name>
+            <cost>10.0</cost>
+            <type>
+                <typeId>4</typeId>
+                <typeName>salad</typeName>
+            </type>
+            <weight>250</weight>
+            <description>Салат с сухариками</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="CLIENT">
+            <userId>7</userId>
+            <login>login7</login>
+            <password>password7</password>
+        </user>
+        <parentId>0</parentId>
+        <text>Салат не понравился</text>
+        <createDate>2022-06-03T18:12:31</createDate>
+    </review>
+    <review>
+        <id>10</id>
+        <dish>
+            <dishId>4</dishId>
+            <name>Салат "Цезарь"</name>
+            <cost>10.0</cost>
+            <type>
+                <typeId>4</typeId>
+                <typeName>salad</typeName>
+            </type>
+            <weight>250</weight>
+            <description>Салат с сухариками</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="CLIENT">
+            <userId>5</userId>
+            <login>login5</login>
+            <password>password5</password>
+        </user>
+        <parentId>9</parentId>
+        <text>Мне тоже не понравился</text>
+        <createDate>2022-06-05T18:18:31</createDate>
+    </review>
+    <review>
+        <id>11</id>
+        <dish>
+            <dishId>4</dishId>
+            <name>Салат "Цезарь"</name>
+            <cost>10.0</cost>
+            <type>
+                <typeId>4</typeId>
+                <typeName>salad</typeName>
+            </type>
+            <weight>250</weight>
+            <description>Салат с сухариками</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="ADMIN">
+            <userId>1</userId>
+            <login>login1</login>
+            <password>password1</password>
+        </user>
+        <parentId>9</parentId>
+        <text>Исправим!</text>
+        <createDate>2022-06-08T18:32:11</createDate>
+    </review>
+    <review>
+        <id>12</id>
+        <dish>
+            <dishId>5</dishId>
+            <name>пеперони</name>
+            <cost>20.0</cost>
+            <type>
+                <typeId>2</typeId>
+                <typeName>pizza</typeName>
+            </type>
+            <weight>420</weight>
+            <description>Пицца с салями</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="CLIENT">
+            <userId>2</userId>
+            <login>login2</login>
+            <password>password2</password>
+        </user>
+        <parentId>0</parentId>
+        <text>Очень понравилось</text>
+        <createDate>2022-06-08T18:32:11</createDate>
+    </review>
+    <review>
+        <id>13</id>
+        <dish>
+            <dishId>6</dishId>
+            <name>Гренки</name>
+            <cost>5.0</cost>
+            <type>
+                <typeId>5</typeId>
+                <typeName>snack</typeName>
+            </type>
+            <weight>300</weight>
+            <description>Чесночные гренки</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="CLIENT">
+            <userId>8</userId>
+            <login>login8</login>
+            <password>password8</password>
+        </user>
+        <parentId>0</parentId>
+        <text>Замечательные гренки!</text>
+        <createDate>2022-06-08T18:32:11</createDate>
+    </review>
+    <review>
+        <id>14</id>
+        <dish>
+            <dishId>5</dishId>
+            <name>пеперони</name>
+            <cost>20.0</cost>
+            <type>
+                <typeId>2</typeId>
+                <typeName>pizza</typeName>
+            </type>
+            <weight>420</weight>
+            <description>Пицца с салями</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="ADMIN">
+            <userId>1</userId>
+            <login>login1</login>
+            <password>password1</password>
+        </user>
+        <parentId>12</parentId>
+        <text>Спасибо за отзыв!</text>
+        <createDate>2022-06-09T18:32:11</createDate>
+    </review>
+    <review>
+        <id>15</id>
+        <dish>
+            <dishId>6</dishId>
+            <name>Гренки</name>
+            <cost>5.0</cost>
+            <type>
+                <typeId>5</typeId>
+                <typeName>snack</typeName>
+            </type>
+            <weight>300</weight>
+            <description>Чесночные гренки</description>
+            <picturePath>NONE</picturePath>
+        </dish>
+        <user role="ADMIN">
+            <userId>1</userId>
+            <login>login1</login>
+            <password>password1</password>
+        </user>
+        <parentId>13</parentId>
+        <text>Спасибо за отзыв!</text>
+        <createDate>2022-06-10T10:00:14</createDate>
+    </review>
 </reviews>
 

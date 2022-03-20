@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite">
+    <test verbose="2" name="D:/epam/epamtasks/task06composite">
+        <classes>
+            <class name="test.zakharenko.task07xml.service.impl.ParseServiceImplTest">
+                <methods>
+                    <include name="parseDOMReviewTest"/>
+                    <include name="parseDOMReviewExceptionTest"/>
+                    <include name="parseSAXReviewTest"/>
+                    <include name="parseSAXReviewExceptionTest"/>
+                    <include name="parseStAXReviewTest"/>
+                    <include name="parseStAXReviewExceptionTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task07xml.service.builder.ReviewsDOMBuilderTest">
+                <methods>
+                    <include name="getListReviewTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task07xml.service.builder.ReviewsSAXBuilderTest">
+                <methods>
+                    <include name="getListReviewTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task07xml.service.builder.ReviewsStAXBuilderTest">
+                <methods>
+                    <include name="getListReviewTest"/>
+                </methods>
+            </class>
+            <class name="test.zakharenko.task07xml.service.factory.ServiceFactoryTest">
+                <methods>
+                    <include name="getParseServiceTest"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+</suite>

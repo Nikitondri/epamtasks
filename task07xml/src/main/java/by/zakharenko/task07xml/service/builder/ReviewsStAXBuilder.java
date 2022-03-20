@@ -14,8 +14,7 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 
 public class ReviewsStAXBuilder extends AbstractBuilder{
@@ -27,10 +26,9 @@ public class ReviewsStAXBuilder extends AbstractBuilder{
     }
 
     @Override
-    public void buildListReview(String path) throws ServiceException {
+    public void buildListReview(InputStream inputStream) throws ServiceException {
         try{
-            FileInputStream input = new FileInputStream(path);
-            XMLStreamReader reader = inputFactory.createXMLStreamReader(input);
+            XMLStreamReader reader = inputFactory.createXMLStreamReader(inputStream);
             while(reader.hasNext()){
                 int type = reader.next();
                 if(type == XMLStreamConstants.START_ELEMENT){
@@ -41,7 +39,7 @@ public class ReviewsStAXBuilder extends AbstractBuilder{
                     }
                 }
             }
-        } catch (IOException | XMLStreamException e) {
+        } catch (XMLStreamException e) {
             throw new ServiceException(e);
         }
     }
