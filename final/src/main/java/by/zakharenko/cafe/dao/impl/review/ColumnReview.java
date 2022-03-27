@@ -5,7 +5,8 @@ public enum ColumnReview {
     DISH_ID("dish_id"),
     USER_ID("user_id"),
     PARENT_ID("parent_id"),
-    REVIEW("review");
+    TEXT("text"),
+    CREATE_DATE("create_date");
 
     private final String column;
 

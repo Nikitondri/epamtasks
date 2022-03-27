@@ -1,9 +1,9 @@
 package by.zakharenko.cafe.dao.mapper.impl;
 
 import by.zakharenko.cafe.dao.impl.dish.ColumnDish;
-import by.zakharenko.cafe.dao.impl.user_account.ColumnUserAccount;
 import by.zakharenko.cafe.dao.mapper.RowMapper;
 import by.zakharenko.cafe.entity.Dish;
+import by.zakharenko.cafe.entity.DishType;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,11 +15,11 @@ public class DishRowMapper implements RowMapper<Dish> {
         String name = resultSet.getString(ColumnDish.NAME.getColumn());
         double cost = resultSet.getDouble(ColumnDish.COST.getColumn());
         boolean isEnable = resultSet.getInt(ColumnDish.IS_ENABLE.getColumn()) == 1;
-        int typeId = resultSet.getInt(ColumnDish.TYPE_ID.getColumn());
+        DishType type =  new DishType(resultSet.getInt(ColumnDish.TYPE_ID.getColumn()));
         int weight = resultSet.getInt(ColumnDish.WEIGHT.getColumn());
         String description = resultSet.getString(ColumnDish.DESCRIPTION.getColumn());
         String picturePath = resultSet.getString(ColumnDish.PICTURE_PATH.getColumn());
         int reviewId = resultSet.getInt(ColumnDish.REVIEW_ID.getColumn());
-        return new Dish(id, name, cost, isEnable, typeId, weight, description, picturePath, reviewId);
+        return new Dish(id, name, cost, isEnable, type, weight, description, picturePath, reviewId);
     }
 }

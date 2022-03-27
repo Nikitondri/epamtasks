@@ -5,8 +5,6 @@ import by.zakharenko.cafe.dao.exception.DaoException;
 import by.zakharenko.cafe.dao.mapper.RowMapper;
 import by.zakharenko.cafe.dao.util.SQLDateFormatter;
 import by.zakharenko.cafe.entity.Order;
-import by.zakharenko.cafe.entity.enumeration.OrderStatus;
-import by.zakharenko.cafe.entity.enumeration.PaymentType;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -45,7 +43,7 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
 
     @Override
     public void insert(Order item) throws DaoException {
-        long userId = item.getUserID();
+        long userId = item.getUser();
         String orderStatus = item.getOrderStatus().toString();
         double cost = item.getCost();
         String paymentType = item.getPaymentType().toString();
@@ -54,7 +52,7 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
         String finishedTime = SQLDateFormatter.format(item.getFinishedTime());
         double bonusesUsed = item.getBonusesUsed();
         int rating = item.getRating();
-        long workerId = item.getWorkerId();
+        long workerId = item.getWorker();
         executeParamsUpdate(INSERT_QUERY, userId, orderStatus, cost, paymentType, createDate,
                 desiredTime, finishedTime, bonusesUsed, rating, workerId);
     }

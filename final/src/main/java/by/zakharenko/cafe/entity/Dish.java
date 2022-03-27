@@ -4,26 +4,30 @@ import java.util.Objects;
 
 public class Dish extends CafeEntity {
     private final int id;
-    private final String name;
-    private final Double cost;
-    private final boolean isEnable;
-    private final int typeId;
-    private final int weight;
-    private final String description;
-    private final String picturePath;
-    private final int reviewId;
+    private String name;
+    private Double cost;
+    private boolean isEnable;
+    private DishType type;
+    private int weight;
+    private String description;
+    private String picturePath;
+    private int reviewId;
 
-    public Dish(int id, String name, Double cost, boolean isEnable, int typeId, int weight,
+    public Dish(int id, String name, Double cost, boolean isEnable, DishType type, int weight,
                 String description, String picturePath, int reviewId) {
         this.id = id;
         this.name = name;
         this.cost = cost;
         this.isEnable = isEnable;
-        this.typeId = typeId;
+        this.type = type;
         this.weight = weight;
         this.description = description;
         this.picturePath = picturePath;
         this.reviewId = reviewId;
+    }
+
+    public Dish(int id){
+        this.id = id;
     }
 
     public int getId() {
@@ -42,8 +46,8 @@ public class Dish extends CafeEntity {
         return isEnable;
     }
 
-    public int getTypeId() {
-        return typeId;
+    public DishType getType() {
+        return type;
     }
 
     public int getWeight() {
@@ -67,12 +71,12 @@ public class Dish extends CafeEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dish dish = (Dish) o;
-        return id == dish.id && isEnable == dish.isEnable && typeId == dish.typeId && weight == dish.weight && reviewId == dish.reviewId && Objects.equals(name, dish.name) && Objects.equals(cost, dish.cost) && Objects.equals(description, dish.description) && Objects.equals(picturePath, dish.picturePath);
+        return id == dish.id && isEnable == dish.isEnable && type == dish.type && weight == dish.weight && reviewId == dish.reviewId && Objects.equals(name, dish.name) && Objects.equals(cost, dish.cost) && Objects.equals(description, dish.description) && Objects.equals(picturePath, dish.picturePath);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, cost, isEnable, typeId, weight, description, picturePath, reviewId);
+        return Objects.hash(id, name, cost, isEnable, type, weight, description, picturePath, reviewId);
     }
 
     @Override
@@ -82,7 +86,7 @@ public class Dish extends CafeEntity {
                 ", name='" + name + '\'' +
                 ", cost=" + cost +
                 ", isEnable=" + isEnable +
-                ", typeId=" + typeId +
+                ", typeId=" + type +
                 ", weight=" + weight +
                 ", description='" + description + '\'' +
                 ", picturePath='" + picturePath + '\'' +

@@ -4,11 +4,15 @@ import java.util.Objects;
 
 public class DishType extends CafeEntity {
     private final int id;
-    private final String name;
+    private String name;
 
     public DishType(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public DishType(int id){
+        this.id = id;
     }
 
     public int getId() {

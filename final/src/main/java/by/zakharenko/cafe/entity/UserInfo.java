@@ -5,15 +5,15 @@ import java.util.Objects;
 
 public class UserInfo extends CafeEntity {
     private final long id;
-    private final String surname;
-    private final String name;
-    private final String phone;
-    private final String email;
-    private final LocalDateTime createDate;
-    private final double balance;
-    private final double bonus;
+    private String surname;
+    private String name;
+    private String phone;
+    private String email;
+    private LocalDateTime createDate;
+    private double balance;
+    private double bonus;
 
-    private UserInfo(long id, String surname, String name,
+    public UserInfo(long id, String surname, String name,
                     String phone, String email, LocalDateTime createDate, double balance,
                     double bonus) {
         this.id = id;
@@ -24,6 +24,10 @@ public class UserInfo extends CafeEntity {
         this.createDate = createDate;
         this.balance = balance;
         this.bonus = bonus;
+    }
+
+    public UserInfo(long id){
+        this.id = id;
     }
 
     public long getId() {
@@ -59,9 +63,9 @@ public class UserInfo extends CafeEntity {
         return bonus;
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
+//    public static Builder builder() {
+//        return new Builder();
+//    }
 
 
     @Override
@@ -91,69 +95,69 @@ public class UserInfo extends CafeEntity {
                 '}';
     }
 
-    public static class Builder{
-        private long id;
-        private String surname;
-        private String name;
-        private String phone;
-        private String email;
-        private LocalDateTime createDate;
-        private double balance;
-        private double bonus;
-
-        private Builder(){}
-
-        public Builder withId(long id){
-            this.id = id;
-            return this;
-        }
-
-        public Builder withSurname(String surname) {
-            this.surname = surname;
-            return this;
-        }
-
-        public Builder withName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Builder withPhone(String phone) {
-            this.phone = phone;
-            return this;
-        }
-
-        public Builder withEmail(String email) {
-            this.email = email;
-            return this;
-        }
-
-        public Builder withCreateDate(LocalDateTime createDate) {
-            this.createDate = createDate;
-            return this;
-        }
-
-        public Builder withBalance(double balance) {
-            this.balance = balance;
-            return this;
-        }
-
-        public Builder withBonus(double bonus) {
-            this.bonus = bonus;
-            return this;
-        }
-
-        public UserInfo build(){
-            return new UserInfo(
-                    this.id,
-                    this.surname,
-                    this.name,
-                    this.phone,
-                    this.email,
-                    this.createDate,
-                    this.balance,
-                    this.bonus
-            );
-        }
-    }
+//    public static class Builder{
+//        private long id;
+//        private String surname;
+//        private String name;
+//        private String phone;
+//        private String email;
+//        private LocalDateTime createDate;
+//        private double balance;
+//        private double bonus;
+//
+//        private Builder(){}
+//
+//        public Builder withId(long id){
+//            this.id = id;
+//            return this;
+//        }
+//
+//        public Builder withSurname(String surname) {
+//            this.surname = surname;
+//            return this;
+//        }
+//
+//        public Builder withName(String name) {
+//            this.name = name;
+//            return this;
+//        }
+//
+//        public Builder withPhone(String phone) {
+//            this.phone = phone;
+//            return this;
+//        }
+//
+//        public Builder withEmail(String email) {
+//            this.email = email;
+//            return this;
+//        }
+//
+//        public Builder withCreateDate(LocalDateTime createDate) {
+//            this.createDate = createDate;
+//            return this;
+//        }
+//
+//        public Builder withBalance(double balance) {
+//            this.balance = balance;
+//            return this;
+//        }
+//
+//        public Builder withBonus(double bonus) {
+//            this.bonus = bonus;
+//            return this;
+//        }
+//
+//        public UserInfo build(){
+//            return new UserInfo(
+//                    this.id,
+//                    this.surname,
+//                    this.name,
+//                    this.phone,
+//                    this.email,
+//                    this.createDate,
+//                    this.balance,
+//                    this.bonus
+//            );
+//        }
+//    }
 }

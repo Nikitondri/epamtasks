@@ -46,7 +46,7 @@ public class DishDaoImpl extends AbstractDao<Dish> implements DishDao {
         String name = item.getName();
         Double cost = item.getCost();
         int isEnable = Boolean.compare(item.isEnable(), false);
-        int type = item.getTypeId();
+        int type = item.getType().getId();
         int weight = item.getWeight();
         String description = item.getDescription();
         int reviewId = item.getReviewId();

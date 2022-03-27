@@ -4,10 +4,10 @@ import by.zakharenko.cafe.entity.enumeration.UserRole;
 
 public class UserAccount extends CafeEntity {
     private final long id;
-    private final String login;
-    private final String password;
-    private final UserRole role;
-    private final boolean status;
+    private String login;
+    private String password;
+    private UserRole role;
+    private boolean status;
 
     public UserAccount(long id, String login, String password, UserRole role, boolean status) {
         this.id = id;
@@ -15,6 +15,10 @@ public class UserAccount extends CafeEntity {
         this.password = password;
         this.role = role;
         this.status = status;
+    }
+
+    public UserAccount(long id){
+        this.id = id;
     }
 
     public long getId() {

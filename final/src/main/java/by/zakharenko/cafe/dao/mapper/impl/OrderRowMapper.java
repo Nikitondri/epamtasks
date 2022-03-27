@@ -4,6 +4,7 @@ import by.zakharenko.cafe.dao.impl.order.ColumnOrder;
 import by.zakharenko.cafe.dao.mapper.RowMapper;
 import by.zakharenko.cafe.dao.util.SQLDateParser;
 import by.zakharenko.cafe.entity.Order;
+import by.zakharenko.cafe.entity.UserAccount;
 import by.zakharenko.cafe.entity.enumeration.OrderStatus;
 import by.zakharenko.cafe.entity.enumeration.PaymentType;
 
@@ -15,7 +16,7 @@ public class OrderRowMapper implements RowMapper<Order> {
     @Override
     public Order map(ResultSet resultSet) throws SQLException {
         long id = resultSet.getLong(ColumnOrder.ID.getColumn());
-        long userId = resultSet.getLong(ColumnOrder.USER_ID.getColumn());
+        UserAccount user = new UserAccount(resultSet.getLong(ColumnOrder.USER_ID.getColumn()));
         OrderStatus orderStatus = OrderStatus.valueOf(resultSet.getString(ColumnOrder.STATUS.getColumn()));
         double cost = resultSet.getDouble(ColumnOrder.COST.getColumn());
         PaymentType paymentType = PaymentType.valueOf(resultSet.getString(ColumnOrder.PAYMENT_TYPE.getColumn()));
@@ -24,19 +25,23 @@ public class OrderRowMapper implements RowMapper<Order> {
         LocalDateTime finishedTime = SQLDateParser.parse(resultSet.getString(ColumnOrder.FINISHED_TIME.getColumn()));
         double bonusesUsed = resultSet.getDouble(ColumnOrder.BONUSES_USED.getColumn());
         int rating = resultSet.getInt(ColumnOrder.RATING.getColumn());
-        long workerId = resultSet.getLong(ColumnOrder.WORKER_ID.getColumn());
-        return Order.builder()
-                .withId(id)
-                .withUserId(userId)
-                .withStatus(orderStatus)
-                .withCost(cost)
-                .withPaymentType(paymentType)
-                .withCreateDate(createDate)
-                .withDesiredTime(desiredTime)
-                .withFinishedTime(finishedTime)
-                .withBonusesUsed(bonusesUsed)
-                .withRating(rating)
-                .withWorkerId(workerId)
-                .build();
+        UserAccount workerId = new UserAccount(resultSet.getLong(ColumnOrder.WORKER_ID.getColumn()));
+        return new Order(
+                id, user, orderStatus, cost, paymentType, createDate, desiredTime, finishedTime,
+                bonusesUsed, rating, workerId
+        );
+//        return Order.builder()
+//                .withId(id)
+//                .withUserId(userId)
+//                .withStatus(orderStatus)
+//                .withCost(cost)
+//                .withPaymentType(paymentType)
+//                .withCreateDate(createDate)
+//                .withDesiredTime(desiredTime)
+//                .withFinishedTime(finishedTime)
+//                .withBonusesUsed(bonusesUsed)
+//                .withRating(rating)
+//                .withWorkerId(workerId)
+//                .build();
     }
 }

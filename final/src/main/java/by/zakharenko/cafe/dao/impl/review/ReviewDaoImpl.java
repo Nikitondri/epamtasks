@@ -3,6 +3,7 @@ package by.zakharenko.cafe.dao.impl.review;
 import by.zakharenko.cafe.dao.AbstractDao;
 import by.zakharenko.cafe.dao.exception.DaoException;
 import by.zakharenko.cafe.dao.mapper.RowMapper;
+import by.zakharenko.cafe.dao.util.SQLDateFormatter;
 import by.zakharenko.cafe.entity.Review;
 
 import java.sql.Connection;
@@ -13,10 +14,10 @@ import java.util.Optional;
 
 public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
 
-    private static final String FIND_ALL = "SELECT id, dish_id, user_id, parent_id, review FROM review";
-    private static final String FIND_BY_ID = "SELECT id, dish_id, user_id, parent_id, review FROM review WHERE id = ?";
+    private static final String FIND_ALL = "SELECT id, dish_id, user_id, parent_id, text, create_date FROM review";
+    private static final String FIND_BY_ID = "SELECT id, dish_id, user_id, parent_id, text, create_date FROM review WHERE id = ?";
     private static final String DELETE_BY_ID = "DELETE FROM review WHERE id = ?";
-    private static final String INSERT_QUERY = "INSERT INTO review(dish_id, user_id, parent_id, review) VALUES(?, ?, ?, ?)";
+    private static final String INSERT_QUERY = "INSERT INTO review(dish_id, user_id, parent_id, text, create_date) VALUES(?, ?, ?, ?)";
 
 
 
@@ -36,11 +37,12 @@ public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
 
     @Override
     public void insert(Review item) throws DaoException {
-        int dishId = item.getDishId();
-        long userId = item.getUserId();
-        long parentId = item.getParentId();
+        int dishId = item.getDish().getId();
+        long userId = item.getUser().getId();
+        long parentId = item.getParent().getId();
+        String createDate = SQLDateFormatter.format(item.getCreateDate());
         String text = item.getText();
-        executeParamsUpdate(INSERT_QUERY, dishId, userId, parentId, text);
+        executeParamsUpdate(INSERT_QUERY, dishId, userId, parentId, text, createDate);
     }
 
     @Override
