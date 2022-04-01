@@ -8,8 +8,7 @@ public enum ColumnDish {
     TYPE_ID("type_id"),
     WEIGHT("dish_weight"),
     DESCRIPTION("description"),
-    PICTURE_PATH("picture_path"),
-    REVIEW_ID("review_id");
+    PICTURE_PATH("picture_path");
 
     private final String column;
 

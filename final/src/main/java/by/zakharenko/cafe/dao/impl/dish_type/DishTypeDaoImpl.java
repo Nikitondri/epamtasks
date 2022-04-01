@@ -3,6 +3,7 @@ package by.zakharenko.cafe.dao.impl.dish_type;
 import by.zakharenko.cafe.dao.AbstractDao;
 import by.zakharenko.cafe.dao.exception.DaoException;
 import by.zakharenko.cafe.dao.mapper.RowMapper;
+import by.zakharenko.cafe.dao.mapper.impl.DishTypeRowMapper;
 import by.zakharenko.cafe.entity.DishType;
 
 import java.sql.Connection;
@@ -15,13 +16,14 @@ public class DishTypeDaoImpl extends AbstractDao<DishType> implements DishTypeDa
 
     private static final String FIND_ALL = "SELECT id, name FROM dish_type";
     private static final String FIND_BY_ID = "SELECT id, name FROM dish_type WHERE id = ?";
+    private static final String FIND_BY_NAME = "SELECT id, name FROM dish_type WHERE name = ?";
     private static final String INSERT_QUERY = "INSERT INTO dish_type(name) VALUES(?)";
     private static final String DELETE_BY_ID = "DELETE FROM dish_type WHERE id = ?";
 
 
 
-    public DishTypeDaoImpl(Connection connection, RowMapper<DishType> mapper) {
-        super(connection, mapper);
+    public DishTypeDaoImpl(Connection connection) {
+        super(connection, new DishTypeRowMapper());
     }
 
     @Override
@@ -54,5 +56,10 @@ public class DishTypeDaoImpl extends AbstractDao<DishType> implements DishTypeDa
         } catch (SQLException e) {
             throw new DaoException(e);
         }
+    }
+
+    @Override
+    public Optional<DishType> findByName(String name) throws DaoException {
+        return executeSingleQuery(FIND_BY_NAME, name);
     }
 }

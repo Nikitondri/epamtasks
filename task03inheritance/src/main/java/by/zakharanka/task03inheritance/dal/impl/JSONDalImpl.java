@@ -8,10 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class JSONDalImpl implements JSONDal {
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();

@@ -11,10 +11,9 @@ public class Dish extends CafeEntity {
     private int weight;
     private String description;
     private String picturePath;
-    private int reviewId;
 
     public Dish(int id, String name, Double cost, boolean isEnable, DishType type, int weight,
-                String description, String picturePath, int reviewId) {
+                String description, String picturePath) {
         this.id = id;
         this.name = name;
         this.cost = cost;
@@ -23,7 +22,6 @@ public class Dish extends CafeEntity {
         this.weight = weight;
         this.description = description;
         this.picturePath = picturePath;
-        this.reviewId = reviewId;
     }
 
     public Dish(int id){
@@ -62,21 +60,18 @@ public class Dish extends CafeEntity {
         return picturePath;
     }
 
-    public int getReviewId() {
-        return reviewId;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dish dish = (Dish) o;
-        return id == dish.id && isEnable == dish.isEnable && type == dish.type && weight == dish.weight && reviewId == dish.reviewId && Objects.equals(name, dish.name) && Objects.equals(cost, dish.cost) && Objects.equals(description, dish.description) && Objects.equals(picturePath, dish.picturePath);
+        return id == dish.id && isEnable == dish.isEnable && type == dish.type && weight == dish.weight && Objects.equals(name, dish.name) && Objects.equals(cost, dish.cost) && Objects.equals(description, dish.description) && Objects.equals(picturePath, dish.picturePath);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, cost, isEnable, type, weight, description, picturePath, reviewId);
+        return Objects.hash(id, name, cost, isEnable, type, weight, description, picturePath);
     }
 
     @Override
@@ -90,7 +85,6 @@ public class Dish extends CafeEntity {
                 ", weight=" + weight +
                 ", description='" + description + '\'' +
                 ", picturePath='" + picturePath + '\'' +
-                ", reviewId=" + reviewId +
                 '}';
     }
 }

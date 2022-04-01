@@ -43,7 +43,7 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
 
     @Override
     public void insert(Order item) throws DaoException {
-        long userId = item.getUser();
+        long userId = item.getUser().getId();
         String orderStatus = item.getOrderStatus().toString();
         double cost = item.getCost();
         String paymentType = item.getPaymentType().toString();
@@ -52,7 +52,7 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
         String finishedTime = SQLDateFormatter.format(item.getFinishedTime());
         double bonusesUsed = item.getBonusesUsed();
         int rating = item.getRating();
-        long workerId = item.getWorker();
+        long workerId = item.getWorker().getId();
         executeParamsUpdate(INSERT_QUERY, userId, orderStatus, cost, paymentType, createDate,
                 desiredTime, finishedTime, bonusesUsed, rating, workerId);
     }

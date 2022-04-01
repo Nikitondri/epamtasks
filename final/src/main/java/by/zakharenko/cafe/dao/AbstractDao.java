@@ -21,7 +21,7 @@ public abstract class AbstractDao<T extends CafeEntity> implements Dao<T> {
     protected PreparedStatement createStatement(String query, Object... params) throws DaoException {
         try {
             PreparedStatement statement = connection.prepareStatement(query);
-            for(int i = 1; i < params.length; i++){
+            for(int i = 1; i <= params.length; i++){
                 statement.setObject(i, params[i - 1]);
             }
             return statement;

@@ -70,9 +70,9 @@ CREATE TABLE `dish`(
     CONSTRAINT PK_dish PRIMARY KEY (`id`),
     UNIQUE (`name`),
     CONSTRAINT FK_dish_type FOREIGN KEY (`type_id`)
-       REFERENCES `dish_type` (`id`)
-       ON UPDATE CASCADE
-       ON DELETE RESTRICT
+        REFERENCES `dish_type` (`id`)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 );
 
 CREATE TABLE `review`(

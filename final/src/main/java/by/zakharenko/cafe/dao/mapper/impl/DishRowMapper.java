@@ -19,7 +19,6 @@ public class DishRowMapper implements RowMapper<Dish> {
         int weight = resultSet.getInt(ColumnDish.WEIGHT.getColumn());
         String description = resultSet.getString(ColumnDish.DESCRIPTION.getColumn());
         String picturePath = resultSet.getString(ColumnDish.PICTURE_PATH.getColumn());
-        int reviewId = resultSet.getInt(ColumnDish.REVIEW_ID.getColumn());
-        return new Dish(id, name, cost, isEnable, type, weight, description, picturePath, reviewId);
+        return new Dish(id, name, cost, isEnable, type, weight, description, picturePath);
     }
 }

@@ -2,7 +2,7 @@ package by.zakharenko.cafe.dao.impl.dish;
 
 import by.zakharenko.cafe.dao.AbstractDao;
 import by.zakharenko.cafe.dao.exception.DaoException;
-import by.zakharenko.cafe.dao.mapper.RowMapper;
+import by.zakharenko.cafe.dao.mapper.impl.DishRowMapper;
 import by.zakharenko.cafe.entity.Dish;
 
 import java.sql.Connection;
@@ -13,21 +13,21 @@ import java.util.Optional;
 
 public class DishDaoImpl extends AbstractDao<Dish> implements DishDao {
     private static final String FIND_ALL =
-            "SELECT id, name, cost, is_enable, type_id, dish_weight, description, picture_path, review_id FROM dish";
+            "SELECT id, name, cost, is_enable, type_id, dish_weight, description, picture_path FROM dish";
     private static final String INSERT_QUERY =
-            "INSERT INTO dish(name, cost, is_enable, type_id, dish_weight, description, picture_path, review_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+            "INSERT INTO dish(name, cost, is_enable, type_id, dish_weight, description, picture_path) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String FIND_BY_ID =
-            "SELECT id, name, cost, is_enable, type_id, dish_weight, description, picture_path, review_id FROM dish WHERE ID = ?";
+            "SELECT id, name, cost, is_enable, type_id, dish_weight, description, picture_path FROM dish WHERE ID = ?";
     private static final String DELETE_BY_ID =
             "DELETE FROM dish WHERE id = ?";
     private static final String FIND_BY_NAME =
-            "SELECT id, name, cost, is_enable, type_id, dish_weight, description, picture_path, review_id FROM dish WHERE name = ?";
+            "SELECT id, name, cost, is_enable, type_id, dish_weight, description, picture_path FROM dish WHERE name = ?";
     private static final String FIND_BY_TYPE =
-            "SELECT id, name, cost, is_enable, type_id, dish_weight, description, picture_path, review_id FROM dish WHERE type_id = ?";
+            "SELECT id, name, cost, is_enable, type_id, dish_weight, description, picture_path FROM dish WHERE type_id = ?";
 
 
-    public DishDaoImpl(Connection connection, RowMapper<Dish> mapper) {
-        super(connection, mapper);
+    public DishDaoImpl(Connection connection) {
+        super(connection, new DishRowMapper());
     }
 
     @Override
@@ -49,8 +49,7 @@ public class DishDaoImpl extends AbstractDao<Dish> implements DishDao {
         int type = item.getType().getId();
         int weight = item.getWeight();
         String description = item.getDescription();
-        int reviewId = item.getReviewId();
-        executeParamsUpdate(INSERT_QUERY, id, name, cost, isEnable, type, weight, description, reviewId);
+        executeParamsUpdate(INSERT_QUERY, id, name, cost, isEnable, type, weight, description);
     }
 
     @Override

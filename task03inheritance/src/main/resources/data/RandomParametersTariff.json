@@ -2,769 +2,322 @@
   "limitTariff": {
     "list": [
       {
-        "minCount": 233,
-        "gbCount": 806,
-        "smsCount": 111,
+        "minCount": 801,
+        "gbCount": 721,
+        "smsCount": 335,
         "extraMinPrice": 10,
         "extraGBPrice": 10,
         "extraSMSPrice": 10,
-        "tariffName": "UltraTariff",
+        "tariffName": "MegaTariff",
         "listClient": [
-          {
-            "name": "Oleg",
-            "phoneNumber": 5023129,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "James",
-            "phoneNumber": 4527506,
-            "tariff": "SmartTariff"
-          }
-        ],
-        "monthlyCost": 311
-      },
-      {
-        "minCount": 493,
-        "gbCount": 925,
-        "smsCount": 415,
-        "extraMinPrice": 10,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "UltraTariff",
-        "listClient": [
-          {
-            "name": "Pasha",
-            "phoneNumber": 1599831,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "Nikita",
-            "phoneNumber": 9256843,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "Artem",
-            "phoneNumber": 9581426,
-            "tariff": "MegaTariff"
-          }
-        ],
-        "monthlyCost": 905
-      },
-      {
-        "minCount": 596,
-        "gbCount": 351,
-        "smsCount": 465,
-        "extraMinPrice": 10,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "FlyTariff",
-        "listClient": [
-          {
-            "name": "Olivia",
-            "phoneNumber": 8261043,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "Nikita",
-            "phoneNumber": 3008498,
-            "tariff": "MegaTariff"
-          }
-        ],
-        "monthlyCost": 340
-      },
-      {
-        "minCount": 497,
-        "gbCount": 978,
-        "smsCount": 665,
-        "extraMinPrice": 10,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "FlyTariff",
-        "listClient": [
-          {
-            "name": "Sten",
-            "phoneNumber": 3258611,
-            "tariff": "FlyTariff"
-          },
           {
             "name": "Harry",
-            "phoneNumber": 4753153,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "Nikita",
-            "phoneNumber": 3327645,
+            "phoneNumber": 9270110,
             "tariff": "SmartTariff"
           },
           {
             "name": "James",
-            "phoneNumber": 2382512,
+            "phoneNumber": 3817580,
             "tariff": "UltraTariff"
           }
         ],
-        "monthlyCost": 126
-      },
-      {
-        "minCount": 946,
-        "gbCount": 228,
-        "smsCount": 894,
-        "extraMinPrice": 10,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "SmartTariff",
-        "listClient": [
-          {
-            "name": "Pasha",
-            "phoneNumber": 4428178,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "Nikita",
-            "phoneNumber": 9368561,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Oleg",
-            "phoneNumber": 2736453,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "David",
-            "phoneNumber": 2404546,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "Olivia",
-            "phoneNumber": 7609517,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Olivia",
-            "phoneNumber": 8220794,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "David",
-            "phoneNumber": 1687304,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "David",
-            "phoneNumber": 3503978,
-            "tariff": "MegaTariff"
-          }
-        ],
-        "monthlyCost": 559
+        "monthlyCost": 520
       }
     ]
   },
   "fullUnlimitedTariff": {
     "list": [
       {
-        "roamingMinCount": 583,
+        "roamingMinCount": 251,
         "tariffName": "UltraTariff",
         "listClient": [
           {
-            "name": "Artem",
-            "phoneNumber": 9982305,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Pasha",
-            "phoneNumber": 6340027,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Oleg",
-            "phoneNumber": 7916791,
+            "name": "Harry",
+            "phoneNumber": 1573969,
             "tariff": "MegaTariff"
-          },
+          }
+        ],
+        "monthlyCost": 873
+      },
+      {
+        "roamingMinCount": 164,
+        "tariffName": "MegaTariff",
+        "listClient": [
           {
-            "name": "James",
-            "phoneNumber": 3619676,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "David",
-            "phoneNumber": 7582705,
+            "name": "Nikita",
+            "phoneNumber": 4940253,
             "tariff": "MegaTariff"
           },
           {
             "name": "Sten",
-            "phoneNumber": 6488056,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "Artem",
-            "phoneNumber": 9564359,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "Artem",
-            "phoneNumber": 7487108,
-            "tariff": "FlyTariff"
+            "phoneNumber": 9142755,
+            "tariff": "UltraTariff"
           },
           {
             "name": "Nikita",
-            "phoneNumber": 1009902,
+            "phoneNumber": 6809275,
             "tariff": "SmartTariff"
-          },
-          {
-            "name": "Sten",
-            "phoneNumber": 8551566,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Artem",
-            "phoneNumber": 8009210,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "David",
-            "phoneNumber": 3773566,
-            "tariff": "FlyTariff"
-          }
-        ],
-        "monthlyCost": 441
-      },
-      {
-        "roamingMinCount": 428,
-        "tariffName": "UltraTariff",
-        "listClient": [
-          {
-            "name": "James",
-            "phoneNumber": 2874958,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Pasha",
-            "phoneNumber": 3014934,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "Artem",
-            "phoneNumber": 4174390,
-            "tariff": "FlyTariff"
           },
           {
             "name": "James",
-            "phoneNumber": 3439973,
+            "phoneNumber": 5600503,
             "tariff": "MegaTariff"
           },
           {
-            "name": "Artem",
-            "phoneNumber": 7036022,
-            "tariff": "SmartTariff"
+            "name": "Olivia",
+            "phoneNumber": 9035310,
+            "tariff": "UltraTariff"
           }
         ],
-        "monthlyCost": 750
+        "monthlyCost": 159
       }
     ]
   },
   "childTariff": {
-    "list": [
-      {
-        "mother": {
-          "name": "Harry",
-          "phoneNumber": 5851308,
-          "tariff": "FlyTariff"
-        },
-        "dad": {
-          "name": "Nikita",
-          "phoneNumber": 2443678,
-          "tariff": "FlyTariff"
-        },
-        "minCount": 525,
-        "gbCount": 509,
-        "smsCount": 370,
-        "extraMinPrice": 10,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "MegaTariff",
-        "listClient": [
-          {
-            "name": "Pasha",
-            "phoneNumber": 6556731,
-            "tariff": "FlyTariff"
-          }
-        ],
-        "monthlyCost": 364
-      },
-      {
-        "mother": {
-          "name": "Harry",
-          "phoneNumber": 4765239,
-          "tariff": "UltraTariff"
-        },
-        "dad": {
-          "name": "Sten",
-          "phoneNumber": 6411060,
-          "tariff": "MegaTariff"
-        },
-        "minCount": 897,
-        "gbCount": 115,
-        "smsCount": 294,
-        "extraMinPrice": 10,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "FlyTariff",
-        "listClient": [
-          {
-            "name": "Pasha",
-            "phoneNumber": 4117616,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Olivia",
-            "phoneNumber": 5828171,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "Oleg",
-            "phoneNumber": 9944316,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "James",
-            "phoneNumber": 7153806,
-            "tariff": "FlyTariff"
-          }
-        ],
-        "monthlyCost": 461
-      }
-    ]
+    "list": []
   },
   "pensionTariff": {
     "list": [
       {
         "selectedClients": [
           {
-            "name": "Nikita",
-            "phoneNumber": 2780580,
-            "tariff": "MegaTariff"
-          },
-          {
             "name": "Pasha",
-            "phoneNumber": 2542463,
-            "tariff": "SmartTariff"
+            "phoneNumber": 7122235,
+            "tariff": "FlyTariff"
+          }
+        ],
+        "minCount": 626,
+        "gbCount": 321,
+        "smsCount": 129,
+        "extraMinPrice": 10,
+        "extraGBPrice": 10,
+        "extraSMSPrice": 10,
+        "tariffName": "FlyTariff",
+        "listClient": [
+          {
+            "name": "Artem",
+            "phoneNumber": 7338413,
+            "tariff": "FlyTariff"
           },
           {
             "name": "David",
-            "phoneNumber": 8002054,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Nikita",
-            "phoneNumber": 8811501,
+            "phoneNumber": 1008587,
             "tariff": "MegaTariff"
           },
           {
             "name": "Olivia",
-            "phoneNumber": 5605821,
-            "tariff": "MegaTariff"
-          }
-        ],
-        "minCount": 276,
-        "gbCount": 860,
-        "smsCount": 135,
-        "extraMinPrice": 10,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "SmartTariff",
-        "listClient": [
-          {
-            "name": "Artem",
-            "phoneNumber": 7048436,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Oleg",
-            "phoneNumber": 4604713,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Oleg",
-            "phoneNumber": 9520550,
+            "phoneNumber": 7620246,
             "tariff": "SmartTariff"
+          },
+          {
+            "name": "David",
+            "phoneNumber": 5861108,
+            "tariff": "UltraTariff"
           }
         ],
-        "monthlyCost": 677
+        "monthlyCost": 109
       },
       {
         "selectedClients": [
           {
-            "name": "Artem",
-            "phoneNumber": 7557853,
-            "tariff": "UltraTariff"
+            "name": "David",
+            "phoneNumber": 2494524,
+            "tariff": "SmartTariff"
           },
           {
-            "name": "Oleg",
-            "phoneNumber": 7718863,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "James",
-            "phoneNumber": 1018558,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "James",
-            "phoneNumber": 2682250,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "James",
-            "phoneNumber": 5327835,
+            "name": "Pasha",
+            "phoneNumber": 1180414,
             "tariff": "UltraTariff"
           }
         ],
-        "minCount": 472,
-        "gbCount": 275,
-        "smsCount": 100,
+        "minCount": 447,
+        "gbCount": 108,
+        "smsCount": 898,
         "extraMinPrice": 10,
         "extraGBPrice": 10,
         "extraSMSPrice": 10,
-        "tariffName": "MegaTariff",
+        "tariffName": "UltraTariff",
         "listClient": [
           {
-            "name": "Pasha",
-            "phoneNumber": 2170240,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Oleg",
-            "phoneNumber": 2701068,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "James",
-            "phoneNumber": 1695177,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "David",
-            "phoneNumber": 2634205,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Pasha",
-            "phoneNumber": 1422193,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "James",
-            "phoneNumber": 2725705,
-            "tariff": "UltraTariff"
+            "name": "Nikita",
+            "phoneNumber": 2807232,
+            "tariff": "SmartTariff"
           }
         ],
-        "monthlyCost": 612
+        "monthlyCost": 567
       }
     ]
   },
   "unlimitedInternetTariff": {
     "list": [
       {
-        "minCount": 337,
-        "smsCount": 627,
+        "minCount": 689,
+        "smsCount": 666,
         "extraMinPrice": 10,
         "extraSMSPrice": 10,
-        "tariffName": "UltraTariff",
+        "tariffName": "FlyTariff",
         "listClient": [
-          {
-            "name": "David",
-            "phoneNumber": 7094423,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "Olivia",
-            "phoneNumber": 3297234,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "David",
-            "phoneNumber": 1755168,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "Sten",
-            "phoneNumber": 5330480,
-            "tariff": "FlyTariff"
-          }
-        ],
-        "monthlyCost": 216
-      },
-      {
-        "minCount": 396,
-        "smsCount": 824,
-        "extraMinPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "SmartTariff",
-        "listClient": [
-          {
-            "name": "Nikita",
-            "phoneNumber": 6311957,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "Sten",
-            "phoneNumber": 1076315,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Nikita",
-            "phoneNumber": 2478379,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "Nikita",
-            "phoneNumber": 9265709,
-            "tariff": "SmartTariff"
-          },
           {
             "name": "Pasha",
-            "phoneNumber": 4921792,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Sten",
-            "phoneNumber": 9216663,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Olivia",
-            "phoneNumber": 1476888,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Olivia",
-            "phoneNumber": 7682886,
-            "tariff": "MegaTariff"
-          },
-          {
-            "name": "Olivia",
-            "phoneNumber": 7386128,
-            "tariff": "MegaTariff"
+            "phoneNumber": 8590877,
+            "tariff": "SmartTariff"
           },
           {
             "name": "Artem",
-            "phoneNumber": 1777305,
+            "phoneNumber": 2033408,
+            "tariff": "UltraTariff"
+          },
+          {
+            "name": "Pasha",
+            "phoneNumber": 3937603,
+            "tariff": "UltraTariff"
+          },
+          {
+            "name": "Nikita",
+            "phoneNumber": 7075987,
+            "tariff": "UltraTariff"
+          },
+          {
+            "name": "David",
+            "phoneNumber": 9416079,
             "tariff": "MegaTariff"
+          },
+          {
+            "name": "Harry",
+            "phoneNumber": 3403776,
+            "tariff": "UltraTariff"
+          },
+          {
+            "name": "Pasha",
+            "phoneNumber": 8698229,
+            "tariff": "FlyTariff"
+          },
+          {
+            "name": "Harry",
+            "phoneNumber": 5977119,
+            "tariff": "FlyTariff"
+          },
+          {
+            "name": "Olivia",
+            "phoneNumber": 4699080,
+            "tariff": "SmartTariff"
+          },
+          {
+            "name": "Harry",
+            "phoneNumber": 9242890,
+            "tariff": "SmartTariff"
           }
         ],
-        "monthlyCost": 302
+        "monthlyCost": 142
       },
       {
-        "minCount": 662,
-        "smsCount": 242,
+        "minCount": 806,
+        "smsCount": 626,
         "extraMinPrice": 10,
         "extraSMSPrice": 10,
         "tariffName": "MegaTariff",
         "listClient": [
           {
-            "name": "Artem",
-            "phoneNumber": 4091120,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Oleg",
-            "phoneNumber": 2131018,
+            "name": "James",
+            "phoneNumber": 3407603,
             "tariff": "MegaTariff"
           },
           {
             "name": "James",
-            "phoneNumber": 1497304,
-            "tariff": "UltraTariff"
+            "phoneNumber": 3003023,
+            "tariff": "SmartTariff"
           },
           {
-            "name": "Pasha",
-            "phoneNumber": 4469509,
+            "name": "Nikita",
+            "phoneNumber": 7774456,
+            "tariff": "FlyTariff"
+          },
+          {
+            "name": "Artem",
+            "phoneNumber": 4749758,
             "tariff": "MegaTariff"
           }
         ],
-        "monthlyCost": 807
+        "monthlyCost": 910
+      },
+      {
+        "minCount": 823,
+        "smsCount": 826,
+        "extraMinPrice": 10,
+        "extraSMSPrice": 10,
+        "tariffName": "UltraTariff",
+        "listClient": [
+          {
+            "name": "Oleg",
+            "phoneNumber": 1341617,
+            "tariff": "FlyTariff"
+          }
+        ],
+        "monthlyCost": 645
       }
     ]
   },
   "unlimitedMinTariff": {
     "list": [
       {
-        "gbCount": 868,
-        "smsCount": 755,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "UltraTariff",
-        "listClient": [],
-        "monthlyCost": 656
-      },
-      {
-        "gbCount": 580,
-        "smsCount": 310,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "FlyTariff",
-        "listClient": [
-          {
-            "name": "Nikita",
-            "phoneNumber": 6406557,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "Oleg",
-            "phoneNumber": 9278704,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Sten",
-            "phoneNumber": 8092302,
-            "tariff": "FlyTariff"
-          }
-        ],
-        "monthlyCost": 286
-      },
-      {
-        "gbCount": 559,
-        "smsCount": 691,
+        "gbCount": 472,
+        "smsCount": 205,
         "extraGBPrice": 10,
         "extraSMSPrice": 10,
         "tariffName": "UltraTariff",
         "listClient": [
-          {
-            "name": "James",
-            "phoneNumber": 5250364,
-            "tariff": "SmartTariff"
-          },
           {
             "name": "Pasha",
-            "phoneNumber": 5303708,
+            "phoneNumber": 5157663,
             "tariff": "FlyTariff"
-          }
-        ],
-        "monthlyCost": 539
-      },
-      {
-        "gbCount": 889,
-        "smsCount": 426,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "UltraTariff",
-        "listClient": [
-          {
-            "name": "James",
-            "phoneNumber": 9402419,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Oleg",
-            "phoneNumber": 2371322,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Oleg",
-            "phoneNumber": 1123300,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "Sten",
-            "phoneNumber": 8866240,
-            "tariff": "MegaTariff"
           },
           {
             "name": "Artem",
-            "phoneNumber": 3667856,
-            "tariff": "UltraTariff"
+            "phoneNumber": 3096782,
+            "tariff": "MegaTariff"
           },
           {
-            "name": "Sten",
-            "phoneNumber": 9189042,
-            "tariff": "SmartTariff"
+            "name": "Nikita",
+            "phoneNumber": 3495231,
+            "tariff": "MegaTariff"
+          },
+          {
+            "name": "James",
+            "phoneNumber": 8822255,
+            "tariff": "MegaTariff"
+          },
+          {
+            "name": "Oleg",
+            "phoneNumber": 7181801,
+            "tariff": "UltraTariff"
           }
         ],
-        "monthlyCost": 975
+        "monthlyCost": 289
       },
       {
-        "gbCount": 178,
-        "smsCount": 866,
+        "gbCount": 173,
+        "smsCount": 200,
         "extraGBPrice": 10,
         "extraSMSPrice": 10,
         "tariffName": "MegaTariff",
         "listClient": [
           {
-            "name": "Artem",
-            "phoneNumber": 5552259,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "James",
-            "phoneNumber": 3706271,
+            "name": "Harry",
+            "phoneNumber": 2791291,
             "tariff": "FlyTariff"
-          },
-          {
-            "name": "Pasha",
-            "phoneNumber": 4404131,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "Artem",
-            "phoneNumber": 5830796,
-            "tariff": "SmartTariff"
           },
           {
             "name": "Nikita",
-            "phoneNumber": 6270903,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "Sten",
-            "phoneNumber": 5261728,
-            "tariff": "SmartTariff"
-          },
-          {
-            "name": "Pasha",
-            "phoneNumber": 9326322,
-            "tariff": "UltraTariff"
-          }
-        ],
-        "monthlyCost": 357
-      },
-      {
-        "gbCount": 685,
-        "smsCount": 352,
-        "extraGBPrice": 10,
-        "extraSMSPrice": 10,
-        "tariffName": "UltraTariff",
-        "listClient": [
-          {
-            "name": "Nikita",
-            "phoneNumber": 1741650,
+            "phoneNumber": 1738898,
             "tariff": "MegaTariff"
           },
           {
-            "name": "Olivia",
-            "phoneNumber": 9497853,
-            "tariff": "FlyTariff"
-          },
-          {
-            "name": "David",
-            "phoneNumber": 3809526,
-            "tariff": "UltraTariff"
-          },
-          {
             "name": "James",
-            "phoneNumber": 8072031,
+            "phoneNumber": 6201951,
             "tariff": "FlyTariff"
-          },
-          {
-            "name": "Artem",
-            "phoneNumber": 6785618,
-            "tariff": "UltraTariff"
-          },
-          {
-            "name": "James",
-            "phoneNumber": 3795811,
-            "tariff": "MegaTariff"
           }
         ],
-        "monthlyCost": 648
+        "monthlyCost": 973
       }
     ]
   }
