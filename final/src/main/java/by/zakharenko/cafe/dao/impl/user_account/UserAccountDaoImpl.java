@@ -2,7 +2,6 @@ package by.zakharenko.cafe.dao.impl.user_account;
 
 import by.zakharenko.cafe.dao.AbstractDao;
 import by.zakharenko.cafe.dao.exception.DaoException;
-import by.zakharenko.cafe.dao.mapper.RowMapper;
 import by.zakharenko.cafe.dao.mapper.impl.UserAccountRowMapper;
 import by.zakharenko.cafe.entity.UserAccount;
 import by.zakharenko.cafe.entity.enumeration.UserRole;
@@ -24,6 +23,7 @@ public class UserAccountDaoImpl extends AbstractDao<UserAccount> implements User
     private static final String BLOCK_USER = "UPDATE user_account SET status=0 where id=?";
     private static final String UNBLOCK_USER = "UPDATE user_account SET status=1 where id=?";
     private static final String FIND_BY_ROLE = "SELECT id, login, password, role, status FROM user_account WHERE role=?";
+
 
     public UserAccountDaoImpl(Connection connection) {
         super(connection, new UserAccountRowMapper());

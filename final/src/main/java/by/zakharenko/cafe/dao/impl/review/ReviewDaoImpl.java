@@ -3,6 +3,7 @@ package by.zakharenko.cafe.dao.impl.review;
 import by.zakharenko.cafe.dao.AbstractDao;
 import by.zakharenko.cafe.dao.exception.DaoException;
 import by.zakharenko.cafe.dao.mapper.RowMapper;
+import by.zakharenko.cafe.dao.mapper.impl.ReviewRowMapper;
 import by.zakharenko.cafe.dao.util.SQLDateFormatter;
 import by.zakharenko.cafe.entity.Review;
 
@@ -18,11 +19,12 @@ public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
     private static final String FIND_BY_ID = "SELECT id, dish_id, user_id, parent_id, text, create_date FROM review WHERE id = ?";
     private static final String DELETE_BY_ID = "DELETE FROM review WHERE id = ?";
     private static final String INSERT_QUERY = "INSERT INTO review(dish_id, user_id, parent_id, text, create_date) VALUES(?, ?, ?, ?)";
+    private static final String FIND_BY_DISH_ID = "SELECT id, dish_id, user_id, parent_id, text, create_date FROM review WHERE dish_id = ?";
 
 
 
-    public ReviewDaoImpl(Connection connection, RowMapper<Review> mapper) {
-        super(connection, mapper);
+    public ReviewDaoImpl(Connection connection) {
+        super(connection, new ReviewRowMapper());
     }
 
     @Override
@@ -59,5 +61,10 @@ public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
         } catch (SQLException e) {
             throw new DaoException(e);
         }
+    }
+
+    @Override
+    public List<Review> findReviewsByDishId(int dishId) throws DaoException {
+        return executeQuery(FIND_BY_DISH_ID, dishId);
     }
 }

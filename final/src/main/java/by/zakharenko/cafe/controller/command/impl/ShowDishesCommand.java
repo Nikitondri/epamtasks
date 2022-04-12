@@ -2,7 +2,7 @@ package by.zakharenko.cafe.controller.command.impl;
 
 import by.zakharenko.cafe.controller.command.Command;
 import by.zakharenko.cafe.controller.enumeration.AttributeName;
-import by.zakharenko.cafe.controller.enumeration.JSPParameterName;
+import by.zakharenko.cafe.controller.enumeration.ParameterName;
 import by.zakharenko.cafe.controller.enumeration.Page;
 import by.zakharenko.cafe.service.MenuService;
 import by.zakharenko.cafe.service.exception.ServiceException;
@@ -18,7 +18,7 @@ public class ShowDishesCommand implements Command {
         try {
             request.setAttribute(
                     AttributeName.DISHES.getAttribute(),
-                    menuService.showDishes(request.getParameter(JSPParameterName.ID.getParameter()))
+                    menuService.findDishes(request.getParameter(ParameterName.ID.getParameter()))
             );
             return Page.MENU.getValue();
         } catch (ServiceException e) {

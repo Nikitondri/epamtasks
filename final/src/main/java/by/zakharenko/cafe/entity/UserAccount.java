@@ -3,7 +3,7 @@ package by.zakharenko.cafe.entity;
 import by.zakharenko.cafe.entity.enumeration.UserRole;
 
 public class UserAccount extends CafeEntity {
-    private final long id;
+    private long id;
     private String login;
     private String password;
     private UserRole role;
@@ -11,6 +11,13 @@ public class UserAccount extends CafeEntity {
 
     public UserAccount(long id, String login, String password, UserRole role, boolean status) {
         this.id = id;
+        this.login = login;
+        this.password = password;
+        this.role = role;
+        this.status = status;
+    }
+
+    public UserAccount(String login, String password, UserRole role, boolean status) {
         this.login = login;
         this.password = password;
         this.role = role;

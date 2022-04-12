@@ -7,6 +7,7 @@ import by.zakharenko.cafe.service.exception.ServiceException;
 import java.util.List;
 
 public interface MenuService {
-    List<DishType> goToMenu() throws ServiceException;
-    List<Dish> showDishes(String dishTypeIdStr) throws ServiceException;
+    List<DishType> findDishType() throws ServiceException;
+    List<Dish> findDishes(String dishTypeIdStr) throws ServiceException;
+    Dish findDish(String dishIdStr) throws ServiceException;
 }

@@ -67,6 +67,8 @@ nav
 		z-index: 5
 		min-width: $min-width
 		transition: 0.2s
+		color: white
+		text-decoration: none
 		&:hover
 			color: $secondColor
 
@@ -86,6 +88,7 @@ nav
 	top: 48px
 	.menu_drop_item
 		font-size: 0.8rem
+		text-decoration: none
 		display: inline-block
 		position: relative
 		padding: 15px 20px
@@ -100,7 +103,7 @@ nav
 		@include transform(translate(0,-100%))
 		@include transition(all 0.5s 0.1s)
 		position: relative
-	li
+	a
 		display: block
 		padding: 0
 		width: 100%
@@ -159,6 +162,7 @@ footer
 	opacity: 0.5
 
 @import "general"
+@import "food_menu"
 @import "authorization"
 @import "menu"
 @import "media/media"

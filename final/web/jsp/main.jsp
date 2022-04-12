@@ -15,26 +15,7 @@
     <img src="${pageContext.request.contextPath}/img/background.jpg" alt="background">
 </div>
 
-<header>
-    <nav>
-        <div class="container">
-            <ul id="main">
-                <li class="menu_item">Home</li>
-                <li class="menu_item">Menu</li>
-                <li class="menu_item">Info
-                    <ul class="drop">
-                        <div>
-                            <li class="menu_drop_item">Info</li>
-                            <li class="menu_drop_item">Orders</li>
-                            <li class="menu_drop_item">Exit</li>
-                        </div>
-                    </ul>
-                </li>
-                <div id="marker"></div>
-            </ul>
-        </div>
-    </nav>
-</header>
+<jsp:include page="templates/header.jsp"/>
 
 <section class="promo">
     <div class="container">
@@ -92,26 +73,6 @@
     </div>
 </section>
 
-<footer>
-    <div class="container">
-        <div class="footer">
-            <p class="footer_text">© Copyright @nikitondri 2022, All rights reserved.</p>
-            <div class="footer_social">
-                <a href="#" class="footer_social_item">
-                    <img src="${pageContext.request.contextPath}/icon/Twitter.png" alt="social" class="footer_social_icon">
-                </a>
-                <a href="#" class="footer_social_item">
-                    <img src="${pageContext.request.contextPath}/icon/LinkedIn.png" alt="social" class="footer_social_icon">
-                </a>
-                <a href="#" class="footer_social_item">
-                    <img src="${pageContext.request.contextPath}/icon/Google.png" alt="social" class="footer_social_icon">
-                </a>
-                <a href="#" class="footer_social_item">
-                    <img src="${pageContext.request.contextPath}/icon/Facebook.png" alt="social" class="footer_social_icon">
-                </a>
-            </div>
-        </div>
-    </div>
-</footer>
+<jsp:include page="templates/footer.jsp"/>
 </body>
 </html>

@@ -60,6 +60,9 @@ public class Dish extends CafeEntity {
         return picturePath;
     }
 
+    public void setType(DishType type) {
+        this.type = type;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -1,12 +1,14 @@
 package by.zakharenko.cafe.controller.enumeration;
 
-public enum JSPParameterName {
+public enum ParameterName {
     COMMAND("command"),
+    PASSWORD("password"),
+    LOGIN("login"),
     ID("id");
 
     private final String parameter;
 
-    JSPParameterName(String parameter) {
+    ParameterName(String parameter) {
         this.parameter = parameter;
     }
 

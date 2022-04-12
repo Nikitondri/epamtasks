@@ -17,7 +17,7 @@ public class ReviewRowMapper implements RowMapper<Review> {
         long id = resultSet.getLong(ColumnReview.ID.getColumn());
         Dish dish = new Dish(resultSet.getInt(ColumnReview.DISH_ID.getColumn()));
         UserAccount user = new UserAccount(resultSet.getLong(ColumnReview.USER_ID.getColumn()));
-        Review parent = new Review(resultSet.getLong(ColumnReview.TEXT.getColumn()));
+        Review parent = new Review(resultSet.getLong(ColumnReview.PARENT_ID.getColumn()));
         String text = resultSet.getString(ColumnReview.TEXT.getColumn());
         LocalDateTime createDate = SQLDateParser.parse(resultSet.getString(ColumnReview.CREATE_DATE.getColumn()));
         return new Review(id, dish, user, parent, text, createDate);

@@ -7,9 +7,11 @@ import by.zakharenko.cafe.dao.impl.dish.DishDao;
 import by.zakharenko.cafe.dao.impl.dish.DishDaoImpl;
 import by.zakharenko.cafe.dao.impl.dish_type.DishTypeDao;
 import by.zakharenko.cafe.dao.impl.dish_type.DishTypeDaoImpl;
+import by.zakharenko.cafe.dao.impl.review.ReviewDao;
+import by.zakharenko.cafe.dao.impl.review.ReviewDaoImpl;
 import by.zakharenko.cafe.dao.impl.user_account.UserAccountDao;
 import by.zakharenko.cafe.dao.impl.user_account.UserAccountDaoImpl;
-import by.zakharenko.cafe.entity.UserAccount;
+import by.zakharenko.cafe.entity.Review;
 
 import java.sql.SQLException;
 
@@ -31,6 +33,10 @@ public class DaoHelper implements AutoCloseable{
 
     public UserAccountDao createUserAccountDao(){
         return new UserAccountDaoImpl(connection);
+    }
+
+    public ReviewDao createReviewDao(){
+        return new ReviewDaoImpl(connection);
     }
 
     public void startTransaction() throws DaoException {
@@ -58,7 +64,7 @@ public class DaoHelper implements AutoCloseable{
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() throws DaoException {
         if (connection != null) {
             try {
                 connection.close();

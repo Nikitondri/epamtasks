@@ -30,18 +30,5 @@ public class OrderRowMapper implements RowMapper<Order> {
                 id, user, orderStatus, cost, paymentType, createDate, desiredTime, finishedTime,
                 bonusesUsed, rating, workerId
         );
-//        return Order.builder()
-//                .withId(id)
-//                .withUserId(userId)
-//                .withStatus(orderStatus)
-//                .withCost(cost)
-//                .withPaymentType(paymentType)
-//                .withCreateDate(createDate)
-//                .withDesiredTime(desiredTime)
-//                .withFinishedTime(finishedTime)
-//                .withBonusesUsed(bonusesUsed)
-//                .withRating(rating)
-//                .withWorkerId(workerId)
-//                .build();
     }
 }

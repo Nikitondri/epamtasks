@@ -3,6 +3,11 @@ package by.zakharenko.cafe.controller.enumeration;
 public enum AttributeName {
     DISH_TYPES("dishTypes"),
     DISHES("dishes"),
+    DISH("dish"),
+    REVIEWS("reviews"),
+    USER_ID("userId"),
+    ROLE("role"),
+    INVALIDATE_ATTRIBUTE("invalidate"),
     ERROR("error");
 
     private final String attribute;
