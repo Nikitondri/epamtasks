@@ -27,7 +27,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void signUp(String login, String password) throws ServiceException {
-        if(isUniqueLogin(login)){
+//        if(!password.equals(repeatPassword)){
+//            throw new ServiceException("Passwords do not match");
+//        }
+        if(!isUniqueLogin(login)){
             throw new ServiceException("This login is already taken");
         }
         Validator<UserAccount> validator = new UserAccountValidator();

@@ -158,6 +158,19 @@ nav {
   -webkit-transform--moz-transform--ms-transform-transform: translate(240px, 0);
 }
 
+#main .menu_item:nth-child(4):hover ul div {
+  -webkit-transform: translate(0, 0);
+  -webkit-transform--moz-transform: translate(0, 0);
+  -webkit-transform--moz-transform--ms-transform: translate(0, 0);
+  -webkit-transform--moz-transform--ms-transform-transform: translate(0, 0);
+}
+#main .menu_item:nth-child(4):hover ~ #marker {
+  -webkit-transform: translate(360px, 0);
+  -webkit-transform--moz-transform: translate(360px, 0);
+  -webkit-transform--moz-transform--ms-transform: translate(360px, 0);
+  -webkit-transform--moz-transform--ms-transform-transform: translate(360px, 0);
+}
+
 .divider {
   display: block;
   margin-inline: auto;
@@ -829,6 +842,59 @@ body, html {
 }
 .menu_section .menu_section_items .menu_section_item:hover {
   background-color: rgba(242, 198, 77, 0.4);
+}
+
+.user_info_title {
+  margin-top: 30px;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
+.section_user_info {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.section_user_info .user_info_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-inline: auto;
+  border-radius: 20px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #f2c64d;
+}
+.section_user_info .user_info_wrapper .user_info_item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.section_user_info .user_info_wrapper .user_info_item .user_info_param {
+  text-align: left;
+  font-size: 22px;
+  margin-left: 20px;
+  font-weight: 500;
+  width: 25%;
+}
+.section_user_info .user_info_wrapper .user_info_item .user_info_text {
+  opacity: 60%;
+  text-align: left;
+  width: 70%;
+  font-size: 22px;
+  font-weight: 500;
+}
+.section_user_info .user_info_wrapper .user_info_divider {
+  display: block;
+  margin-inline: auto;
+  background-color: #f2c64d;
+  width: 95%;
+  height: 1px;
+}
+.section_user_info .user_info_wrapper .user_info_divider:last-child {
+  display: none;
 }
 
 @media (max-width: 1200px) {

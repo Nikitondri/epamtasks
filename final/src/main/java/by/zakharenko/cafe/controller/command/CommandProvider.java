@@ -14,6 +14,7 @@ public class CommandProvider {
         repository.put(CommandName.SIGN_UP, new SignUpCommand());
         repository.put(CommandName.SIGN_IN, new SignInCommand());
         repository.put(CommandName.SIGN_OUT, new SignOutCommand());
+        repository.put(CommandName.LOCALIZATION, new LocalizationCommand());
         repository.put(CommandName.WRONG_COMMAND, new WrongCommand());
     }
 

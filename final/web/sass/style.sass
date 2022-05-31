@@ -119,7 +119,7 @@ nav
 	z-index: 2
 	@include transition(all 0.35s)
 
-@for $i from 1 through 3
+@for $i from 1 through 4
 	#main .menu_item:nth-child(#{$i})
 		&:hover ul div
 			@include transform(translate(0,0))
@@ -165,5 +165,6 @@ footer
 @import "food_menu"
 @import "authorization"
 @import "menu"
+@import "user_info"
 @import "media/media"
 

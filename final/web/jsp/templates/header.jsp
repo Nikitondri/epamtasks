@@ -6,6 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<fmt:setLocale value="${language}" scope="session"/>
+<fmt:setBundle basename="language.ui"/>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,9 +26,24 @@
         <nav>
             <div class="container">
                 <ul id="main">
-                    <a class="menu_item" href="${pageContext.request.contextPath}/jsp/main.jsp"><li>Home</li></a>
-                    <a class="menu_item" href="${pageContext.request.contextPath}/jsp/menu.jsp"><li>Menu</li></a>
-                    <li class="menu_item">Info
+                    <a class="menu_item" href="${pageContext.request.contextPath}/jsp/main.jsp"><li><fmt:message key="HEADER_HOME"/></li></a>
+                    <a class="menu_item" href="${pageContext.request.contextPath}/jsp/menu.jsp"><li><fmt:message key="HEADER_MENU"/></li></a>
+                    <li class="menu_item"><fmt:message key="HEADER_LANGUAGE"/>
+                        <ul class="drop">
+                            <div>
+                                <a class="menu_drop_item"  href="${pageContext.request.contextPath}/controller?command=LOCALIZATION&language=en_US">
+                                    <li>Eng</li>
+                                </a>
+                                <a class="menu_drop_item" href="${pageContext.request.contextPath}/controller?command=LOCALIZATION&language=ru_RU">
+                                    <li>Рус</li>
+                                </a>
+                                <a class="menu_drop_item" href="${pageContext.request.contextPath}/controller?command=LOCALIZATION&language=be_BY">
+                                    <li>Бел</li>
+                                </a>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="menu_item"><fmt:message key="HEADER_INFO"/>
                         <ul class="drop">
                             <div>
                                 <a class="menu_drop_item"  href="${pageContext.request.contextPath}/jsp/user_info.jsp">

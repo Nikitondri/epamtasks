@@ -15,6 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/sass/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/sass/style.css">
+    <script src="${pageContext.request.contextPath}/script/login.js"></script>
     <title>Authorization</title>
 </head>
 <body>
@@ -41,7 +42,14 @@
                             <input class="login_input" name="login" type="text" placeholder="Email or Phone" id="username">
 
                         <label class="login_label" for="password">Password</label>
-                            <input class="login_input" name="password" type="password" placeholder="Password" id="password">
+                            <input class="login_input"
+                                   name="password"
+                                   type="password"
+                                   placeholder="Password"
+                                   id="password"
+                                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                                   title="Password must be 8 characters or more, consisting of at least one number and one uppercase and lowercase letter"
+                            >
                         <button class="login_button" type="submit" name="command" value="SIGN_IN">Log In</button>
                     </form>
                 </div>
@@ -55,11 +63,26 @@
                         <input class="login_input" name="login" type="text" placeholder="Email or Phone" id="usernameRegister">
 
                         <label class="login_label" for="password">Password</label>
-                        <input class="login_input" name="password" type="password" placeholder="Password" id="passwordRegister">
-
+                        <input class="login_input"
+                               name="password"
+                               type="password"
+                               onkeyup='check();'
+                               placeholder="Password"
+                               id="passwordRegister"
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                               title="Password must be 8 characters or more, consisting of at least one number and one uppercase and lowercase letter"
+                        >
                         <label class="login_label" for="password">Repeat password</label>
-                        <input class="login_input" name="repeatPassword" type="password" placeholder="Repeat password" id="passwordRepeat">
-                        <button class="login_button" type="submit" name="command" value="SIGN_UP">Sign Up</button>
+                        <input class="login_input"
+                               onkeyup='check();'
+                               name="repeatPassword"
+                               type="password"
+                               placeholder="Repeat password"
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                               id="passwordRepeat"
+                        >
+                        <span id='message'></span>
+                        <button id="registerButton" class="login_button" type="submit" name="command" value="SIGN_UP">Sign Up</button>
                     </form>
                 </div>
 

@@ -6,7 +6,9 @@ public enum AttributeName {
     DISH("dish"),
     REVIEWS("reviews"),
     USER_ID("userId"),
+    LANGUAGE("language"),
     ROLE("role"),
+    CURRENT_PAGE("currentPage"),
     INVALIDATE_ATTRIBUTE("invalidate"),
     ERROR("error");
 
