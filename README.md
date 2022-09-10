@@ -2,4 +2,4 @@
 
 **Student:** Zakharenko Nikita
 
-**Mentor: ** Olga Kazantseva
+**Mentor:** Olga Kazantseva
